@@ -62,7 +62,7 @@ const path = {
     vendorcss: srcPath + "assets/js/components/*.css",
     pug: srcPath + "*.pug",
     images: srcPath + "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
-    fonts: srcPath + "assets/fonts/**/*.{eot,woff,woff2,ttf,svg}",
+    fonts: srcPath + "assets/fonts/**/*.{eot,woff,woff2,ttf,svg,otf}",
     sprites: srcPath + 'assets/sprite/*.svg',
   },
   watch: {
