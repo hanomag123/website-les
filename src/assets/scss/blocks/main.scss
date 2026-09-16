@@ -122,6 +122,10 @@
     }
   }
 
+  &.swiper-arrow-secondary {
+    color: var(--text--icon-primary);
+  }
+
   &.swiper-button-disabled {
     opacity: 0.4;
   }
@@ -249,7 +253,7 @@
   color: var(--text--icon-primary);
   background: var(--button-default-default);
   border-radius: 0.8rem;
-  padding: 0.8rem 1.5rem;
+  padding: 0.9rem 1.5rem;
 
   border: 1px solid transparent;
 
@@ -430,7 +434,7 @@
   position: relative;
 
   display: grid;
-  grid-template-columns: 1fr 0.8fr;
+  grid-template-columns: 1fr 0.85fr;
   align-items: flex-start;
   gap: 7.4rem;
 }
@@ -455,11 +459,38 @@
 
 .text-pwhite {}
 
-.color-list {}
+.color-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
 
-.color-item {}
+.color-item {
+  position: relative;
+  min-height: 2.4rem;
 
-.color-btns {}
+  padding-left: 3.2rem;
+
+  &::before {
+    content: '';
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.8011 9.99999C22.2578 12.2413 21.9323 14.5714 20.879 16.6018C19.8256 18.6322 18.108 20.24 16.0126 21.1573C13.9172 22.0746 11.5707 22.2458 9.3644 21.6424C7.15807 21.0389 5.22529 19.6974 3.88838 17.8414C2.55146 15.9854 1.89122 13.7272 2.01776 11.4434C2.14431 9.15952 3.04998 6.98808 4.58375 5.29116C6.11752 3.59424 8.18668 2.47442 10.4462 2.11844C12.7056 1.76247 15.0189 2.19185 17.0001 3.33499' stroke='white' stroke-width='1.33333' stroke-linecap='round' stroke-linejoin='round' /%3E%3Cpath d='M9 11L12 14L22 4' stroke='white' stroke-width='1.33333' stroke-linecap='round' stroke-linejoin='round' /%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 2.4rem;
+    height: 2.4rem;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.color-btns {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+}
 
 .color-btn {}
 
@@ -474,13 +505,29 @@
   transform: translate3d(0, 0, 0);
 }
 
-.color-subtitle {}
+.color-subtitle {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
 
-.color-subtitle2 {}
+  &::before {
+    content: '';
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.7125 14.7C19.9875 14.7 20.225 14.8 20.425 15L22 16.6C22.2 16.8 22.3 17.0333 22.3 17.3C22.3 17.5667 22.2 17.8 22 18C21.8 18.2 21.5666 18.3 21.3 18.3C21.0333 18.3 20.8 18.2 20.6 18L19 16.425C18.8 16.225 18.7 15.9875 18.7 15.7125C18.7 15.4375 18.8 15.2 19 15C19.2 14.8 19.4375 14.7 19.7125 14.7ZM20.3 3.71251C20.3 3.98751 20.2 4.22501 20 4.42501L18.425 6.00001C18.225 6.20001 17.9875 6.30001 17.7125 6.30001C17.4375 6.30001 17.2 6.20001 17 6.00001C16.8 5.80001 16.7 5.56251 16.7 5.28751C16.7 5.01251 16.8 4.77501 17 4.57501L18.6 3.00001C18.8 2.80001 19.0333 2.70001 19.3 2.70001C19.5666 2.70001 19.8 2.80001 20 3.00001C20.2 3.20001 20.3 3.43751 20.3 3.71251ZM4.71245 2.70001C4.98745 2.70001 5.22495 2.80001 5.42495 3.00001L6.99995 4.60001C7.19995 4.80001 7.29995 5.03335 7.29995 5.30001C7.29995 5.56668 7.19995 5.80001 6.99995 6.00001C6.79995 6.20001 6.56245 6.30001 6.28745 6.30001C6.01245 6.30001 5.77495 6.20001 5.57495 6.00001L3.99995 4.42501C3.79995 4.22501 3.69995 3.98751 3.69995 3.71251C3.69995 3.43751 3.79995 3.20001 3.99995 3.00001C4.19995 2.80001 4.43745 2.70001 4.71245 2.70001ZM5.29995 15.7125C5.29995 15.9875 5.19995 16.225 4.99995 16.425L3.42495 18C3.22495 18.2 2.98745 18.3 2.71245 18.3C2.43745 18.3 2.19995 18.2 1.99995 18C1.79995 17.8 1.69995 17.5625 1.69995 17.2875C1.69995 17.0125 1.79995 16.775 1.99995 16.575L3.59995 15C3.79995 14.8 4.03328 14.7 4.29995 14.7C4.56662 14.7 4.79995 14.8 4.99995 15C5.19995 15.2 5.29995 15.4375 5.29995 15.7125ZM12 17.275L7.84995 19.775C7.66662 19.8917 7.47495 19.9417 7.27495 19.925C7.07495 19.9083 6.89995 19.8417 6.74995 19.725C6.59995 19.6083 6.48328 19.4625 6.39995 19.2875C6.31662 19.1125 6.29995 18.9167 6.34995 18.7L7.44995 13.975L3.77495 10.8C3.60828 10.65 3.50412 10.4792 3.46245 10.2875C3.42078 10.0958 3.43328 9.90835 3.49995 9.72501C3.56662 9.54168 3.66662 9.39168 3.79995 9.27501C3.93328 9.15835 4.11662 9.08335 4.34995 9.05001L9.19995 8.62501L11.075 4.17501C11.1583 3.97501 11.2875 3.82501 11.4625 3.72501C11.6375 3.62501 11.8166 3.57501 12 3.57501C12.1833 3.57501 12.3625 3.62501 12.5375 3.72501C12.7125 3.82501 12.8416 3.97501 12.925 4.17501L14.8 8.62501L19.65 9.05001C19.8833 9.08335 20.0666 9.15835 20.2 9.27501C20.3333 9.39168 20.4333 9.54168 20.5 9.72501C20.5666 9.90835 20.5791 10.0958 20.5375 10.2875C20.4958 10.4792 20.3916 10.65 20.225 10.8L16.55 13.975L17.65 18.7C17.7 18.9167 17.6833 19.1125 17.6 19.2875C17.5166 19.4625 17.4 19.6083 17.25 19.725C17.1 19.8417 16.925 19.9083 16.725 19.925C16.525 19.9417 16.3333 19.8917 16.15 19.775L12 17.275Z' fill='%23F6DC9A'/%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+}
+
+.color-subtitle2 {
+  margin-top: 0.8rem;
+}
 
 .color-items {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
 }
 
 .color-show {
@@ -515,3 +562,181 @@
 
   margin-top: auto;
 }
+
+.popular {}
+
+.popular-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.popular-right {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.popular-swiper {
+  .swiper-slide {
+    width: 36.4rem;
+
+    margin-right: 1.3rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.popular-item {
+  border: 1px solid var(--border-default);
+  border-radius: 2rem;
+
+  position: relative;
+
+  background: var(--background-surface);
+}
+
+.popular-hiddenlink {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      &~.popular-bottom {
+        .popular-link.btn-secondary {
+          background: var(--button-secondary-hovered);
+        }
+      }
+    }
+  }
+}
+
+.popular-img {
+  height: 28.7rem;
+  background: #c9c9c9;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+}
+
+.popular-tags {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  padding: 1.6rem;
+
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.popular-sale {
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 129%;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text--icon-on-color);
+  background: linear-gradient(90deg, #f1223b 0%, #ffbb3c 100%);
+
+  border: 1px solid var(--border-default);
+  border-radius: 9.9rem;
+  padding: 0.4rem 0.8rem;
+
+  display: inline-flex;
+}
+
+.popular-tag {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 129%;
+  letter-spacing: 0.03em;
+
+  border: 1px solid var(--border-default);
+  border-radius: 99.9rem;
+  padding: 0.4rem 0.8rem;
+  background: var(--background-base);
+}
+
+.popular-block {
+  border-radius: 0 0 1.6rem 1.6rem;
+  padding: 1.6rem;
+  background: var(--background-base);
+}
+
+.popular-name {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 125%;
+  letter-spacing: 0.03em;
+}
+
+.popular-sublist {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 129%;
+  letter-spacing: 0.03em;
+  color: var(--text--icon-primary);
+
+  margin-top: 0.8rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+
+  &>* {
+    &::before {
+      content: '•';
+
+      color: var(--text--icon-tertiary);
+      margin-right: 0.8rem;
+    }
+
+    &:first-child {
+      &::before {
+        content: normal;
+      }
+    }
+  }
+}
+
+.popular-bottom {
+  padding: 1.6rem;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.popular-pricewrap {}
+
+.popular-label {
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 133%;
+  letter-spacing: 0.03em;
+  color: var(--text--icon-secondary);
+}
+
+.popular-price {
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 133%;
+  letter-spacing: 0.04em;
+  color: #241911;
+
+  margin-top: 0.4rem;
+}
+
+.popular-link {}

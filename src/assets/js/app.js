@@ -301,6 +301,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  const popularswipers = document.querySelectorAll('.popular-swiper')
+  if (popularswipers.length) {
+    popularswipers.forEach(swiper => {
+      new Swiper(swiper, {
+        slidesPerView: 'auto',
+        grabCursor: true,
+      })
+    })
+  }
+
   const menulinks = document.querySelectorAll(".menu-withsublist");
 
   if (menulinks.length) {

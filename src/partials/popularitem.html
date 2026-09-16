@@ -1,0 +1,36 @@
+<div class="swiper-slide popular-item">
+  <a href="product.html" class="popular-hiddenlink">@name</a>
+  
+  <div class="popular-img img-cover">
+
+    <div class="popular-tags">
+      @if(sale) {
+      <div class="popular-sale">Действует акция 3%</div>
+      }
+
+      @if(tag) {
+      <div class="popular-tag">Стеновая</div>
+      }
+    </div>
+
+    <img src="./assets/images/pokazplace.jpg" alt="@name">
+  </div>
+
+  <div class="popular-block">
+    <h3 class="popular-name">@name</h3>
+
+    <ul class="popular-sublist">
+      <li>@op1</li>
+      <li>@op2</li>
+    </ul>
+  </div>
+
+  <div class="popular-bottom">
+    <div class="popular-pricewrap">
+      <div class="popular-label">Общая ценa</div>
+      <div class="popular-price p-1-primary">@price руб./м2</div>
+    </div>
+
+    <div class="popular-link btn btn-secondary">Подробнее</div>
+  </div>
+</div>
