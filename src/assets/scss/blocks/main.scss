@@ -1,4 +1,65 @@
+.hero {}
 
-.main {
-    
+.hero-swiper {
+  border-radius: 0 0 5.6rem 5.6rem;
+  overflow: hidden;
+
+  .swiper-pagination {}
 }
+
+.hero-slide {
+  padding-top: 6.4rem;
+  padding-bottom: 6.4rem;
+
+  min-height: 70rem;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: #000000;
+    opacity: 0.16;
+  }
+
+}
+
+.max-w-747 {
+  max-width: 74.7rem;
+}
+
+.hero-title {}
+
+.hero-desc {}
+
+.hero-list {}
+
+.hero-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.hero-btns {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.hero-btn {}
