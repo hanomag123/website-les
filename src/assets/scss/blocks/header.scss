@@ -13,6 +13,23 @@
   width: 100%;
   height: 6rem;
   margin-top: -6rem;
+
+  .desktop-menu-opened & {
+    &:after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(20px);
+      background: rgba(20, 20, 20, 0.7);
+      transform: translate3d(0, 0, 0);
+
+      animation: fadeEffect var(--time);
+      z-index: 10;
+    }
+  }
 }
 
 .out {
@@ -108,21 +125,55 @@
   gap: 0.2rem;
 }
 
+.header-phoneswrap {
+  position: relative;
+
+  &.hover {
+    .header-hiddenlinks {
+      display: flex;
+    }
+  }
+
+  .out &.hover {
+    pointer-events: none;
+
+    .header-hiddenlinks {
+      opacity: 0;
+    }
+  }
+}
+
 .header-phones {
+  display: flex;
+  align-items: center;
+  color: var(--text--icon-primary);
+}
+
+.header-soclink {
   font-weight: 600;
   font-size: 1.4rem;
   line-height: 129%;
   letter-spacing: 0.05em;
-  text-align: right;
+
+  display: inline-flex;
+  gap: 0.8rem;
+  align-items: center;
+
+  transition: color var(--time);
   color: var(--text--icon-primary);
 
-  display: flex;
-  align-items: center;
+  svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    flex: 0 0 auto;
+  }
+
+  &+& {
+    margin-top: 1rem;
+  }
 }
 
-.header-phone {
-  transition: color var(--time);
-
+a.header-soclink {
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       color: var(--button-primary-default);
@@ -140,6 +191,32 @@
     &:hover {
       color: var(--button-primary-default);
     }
+  }
+}
+
+.header-hiddenlinks {
+  display: none;
+
+  flex-direction: column;
+
+  animation: fadeEffect var(--time);
+  background-color: var(--background-base);
+  border-radius: 1.2rem;
+  padding: 1.2rem 1.6rem;
+
+  position: absolute;
+  top: 100%;
+  left: -1.6rem;
+
+  width: 39rem;
+  transition: opacity var(--time);
+
+  hr {
+    border: 0;
+    border-top: 1px solid var(--border-default);
+    margin: 0;
+    margin-top: 1.2rem;
+    margin-bottom: 1rem;
   }
 }
 
@@ -189,6 +266,15 @@
   justify-content: center;
 
   margin-left: 1.6rem;
+
+  transition: opacity var(--time);
+  color: var(--background-base);
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
 
   svg {
     width: 1.2rem;

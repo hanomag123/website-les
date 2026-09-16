@@ -1,8 +1,7 @@
 .menu {
   background: var(--text--icon-primary);
 
-  padding-top: 3.6rem;
-  padding-bottom: 1.2rem;
+  padding-top: 2.4rem;
   margin-top: -2.4rem;
 }
 
@@ -112,18 +111,33 @@
 }
 
 .menu-link {
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
   transition: color var(--time);
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       color: var(--button-primary-default);
+
+      &+.menu-arrow {
+        color: var(--button-primary-default);
+      }
     }
   }
 
   &.active {
     color: var(--button-primary-default);
-    & + .menu-arrow {
+
+    &+.menu-arrow {
       color: var(--button-primary-default);
+    }
+  }
+}
+
+.menu-withsublist {
+  &.hover {
+    .menu-sublist {
+      display: flex;
     }
   }
 }
@@ -135,9 +149,61 @@
 
 .menu-sublist {
   display: none;
+
+  position: fixed;
+  left: 0;
+
+  border-bottom: 1px solid var(--border-neutral);
+  background: var(--text--icon-primary);
+
+  width: 100%;
+
+  gap: 1.6rem;
+  flex-wrap: wrap;
+
+  animation: fadeEffect var(--time);
+
+  max-height: calc(100vh - 11rem);
+  max-height: calc(100svh - 11rem);
+  overflow-y: auto;
 }
 
-.menu-sublink {}
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.menu-subcolumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  padding-top: 2.4rem;
+  padding-bottom: 4rem;
+  max-width: 100%;
+  width: 34.2rem;
+}
+
+.menu-sublink {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 138%;
+  letter-spacing: 0.03em;
+  color: var(--text--icon-on-color);
+  text-transform: none;
+  transition: color var(--time);
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--button-primary-default);
+    }
+  }
+}
 
 .menu-arrow {
   width: 2.2rem;

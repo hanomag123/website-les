@@ -1,0 +1,14 @@
+<div class="mcatalog-item @class">
+  <a href="catalog.html" class="mcatalog-hiddelink">@name</a>
+  <div class="mcatalog-bg"></div>
+  <div class="mcatalog-arrow"></div>
+  <div class="mcatalog-img img-cover relative">
+    @if(img) {
+      <img src="./assets/images/catalog/@img" loading="lazy" width="190" height="100" alt="@name">
+    }
+  </div>
+
+  <h3 class="mcatalog-name p-1-primary relative">@name</h3>
+
+  <div class="mcatalog-desc p-3 relative">@desc</div>
+</div>

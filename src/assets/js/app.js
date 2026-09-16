@@ -204,15 +204,186 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroswipers = document.querySelectorAll(".hero-swiper");
   if (heroswipers.length) {
     heroswipers.forEach((swiper) => {
-      new Swiper(swiper, {
+      const prevEl = swiper.querySelector(".prev");
+      const nextEl = swiper.querySelector(".next");
+      const el = swiper.querySelector(".swiper-pagination");
+
+      const CIRCUMFERENCE = 2 * Math.PI * 20; // ≈ 125.66
+
+      const swiperInstance = new Swiper(swiper, {
         grabCursor: true,
-        loop: true,
         parallax: true,
         speed: 500,
         autoplay: {
           delay: 5000,
+          disableOnInteraction: false,
+        },
+        navigation: { prevEl, nextEl },
+        pagination: {
+          el,
+          clickable: true,
+          renderBullet: function (i, className) {
+            return `
+            <button type="button" class="${className}" aria-label="go to slide ${i}">
+              <svg class="progress" viewBox="0 0 41 41">
+                <circle class="circle-progress" r="15" cx="20.5" cy="20.5"
+                  style="stroke-dasharray: ${CIRCUMFERENCE}; stroke-dashoffset: ${CIRCUMFERENCE};"></circle>
+              </svg>
+            </button>
+          `;
+          },
+        },
+        on: {
+          init: function () {
+            updateProgress(this);
+          },
+          slideChange: function () {
+            resetProgress(this);
+            updateProgress(this);
+          },
+          init: function () {
+            const swiperInstance = this;
+            let progressInterval;
+
+            // Fallback progress tracker
+            function startProgressTracker() {
+              clearInterval(progressInterval);
+              const delay = swiperInstance.params.autoplay.delay;
+              const startTime = Date.now();
+
+              progressInterval = setInterval(() => {
+                const elapsed = Date.now() - startTime;
+                const progress = Math.min(elapsed / delay, 1);
+                const offset = CIRCUMFERENCE * (1 - progress);
+
+                const activeBullet = el.querySelector(
+                  ".swiper-pagination-bullet-active",
+                );
+                const progressCircle =
+                  activeBullet?.querySelector(".circle-progress");
+
+                if (progressCircle) {
+                  progressCircle.style.strokeDashoffset = offset;
+                }
+              }, 50);
+            }
+
+            startProgressTracker();
+
+            swiperInstance.on("slideChange", () => {
+              startProgressTracker();
+            });
+
+            swiperInstance.on("destroy", () => {
+              clearInterval(progressInterval);
+            });
+          },
         },
       });
+
+      function resetProgress(swiper) {
+        const bullets = el.querySelectorAll(".swiper-pagination-bullet");
+        bullets.forEach((bullet) => {
+          const circle = bullet.querySelector(".circle-progress");
+          if (circle) circle.style.strokeDashoffset = CIRCUMFERENCE;
+        });
+      }
+
+      function updateProgress(swiper) {
+        const activeBullet = el.querySelector(
+          ".swiper-pagination-bullet-active",
+        );
+        if (activeBullet) {
+          const circle = activeBullet.querySelector(".circle-progress");
+          if (circle) circle.style.strokeDashoffset = CIRCUMFERENCE;
+        }
+      }
+    });
+  }
+
+  const menulinks = document.querySelectorAll(".menu-withsublist");
+
+  if (menulinks.length) {
+    menulinks.forEach((link) => {
+      let hoverTimeout = null;
+
+      link.addEventListener("mouseenter", () => {
+        if (hoverTimeout) {
+          clearTimeout(hoverTimeout);
+          hoverTimeout = null;
+        }
+        menulinks.forEach((el) => el.classList.remove("hover"));
+        link.classList.add("hover");
+        document.documentElement.classList.add("desktop-menu-opened");
+      });
+
+      link.addEventListener("mouseleave", () => {
+        hoverTimeout = setTimeout(() => {
+          link.classList.remove("hover");
+          if (!document.querySelector(".menu-withsublist.hover")) {
+            document.documentElement.classList.remove("desktop-menu-opened");
+          }
+          hoverTimeout = null;
+        }, 300);
+      });
+    });
+  }
+
+  const menulinks2 = document.querySelectorAll(".header-phoneswrap");
+
+  if (menulinks2.length) {
+    menulinks2.forEach((link) => {
+      let hoverTimeout = null;
+
+      link.addEventListener("mouseenter", () => {
+        if (hoverTimeout) {
+          clearTimeout(hoverTimeout);
+          hoverTimeout = null;
+        }
+        menulinks2.forEach((el) => el.classList.remove("hover"));
+        link.classList.add("hover");
+      });
+
+      link.addEventListener("mouseleave", () => {
+        hoverTimeout = setTimeout(() => {
+          link.classList.remove("hover");
+          hoverTimeout = null;
+        }, 300);
+      });
+    });
+  }
+
+  const tabs = document.querySelectorAll(".tabs");
+  if (tabs.length) {
+    tabs.forEach((tab) => {
+      const btns = tab.querySelectorAll(".tabs-btn");
+      const content = tab.querySelector(".tabs-content");
+      if (btns.length && content) {
+        btns.forEach((btn, i) => {
+          btn.dataset.tab = i;
+          btn.addEventListener("click", function () {
+            const copy = content.querySelector(".tabs-copy");
+            if (copy && tab?.dataset?.activetab) {
+              const activeItem = tab.querySelector(
+                `[data-tab="${tab.dataset.activetab}"]`,
+              );
+              if (activeItem) {
+                activeItem.after(copy)
+              }
+            }
+
+            btns.forEach((el) => el.classList.remove("active"));
+            tab.dataset.activetab = btn.dataset.tab;
+            this.classList.add("active");
+            const next = this.nextElementSibling;
+
+            if (next && next.classList.contains("tabs-copy")) {
+              content.appendChild(next);
+            }
+          });
+        });
+        btns[0].click();
+      }
     });
   }
 });
