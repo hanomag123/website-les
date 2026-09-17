@@ -707,7 +707,7 @@ title: Главная
     </ul>
   </div>
 
-  <div class="spec-form">
+  <div class="spec-form js-validate">
     <form action="#" enctype="multipart/form-data">
       <h3 class="spec-head text-white h6">Заполните форму — ответим в течение 30 минут</h3>
 
@@ -733,16 +733,19 @@ title: Главная
         <label class="spec-label col-span-2">
           <span class="spec-labeltext p-3 uppercase font-bold">Прикрепить файл (для загрузки спецификации)</span>
 
-          <input type="file" />
+          <div class="filepond-wrapper"><input type="file" class="filepond" /></div>
         </label>
 
-        <div class="spec-checkbox checkbox col-span-2">
-          <input type="checkbox" name="acceptance" required>
-          <span class="checkbox-box"></span>
-
-          <span class="checkbox-text">
-            Согласен на обработку персональных данных
-          </span>
+        <div class="col-span-2">
+          <label class="spec-checkbox checkbox">
+            <input type="checkbox" name="acceptance" required>
+            <span class="checkbox-box"></span>
+  
+            <span class="checkbox-text p-3">
+              Согласен на обработку персональных данных
+            </span>
+          </label>
+          <div class="error-container"></div>
         </div>
 
         <button type="submit" class="spec-submit btn btn-secondary col-span-2">Отправить запрос и получить КП</button>
@@ -751,7 +754,7 @@ title: Главная
   </div>
 </section>
 
-<section class="why pt-80 pb-80 container">
+<section class="why pt-80 pb-80 mt-80 container">
   <div class="why-inner">
     <div class="why-column">
       <h2 class="why-title text-white h4">Почему с нами работают застройщики и частные клиенты?</h2>

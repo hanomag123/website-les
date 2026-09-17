@@ -424,6 +424,12 @@ img.lazyload:not([src]) {
 
   transition: border-color var(--time), background-color var(--time);
 
+  &.just-validate-error-field,
+  &.error,
+  .error & {
+    border-color: var(--status-colors-error);
+  }
+
   &:focus {
     outline: none;
     border-color: var(--text--icon-primary);
@@ -439,6 +445,17 @@ img.lazyload:not([src]) {
   font-weight: 700;
 }
 
+.just-validate-error-label {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 133%;
+  letter-spacing: 0.03em;
+  color: var(--status-colors-error);
+  margin-top: 0.4rem;
+  left: 0;
+}
+
 /* Blocks */
 
 @import "importsBlocks";
@@ -448,6 +465,14 @@ img.lazyload:not([src]) {
   border-radius: 1rem;
   background: #fff;
 
+  min-height: 10.6rem;
+}
+
+.filepond--root {
+    margin-bottom: 0;
+}
+
+.filepond-wrapper {
   min-height: 10.6rem;
 }
 
