@@ -387,6 +387,68 @@ img.lazyload:not([src]) {
   height: 0;
 }
 
+.input {
+  border: 1px solid rgba(5, 6, 8, 0.16);
+  border-radius: 1.2rem;
+  padding: 1.2rem 0.4rem 1.2rem 1.6rem;
+  background: #fff;
+  height: 4.8rem;
+
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 125%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  color: var(--text--icon-primary);
+
+  font-family: var(--font-family);
+
+  transition: border-color var(--time), background-color var(--time);
+
+  &:focus {
+    outline: none;
+    border-color: var(--text--icon-primary);
+  }
+
+  &::placeholder {
+    color: var(--text--icon-tertiary);
+    opacity: 1;
+  }
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
 /* Blocks */
 
 @import "importsBlocks";
+
+.filepond--root .filepond--drop-label {
+  border: 1px dashed rgba(5, 6, 8, 0.16);
+  border-radius: 1rem;
+  background: #fff;
+}
+
+.filepond--drop-label.filepond--drop-label label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+
+  font-family: var(--font-family);
+
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 129%;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: rgba(34, 37, 43, 0.8);
+}
+
+.filepond--credits {
+  display: none;
+}

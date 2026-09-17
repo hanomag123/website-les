@@ -642,7 +642,7 @@ title: Главная
 <section class="how container">
   <div class="how-inner">
     <div class="how-head">
-      <h2 class="how-title h6 text-white">Как проходит заказ</h2>
+      <h2 class="how-title h6 relative text-white">Как проходит заказ</h2>
     </div>
 
     <ol class="how-list">
@@ -704,33 +704,44 @@ title: Главная
   </div>
 
   <div class="spec-form">
-    <form action="#">
+    <form action="#" enctype="multipart/form-data">
       <h3 class="spec-head">Заполните форму — ответим в течение 30 минут</h3>
 
       <div class="spec-columns">
         <label class="spec-label">
-          <span class="spec-labeltext">Имя <span class="text-red">*</span></span>
+          <span class="spec-labeltext p-3 uppercase font-bold">Имя <span class="text-red">*</span></span>
 
           <input type="text" name="name" placeholder="Иван Иванов" class="input" required>
         </label>
 
         <label class="spec-label">
-          <span class="spec-labeltext">Телефон <span class="text-red">*</span></span>
+          <span class="spec-labeltext p-3 uppercase font-bold">Телефон <span class="text-red">*</span></span>
 
           <input type="tel" name="tel" placeholder="+7 (XXX) XXX-XX-XX" class="input" required>
         </label>
 
-        <label class="spec-label">
-          <span class="spec-labeltext">E-mail <span class="text-red">*</span></span>
+        <label class="spec-label col-span-2">
+          <span class="spec-labeltext p-3 uppercase font-bold">E-mail <span class="text-red">*</span></span>
 
           <input type="email" name="email" placeholder="ivanivanov@yandex.com" class="input" required>
         </label>
 
-        <label class="spec-label">
-          <span class="spec-labeltext">Прикрепить файл (для загрузки спецификации)</span>
+        <label class="spec-label col-span-2">
+          <span class="spec-labeltext p-3 uppercase font-bold">Прикрепить файл (для загрузки спецификации)</span>
 
           <input type="file" />
         </label>
+
+        <div class="spec-checkbox checkbox col-span-2">
+          <input type="checkbox" name="acceptance" required>
+          <span class="checkbox-box"></span>
+
+          <span class="checkbox-text">
+            Согласен на обработку персональных данных
+          </span>
+        </div>
+
+        <button type="submit" class="spec-submit btn btn-secondary col-span-2">Отправить запрос и получить КП</button>
       </div>
     </form>
   </div>
