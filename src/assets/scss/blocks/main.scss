@@ -934,3 +934,84 @@
 .spec-checkbox {}
 
 .spec-submit {}
+
+.why {
+  background: var(--text--icon-primary);
+}
+
+.why-inner {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 4rem;
+}
+
+.why-column {}
+
+.why-title {}
+
+.why-desc {
+  color: var(--background-disable);
+}
+
+.why-btn {}
+
+.why-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.6rem;
+}
+
+.why-item {
+  border: 1px solid var(--border-neutral);
+  border-radius: 2rem;
+  padding: 3.2rem;
+
+  position: relative;
+  overflow: hidden;
+
+  min-height: 20rem;
+}
+
+.why-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 19.8rem;
+  height: 19.8rem;
+}
+
+.why-subtitle {}
+
+.why-desc2 {
+  margin-top: 1.8rem;
+  color: var(--background-disable);
+}
+
+.why-blocks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column: 2 span;
+}
+
+.why-block {}
+
+.why-bg {}
+
+.why-subtitle2 {}
+
+.why-reviews {}
+
+.why-summary {}
+
+.why-stars {}
+
+.why-review {}
+
+.why-head {}
+
+.why-name {}
+
+.why-date {}
+
+.why-text {}
