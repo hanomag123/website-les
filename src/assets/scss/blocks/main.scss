@@ -147,6 +147,9 @@
   cursor: pointer;
 
   background-image: url("data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 6C13.7611 6.00033 16 8.23878 16 11C15.9998 13.761 13.761 15.9997 11 16C8.23871 16 6.00022 13.7612 6 11C6 8.23858 8.23858 6 11 6Z' fill='white'/%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 2.2rem;
   opacity: 0.16;
 
   transition: opacity var(--time);
@@ -649,6 +652,8 @@
   background: linear-gradient(90deg, #f1223b 0%, #ffbb3c 100%);
 
   border: 1px solid var(--border-default);
+  border-right: #E6AA3C;
+  border-left: #DA263B;
   border-radius: 9.9rem;
   padding: 0.4rem 0.8rem;
 
@@ -679,6 +684,10 @@
   font-size: 1.6rem;
   line-height: 125%;
   letter-spacing: 0.03em;
+}
+
+.popular-swiper {
+  display: none;
 }
 
 .popular-sublist {
@@ -740,3 +749,12 @@
 }
 
 .popular-link {}
+
+.popular-content {
+  & > * {
+    animation: fadeEffect var(--time);
+  }
+  .popular-swiper {
+    display: block;
+  }
+}

@@ -301,15 +301,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const popularswipers = document.querySelectorAll('.popular-swiper')
-  if (popularswipers.length) {
-    popularswipers.forEach(swiper => {
-      new Swiper(swiper, {
-        slidesPerView: 'auto',
-        grabCursor: true,
-      })
-    })
-  }
+  // const popularswipers = document.querySelectorAll('.popular-swiper')
+  // if (popularswipers.length) {
+  //   popularswipers.forEach(swiper => {
+  //     new Swiper(swiper, {
+  //       slidesPerView: 'auto',
+  //       grabCursor: true,
+  //     })
+  //   })
+  // }
 
   const menulinks = document.querySelectorAll(".menu-withsublist");
 
@@ -379,6 +379,10 @@ document.addEventListener("DOMContentLoaded", () => {
               );
               if (activeItem) {
                 activeItem.after(copy)
+
+                if (copy.classList.contains('popular-swiper')) {
+                  copy.swiper.destroy()
+                }
               }
             }
 
@@ -388,6 +392,18 @@ document.addEventListener("DOMContentLoaded", () => {
             const next = this.nextElementSibling;
 
             if (next && next.classList.contains("tabs-copy")) {
+              if (next.classList.contains('popular-swiper')) {
+                const nextEl = tab.querySelector('.next')
+                const prevEl = tab.querySelector('.prev')
+                new Swiper(next, {
+                  slidesPerView: 'auto',
+                  grabCursor: true,
+                  navigation: {
+                    nextEl,
+                    prevEl
+                  }
+                })
+              }
               content.appendChild(next);
             }
           });

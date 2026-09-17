@@ -270,6 +270,8 @@ a.header-soclink {
   transition: opacity var(--time);
   color: var(--background-base);
 
+  flex: 0 0 auto;
+
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       opacity: 0.8;
