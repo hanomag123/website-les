@@ -94,7 +94,7 @@ svg {
 }
 
 .container {
-  padding-right: 27.2rem;
+  padding-right: 26rem;
   padding-left: 27.2rem;
 
   @include breakpoint($xl-bp) {
@@ -354,6 +354,10 @@ img.lazyload:not([src]) {
   text-align: center;
 }
 
+// ::-webkit-scrollbar {
+//   display: none;
+// }
+
 /* Modern browsers — Chrome 121+, Edge 121+, Firefox, Safari 18.2+ */
 * {
   scrollbar-width: 10px;
@@ -462,6 +466,7 @@ img.lazyload:not([src]) {
   letter-spacing: 0.03em;
   text-align: center;
   color: rgba(34, 37, 43, 0.8);
+  cursor: pointer;
 }
 
 .filepond--credits {
