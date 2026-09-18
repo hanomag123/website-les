@@ -314,6 +314,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  const catalogsliders = document.querySelectorAll(".mcatalog-swiper");
+
+  if (catalogsliders.length && xl.matches) {
+    catalogsliders.forEach((swiper) => {
+      new Swiper(swiper, {
+        slidesPerView: 1.16,
+        grabCursor: true,
+        grid: {
+          rows: 2,
+        },
+      });
+    });
+  }
+
   // const popularswipers = document.querySelectorAll('.popular-swiper')
   // if (popularswipers.length) {
   //   popularswipers.forEach(swiper => {

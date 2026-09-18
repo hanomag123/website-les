@@ -58,7 +58,7 @@ title: Главная
         <div class="hero-listicon img-contain">
           <img src="./assets/images/list/money.webp" fetchpriority="high" alt="money">
         </div>
-        <h2 class="hero-subtitle h6 mt-4">Цена от 2000 руб./м²</h2>
+        <h2 class="hero-subtitle h6 mt-4">Цена <br class="xl-block">от 2000 руб./м²</h2>
         <div class="hero-subdesc mt-10 p-2">включая материал и покраску</div>
       </li>
 
@@ -66,7 +66,7 @@ title: Главная
         <div class="hero-listicon img-contain">
           <img src="./assets/images/list/delivery.webp" fetchpriority="high" alt="delivery">
         </div>
-        <h2 class="hero-subtitle h6 mt-4">Доставка по Москве и Московской области</h2>
+        <h2 class="hero-subtitle h6 mt-4">Доставка по Москве <br class="xl-block">и Московской области</h2>
         <div class="hero-subdesc mt-10 p-2">от 1-го рабочего дня</div>
       </li>
     </ol>
@@ -283,15 +283,20 @@ title: Главная
 
   <div class="mcatalog-content tabs-content"></div>
 
+  <a href="catalog.html" class="mcatalog-mobilebtn btn btn-secondary">Смотреть все товары</a>
+
   <div class="mcatalog-info mt-32">
 
     <div class="mcatalog-background img-cover">
-      <img src="./assets/images/pokazplace.jpg" data-src="./assets/images/info/bg.webp" class="lazyload" alt="info">
+      <picture>
+        <source srcset="./assets/images/info/bg-mobile.webp" media="(max-width:500px)">
+        <img src="./assets/images/pokazplace.jpg" data-src="./assets/images/info/bg.webp" class="lazyload" alt="info">
+      </picture>
     </div>
 
     <div class="mcatalog-column relative">
       <h3 class="mcatalog-subtitle h5 text-white">Не нашли материал, который интересует Вас? Напишите нам!</h3>
-      <div class="p-2 text-white mt-8">Мы беремся за нестандартные задачи и поможем выбрать без ошибки</div>
+      <div class="p-2 text-white mt-8">Мы беремся за нестандартные задачи <br class="xl-block">и поможем выбрать без ошибки</div>
     </div>
 
     <button class="mcatalog-btn btn btn-secondary relative">Получить консультацию</button>
@@ -299,7 +304,7 @@ title: Главная
 </section>
 
 <section class="color mt-140">
-  <div class="color-inner container">
+  <div class="color-inner pt-80 pb-100 container">
 
     <div class="color-background img-cover">
       <picture>
@@ -316,7 +321,7 @@ title: Главная
           Покраска / браширование / другие доступные варианты обработки
         </li>
         <li class="color-item">
-          Полная палитра более 350 оттенков по системе RAL
+          Полная палитра более 350 оттенков <br class="xl-block">по системе RAL
         </li>
         <li class="color-item">
           Контроль качества

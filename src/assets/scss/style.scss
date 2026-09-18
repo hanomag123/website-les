@@ -55,6 +55,12 @@ body {
   font-size: 1.8rem;
   line-height: 133%;
   letter-spacing: 0.04em;
+
+  @include breakpoint($xl-bp) {
+    font-size: 1.6rem;
+    line-height: 125%;
+    letter-spacing: 0.03em;
+  }
 }
 
 .p-2,
@@ -68,6 +74,11 @@ body {
 .p-2 {
   font-size: 1.6rem;
   line-height: 138%;
+
+  @include breakpoint($xl-bp) {
+    font-size: 1.4rem;
+    line-height: 129%;
+  }
 
 }
 
@@ -186,6 +197,12 @@ h5,
   font-size: 3.2rem;
   line-height: 119%;
   letter-spacing: 0.03em;
+
+  @include breakpoint($xl-bp) {
+    font-size: 2rem;
+    line-height: 120%;
+    letter-spacing: normal;
+  }
 }
 
 h6,
@@ -302,10 +319,18 @@ h6,
 
 .mt-140 {
   margin-top: 14rem;
+
+  @include breakpoint($xl-bp) {
+    margin-top: 6.4rem;
+  }
 }
 
 .mt-100 {
   margin-top: 10rem;
+
+  @include breakpoint($xl-bp) {
+    margin-top: 6.4rem;
+  }
 }
 
 .mt-80 {
@@ -314,6 +339,10 @@ h6,
 
 .mt-48 {
   margin-top: 4.8rem;
+
+  @include breakpoint($xl-bp) {
+    margin-top: 4rem;
+  }
 }
 
 .mt-40 {
@@ -322,10 +351,18 @@ h6,
 
 .mt-32 {
   margin-top: 3.2rem;
+
+  @include breakpoint($xl-bp) {
+    margin-top: 2.4rem;
+  }
 }
 
 .mt-24 {
   margin-top: 2.4rem;
+
+  @include breakpoint($xl-bp) {
+    margin-top: 1.6rem;
+  }
 }
 
 .mt-16 {
@@ -334,6 +371,10 @@ h6,
 
 .mt-10 {
   margin-top: 1rem;
+
+  @include breakpoint($xl-bp) {
+    margin-top: 0.4rem;
+  }
 }
 
 .mt-8 {
@@ -346,6 +387,10 @@ h6,
 
 .pt-80 {
   padding-top: 8rem;
+
+  @include breakpoint($xl-bp) {
+    padding-top: 4rem;
+  }
 }
 
 .pb-80 {
@@ -354,6 +399,14 @@ h6,
 
 .pt-100 {
   padding-top: 10rem;
+}
+
+.pb-100 {
+  padding-bottom: 10rem;
+
+  @include breakpoint($xl-bp) {
+    padding-bottom: 5.6rem;
+  }
 }
 
 .pt-140 {

@@ -5,6 +5,10 @@
   overflow: hidden;
   background-color: var(--text--icon-primary);
 
+  @include breakpoint($xl-bp) {
+    border-radius: 0;
+  }
+
   .swiper-pagination {
     position: relative;
     display: flex;
@@ -16,6 +20,12 @@
     padding-right: 0.9rem;
 
     --swiper-pagination-bullet-horizontal-gap: 0.2rem;
+
+    @include breakpoint($xl-bp) {
+      margin-right: auto;
+      width: min-content;
+      padding-left: 0.9rem;
+    }
   }
 }
 
@@ -24,6 +34,12 @@
   padding-bottom: 6.4rem;
 
   min-height: 70rem;
+
+  @include breakpoint($xl-bp) {
+    padding-top: 2.1rem;
+    padding-bottom: 14rem;
+    min-height: 50rem;
+  }
 }
 
 .hero-bg {
@@ -56,7 +72,9 @@
   max-width: 74.7rem;
 }
 
-.hero-title {}
+.hero-title {
+  padding-right: 2rem;
+}
 
 .hero-desc {}
 
@@ -64,11 +82,14 @@
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+
+  @include breakpoint($xl-bp) {
+    gap: 0.8rem;
+  }
 }
 
 .hero-item {
   display: flex;
-  align-items: center;
   gap: 1rem;
 
   font-weight: 700;
@@ -98,6 +119,8 @@
   @include breakpoint($xl-bp) {
     flex-direction: column;
     align-items: flex-start;
+
+    gap: 0.8rem;
   }
 }
 
@@ -112,6 +135,10 @@
   display: flex;
   justify-content: flex-end;
   gap: 1.2rem;
+
+  @include breakpoint($xl-bp) {
+    gap: 0.8rem;
+  }
 }
 
 .swiper-arrow {
@@ -199,6 +226,11 @@
   margin-top: -6rem;
   position: relative;
   z-index: 3;
+
+  @include breakpoint($xl-bp) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .hero-sublist {
@@ -213,6 +245,7 @@
 
   @include breakpoint($xl-bp) {
     grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
   }
 }
 
@@ -223,6 +256,10 @@
   position: relative;
 
   counter-increment: num;
+
+  @include breakpoint($xl-bp) {
+    padding: 1.2rem;
+  }
 
   &:nth-child(4n + 4),
   &:nth-child(4n + 1) {
@@ -244,12 +281,22 @@
     z-index: 1;
 
     height: 0.8rem;
+
+    @include breakpoint($xl-bp) {
+      top: 1.2rem;
+      right: 1.2rem;
+    }
   }
 }
 
 .hero-listicon {
   width: 7.2rem;
   height: 7.2rem;
+
+  @include breakpoint($xl-bp) {
+    width: 5.6rem;
+    height: 5.6rem;
+  }
 }
 
 .hero-subtitle {}
@@ -318,11 +365,39 @@
 .mcatalog-swiper {
   display: none;
 
+  @include breakpoint($xl-bp) {
+    margin-top: 1.2rem;
+
+    width: calc(100% + 3.2rem);
+    position: relative;
+    left: -1.6rem;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
+
   .swiper-wrapper {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.6rem;
+
+    @include breakpoint($xl-bp) {
+      display: flex;
+      height: 38.4rem;
+      gap: 0;
+      row-gap: 0.8rem;
+    }
   }
+
+  .swiper-slide {
+    @include breakpoint($xl-bp) {
+      height: 18.8rem;
+      padding-right: 0.8rem;
+    }
+  }
+}
+
+.mcatalog-slide {
+  display: flex;
 }
 
 .mcatalog-content {
@@ -335,9 +410,20 @@
   }
 }
 
+.mcatalog-mobilebtn {
+  margin-top: 2.4rem;
+  width: 100%;
+  display: none;
+
+  @include breakpoint($xl-bp) {
+    display: inline-flex;
+  }
+}
+
 .mcatalog-item {
   padding: 1.6rem 1.6rem 1.2rem;
   position: relative;
+  flex-grow: 1;
 }
 
 .mcatalog-hiddelink {
@@ -377,6 +463,12 @@
   width: 19rem;
   height: 10rem;
   background: #c9c9c9;
+
+  @include breakpoint($xl-bp) {
+    border-radius: 1.2rem;
+    width: 10rem;
+    height: 7.2rem;
+  }
 }
 
 .mcatalog-bg {
@@ -442,6 +534,9 @@
   @include breakpoint($xl-bp) {
     display: flex;
     flex-direction: column;
+    padding: 1.6rem;
+
+    align-items: flex-start;
   }
 }
 
@@ -477,8 +572,6 @@
 }
 
 .color-inner {
-  padding-top: 8rem;
-  padding-bottom: 10rem;
   position: relative;
 
   display: grid;
@@ -489,6 +582,7 @@
   @include breakpoint($xl-bp) {
     display: flex;
     flex-direction: column;
+    gap: 8rem;
   }
 }
 
@@ -524,6 +618,15 @@
 
   padding-left: 3.2rem;
 
+  @include breakpoint($xl-bp) {
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 129%;
+    letter-spacing: 0.03em;
+
+    padding-left: 2.2rem;
+  }
+
   &::before {
     content: '';
     background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.8011 9.99999C22.2578 12.2413 21.9323 14.5714 20.879 16.6018C19.8256 18.6322 18.108 20.24 16.0126 21.1573C13.9172 22.0746 11.5707 22.2458 9.3644 21.6424C7.15807 21.0389 5.22529 19.6974 3.88838 17.8414C2.55146 15.9854 1.89122 13.7272 2.01776 11.4434C2.14431 9.15952 3.04998 6.98808 4.58375 5.29116C6.11752 3.59424 8.18668 2.47442 10.4462 2.11844C12.7056 1.76247 15.0189 2.19185 17.0001 3.33499' stroke='white' stroke-width='1.33333' stroke-linecap='round' stroke-linejoin='round' /%3E%3Cpath d='M9 11L12 14L22 4' stroke='white' stroke-width='1.33333' stroke-linecap='round' stroke-linejoin='round' /%3E%3C/svg%3E");
@@ -536,6 +639,11 @@
     position: absolute;
     top: 0;
     left: 0;
+
+    @include breakpoint($xl-bp) {
+      width: 1.4rem;
+      height: 1.4rem;
+    }
   }
 }
 
@@ -565,7 +673,6 @@
 
 .color-subtitle {
   display: flex;
-  align-items: center;
   gap: 0.8rem;
 
   &::before {
@@ -576,6 +683,7 @@
     background-size: contain;
     width: 2.4rem;
     height: 2.4rem;
+    flex: 0 0 auto;
   }
 }
 
