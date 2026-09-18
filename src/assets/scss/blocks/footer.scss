@@ -1,0 +1,161 @@
+.footer {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background: var(--text--icon-primary);
+
+  display: grid;
+  grid-template-columns: 1fr 38.8rem;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(4, 22.4rem);
+}
+
+.footer-subtitle {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 125%;
+  letter-spacing: 0.03em;
+  color: var(--text--icon-on-color);
+}
+
+.footer-list {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 129%;
+  letter-spacing: 0.03em;
+  color: var(--text--icon-on-color);
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+
+  margin-top: 0.4rem;
+
+  a {
+    transition: opacity var(--time);
+    opacity: 0.7;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.footer-info {
+  border: 1px solid var(--background-transparent-white);
+  border-radius: 1.6rem;
+  background: var(--background-transparent-white);
+
+  padding: 2rem;
+}
+
+.footer-subtitle2 {}
+
+.footer-links {}
+
+.footer-item {}
+
+.footer-link2 {
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 129%;
+  letter-spacing: 0.03em;
+  color: var(--text--icon-on-color);
+
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  padding-top: 0.8rem;
+
+  svg {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}
+
+a.footer-link2 {
+  transition: color var(--time);
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--button-primary-default)
+    }
+  }
+}
+
+.footer-soclist {
+  margin-top: 0.8rem;
+
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.footer-socials {
+  grid-column: 2 span;
+}
+
+.footer-social {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 100%;
+  background: linear-gradient(90deg, #4768fe 0%, #9f59dd 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: opacity var(--time);
+  color: var(--background-base);
+
+  flex: 0 0 auto;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
+
+.footer-bot {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 129%;
+  letter-spacing: 0.03em;
+  color: var(--text--icon-secondary);
+
+  margin-top: 2.7rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  a {
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+
+    transition: color var(--time);
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: var(--text--icon-on-color);
+      }
+    }
+  }
+}

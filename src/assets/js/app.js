@@ -404,6 +404,19 @@ document.addEventListener("DOMContentLoaded", () => {
                   },
                 });
               }
+
+              if (next.classList.contains("admits-swiper")) {
+                const nextEl = tab.querySelector(".next");
+                const prevEl = tab.querySelector(".prev");
+                new Swiper(next, {
+                  slidesPerView: "auto",
+                  grabCursor: true,
+                  navigation: {
+                    nextEl,
+                    prevEl,
+                  },
+                });
+              }
               content.appendChild(next);
             }
           });

@@ -616,7 +616,7 @@ title: Главная
       </div>
     </div>
 
-    <div class="popular-right">
+    <div class="popular-right xl-hidden">
       <button class="popular-btn btn btn-secondary">Смотреть все товары</button>
 
       <button class="swiper-arrow swiper-arrow-secondary prev" aria-label="prev slide">
@@ -740,7 +740,7 @@ title: Главная
           <label class="spec-checkbox checkbox">
             <input type="checkbox" name="acceptance" required>
             <span class="checkbox-box"></span>
-  
+
             <span class="checkbox-text p-3">
               Согласен на обработку персональных данных
             </span>
@@ -805,7 +805,7 @@ title: Главная
           </svg>
         </div>
         <h3 class="why-subtitle h6 text-white relative">Покраска в цеху</h3>
-        <div class="why-desc2 p-2 relative">готовое изделие не требует доводки на объекте, вы экономите на расходах бригады.</div>
+        <div class="why-desc2 p-2 relative">готовое изделие не требует доводки на объекте, вы <br class="xl-hidden">экономите на расходах бригады.</div>
       </li>
 
       <li class="why-item">
@@ -862,29 +862,49 @@ title: Главная
 
     <ul class="why-blocks">
       <li class="why-block">
-        <div class="why-bg img-cover">
+        <a href="licence.html" class="why-hiddenlink">Лицензии</a>
+        <div class="why-bg img-cover gradient-1">
           <img src="./assets/images/pokazplace.jpg" data-src="./assets/images/why/1.webp" class="lazyload" alt="why">
         </div>
         <h3 class="why-subtitle2 relative h5 text-pwhite">Лицензии</h3>
+
+        <div class="why-search why-box relative">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M7.91667 13.3333C6.40278 13.3333 5.12153 12.809 4.07292 11.7604C3.02431 10.7118 2.5 9.43056 2.5 7.91667C2.5 6.40278 3.02431 5.12153 4.07292 4.07292C5.12153 3.02431 6.40278 2.5 7.91667 2.5C9.43056 2.5 10.7118 3.02431 11.7604 4.07292C12.809 5.12153 13.3333 6.40278 13.3333 7.91667C13.3333 8.52778 13.2361 9.10417 13.0417 9.64583C12.8472 10.1875 12.5833 10.6667 12.25 11.0833L16.9167 15.75C17.0694 15.9028 17.1458 16.0972 17.1458 16.3333C17.1458 16.5694 17.0694 16.7639 16.9167 16.9167C16.7639 17.0694 16.5694 17.1458 16.3333 17.1458C16.0972 17.1458 15.9028 17.0694 15.75 16.9167L11.0833 12.25C10.6667 12.5833 10.1875 12.8472 9.64583 13.0417C9.10417 13.2361 8.52778 13.3333 7.91667 13.3333ZM7.91667 11.6667C8.95833 11.6667 9.84375 11.3021 10.5729 10.5729C11.3021 9.84375 11.6667 8.95833 11.6667 7.91667C11.6667 6.875 11.3021 5.98958 10.5729 5.26042C9.84375 4.53125 8.95833 4.16667 7.91667 4.16667C6.875 4.16667 5.98958 4.53125 5.26042 5.26042C4.53125 5.98958 4.16667 6.875 4.16667 7.91667C4.16667 8.95833 4.53125 9.84375 5.26042 10.5729C5.98958 11.3021 6.875 11.6667 7.91667 11.6667Z"
+              fill="white" />
+          </svg>
+        </div>
       </li>
 
       <li class="why-reviews">
+        <a href="reviews.html" class="why-hiddenlink">Отзывы</a>
         <div class="why-bg img-cover">
           <img src="./assets/images/pokazplace.jpg" data-src="./assets/images/why/3.webp" class="lazyload" alt="why">
         </div>
 
-        <div class="why-summary relative">
-          <div class="why-stars" style="--star: 5"></div>
-          5.0 (123)
+        <div class="why-header">
+          <div class="why-summary relative">
+            <div class="why-stars" style="--star: 5"></div>
+            5.0 (123)
+          </div>
+
+          <div class="why-arrow why-box relative">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M13.3333 7.00008L5.91659 14.4167C5.76381 14.5695 5.56936 14.6459 5.33325 14.6459C5.09714 14.6459 4.9027 14.5695 4.74992 14.4167C4.59714 14.264 4.52075 14.0695 4.52075 13.8334C4.52075 13.5973 4.59714 13.4029 4.74992 13.2501L12.1666 5.83341H5.83325C5.59714 5.83341 5.39922 5.75355 5.2395 5.59383C5.07978 5.43411 4.99992 5.23619 4.99992 5.00008C4.99992 4.76397 5.07978 4.56605 5.2395 4.40633C5.39922 4.24661 5.59714 4.16675 5.83325 4.16675H14.1666C14.4027 4.16675 14.6006 4.24661 14.7603 4.40633C14.9201 4.56605 14.9999 4.76397 14.9999 5.00008V13.3334C14.9999 13.5695 14.9201 13.7674 14.7603 13.9272C14.6006 14.0869 14.4027 14.1667 14.1666 14.1667C13.9305 14.1667 13.7326 14.0869 13.5728 13.9272C13.4131 13.7674 13.3333 13.5695 13.3333 13.3334V7.00008Z"
+                fill="white" />
+            </svg>
+          </div>
         </div>
 
         <div class="why-review relative">
           <div class="why-head">
-            <div class="why-name">Герман Титов</div>
+            <div class="why-name p-3 text-black">Герман Титов</div>
 
-            <div class="why-date">11.09.2012 в 16:18</div>
+            <div class="why-date p-4 text-terd">11.09.2012 в 16:18</div>
           </div>
-          <div class="why-text">
+          <div class="why-text p-3 text-black mt-8">
             В компании “ЛесМосква” я закупаю брус, вагонку, блок-хаус и обрезную доску на все свои объекты. Давно уже работаю с ней, пиломатериалы тут всегда в наличии, и доставку делают довольно оперативно. Путаницы с моими заказами не было ни разу, все всегда приезжает в нужном количестве. Брака
             никогда не бывает, обратно я ни разу ничего не отправлял. Заявленной влажности пиломатериалы тоже всегда соответствуют.
           </div>
@@ -892,10 +912,19 @@ title: Главная
       </li>
 
       <li class="why-block">
-        <div class="why-bg img-cover">
+        <a href="portfolio.html" class="why-hiddenlink">Портфолио</a>
+        <div class="why-bg img-cover gradient-2">
           <img src="./assets/images/pokazplace.jpg" data-src="./assets/images/why/2.webp" class="lazyload" alt="why">
         </div>
         <h3 class="why-subtitle2 relative h5 text-pwhite">Портфолио</h3>
+
+        <div class="why-search why-box relative">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M7.91667 13.3333C6.40278 13.3333 5.12153 12.809 4.07292 11.7604C3.02431 10.7118 2.5 9.43056 2.5 7.91667C2.5 6.40278 3.02431 5.12153 4.07292 4.07292C5.12153 3.02431 6.40278 2.5 7.91667 2.5C9.43056 2.5 10.7118 3.02431 11.7604 4.07292C12.809 5.12153 13.3333 6.40278 13.3333 7.91667C13.3333 8.52778 13.2361 9.10417 13.0417 9.64583C12.8472 10.1875 12.5833 10.6667 12.25 11.0833L16.9167 15.75C17.0694 15.9028 17.1458 16.0972 17.1458 16.3333C17.1458 16.5694 17.0694 16.7639 16.9167 16.9167C16.7639 17.0694 16.5694 17.1458 16.3333 17.1458C16.0972 17.1458 15.9028 17.0694 15.75 16.9167L11.0833 12.25C10.6667 12.5833 10.1875 12.8472 9.64583 13.0417C9.10417 13.2361 8.52778 13.3333 7.91667 13.3333ZM7.91667 11.6667C8.95833 11.6667 9.84375 11.3021 10.5729 10.5729C11.3021 9.84375 11.6667 8.95833 11.6667 7.91667C11.6667 6.875 11.3021 5.98958 10.5729 5.26042C9.84375 4.53125 8.95833 4.16667 7.91667 4.16667C6.875 4.16667 5.98958 4.53125 5.26042 5.26042C4.53125 5.98958 4.16667 6.875 4.16667 7.91667C4.16667 8.95833 4.53125 9.84375 5.26042 10.5729C5.98958 11.3021 6.875 11.6667 7.91667 11.6667Z"
+              fill="white" />
+          </svg>
+        </div>
       </li>
     </ul>
   </div>
@@ -908,48 +937,28 @@ title: Главная
     <div class="mcatalog-tabs mt-32 tabs-list">
       <button class="mcatalog-tabbtn tabs-btn">Все</button>
 
-      <div class="swiper popular-swiper tabs-copy mt-24 container">
+      <div class="swiper admits-swiper tabs-copy mt-24 container">
         <div class="swiper-wrapper">
-          @loop('./partials/popularitem.html', [
+          @loop('./partials/postitem.html', [
           {
-          name: 'Имитация бруса',
-          op1: '17×135×6000',
-          op2: 'АВ',
-          price: '650',
-          sale: true,
-          tag: '',
+          name: 'Как выбрать имитацию бруса для фасада: 3 ключевых параметра',
+          img: '1.webp',
           },
           {
-          name: 'Вагонка Штиль',
-          op1: '12,5×90×6000',
-          op2: 'АВ',
-          price: '480',
-          sale: false,
-          tag: 'Стеновая',
+          name: 'Сравнение антисептиков: масло, воск, акрил — что выбрать?',
+          img: '2.webp',
           },
           {
-          name: 'Планкен прямой лиственница',
-          op1: '20×140×6000',
-          op2: 'Прима',
-          price: '3750',
-          sale: false,
-          tag: '',
+          name: 'Какая доска подойдёт для тёплого пола?',
+          img: '3.webp',
           },
           {
-          name: '5 позиция',
-          op1: '28×135×6000',
-          op2: 'АВ',
-          price: '0',
-          sale: false,
-          tag: '',
+          name: 'Почему важно красить доску в цеху, а не на объекте?',
+          img: '4.webp',
           },
           {
-          name: 'Имитация бруса',
-          op1: '17×135×6000',
-          op2: 'АВ',
-          price: '650',
-          sale: true,
-          tag: '',
+          name: 'Строительство каркасного дома: какой брус подойдёт лучше',
+          img: '5.webp',
           },
           ])
         </div>
@@ -957,48 +966,20 @@ title: Главная
 
       <button class="mcatalog-tabbtn tabs-btn">Акции</button>
 
-      <div class="swiper popular-swiper tabs-copy mt-24 container">
+      <div class="swiper admits-swiper tabs-copy mt-24 container">
         <div class="swiper-wrapper">
-          @loop('./partials/popularitem.html', [
+          @loop('./partials/postitem.html', [
           {
-          name: 'Имитация бруса',
-          op1: '17×135×6000',
-          op2: 'АВ',
-          price: '650',
-          sale: true,
-          tag: '',
+          name: 'Как выбрать имитацию бруса для фасада: 3 ключевых параметра',
+          img: '1.webp',
           },
           {
-          name: 'Вагонка Штиль',
-          op1: '12,5×90×6000',
-          op2: 'АВ',
-          price: '480',
-          sale: false,
-          tag: 'Стеновая',
+          name: 'Сравнение антисептиков: масло, воск, акрил — что выбрать?',
+          img: '2.webp',
           },
           {
-          name: 'Планкен прямой лиственница',
-          op1: '20×140×6000',
-          op2: 'Прима',
-          price: '3750',
-          sale: false,
-          tag: '',
-          },
-          {
-          name: '5 позиция',
-          op1: '28×135×6000',
-          op2: 'АВ',
-          price: '0',
-          sale: false,
-          tag: '',
-          },
-          {
-          name: 'Имитация бруса',
-          op1: '17×135×6000',
-          op2: 'АВ',
-          price: '650',
-          sale: true,
-          tag: '',
+          name: 'Какая доска подойдёт для тёплого пола?',
+          img: '3.webp',
           },
           ])
         </div>
@@ -1006,55 +987,27 @@ title: Главная
 
       <button class="mcatalog-tabbtn tabs-btn">Новости</button>
 
-      <div class="swiper popular-swiper tabs-copy mt-24 container">
+      <div class="swiper admits-swiper tabs-copy mt-24 container">
         <div class="swiper-wrapper">
-          @loop('./partials/popularitem.html', [
+          @loop('./partials/postitem.html', [
           {
-          name: 'Имитация бруса',
-          op1: '17×135×6000',
-          op2: 'АВ',
-          price: '650',
-          sale: true,
-          tag: '',
+          name: 'Какая доска подойдёт для тёплого пола?',
+          img: '3.webp',
           },
           {
-          name: 'Вагонка Штиль',
-          op1: '12,5×90×6000',
-          op2: 'АВ',
-          price: '480',
-          sale: false,
-          tag: 'Стеновая',
+          name: 'Почему важно красить доску в цеху, а не на объекте?',
+          img: '4.webp',
           },
           {
-          name: 'Планкен прямой лиственница',
-          op1: '20×140×6000',
-          op2: 'Прима',
-          price: '3750',
-          sale: false,
-          tag: '',
-          },
-          {
-          name: '5 позиция',
-          op1: '28×135×6000',
-          op2: 'АВ',
-          price: '0',
-          sale: false,
-          tag: '',
-          },
-          {
-          name: 'Имитация бруса',
-          op1: '17×135×6000',
-          op2: 'АВ',
-          price: '650',
-          sale: true,
-          tag: '',
+          name: 'Строительство каркасного дома: какой брус подойдёт лучше',
+          img: '5.webp',
           },
           ])
         </div>
       </div>
     </div>
 
-    <div class="popular-right">
+    <div class="popular-right xl-hidden">
       <button class="popular-btn btn btn-secondary">Смотреть все</button>
 
       <button class="swiper-arrow swiper-arrow-secondary prev" aria-label="prev slide">
@@ -1074,5 +1027,5 @@ title: Главная
     </div>
   </div>
 
-  <div class="popular-content tabs-content"></div>
+  <div class="admits-content tabs-content"></div>
 </section>

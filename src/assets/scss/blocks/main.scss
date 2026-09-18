@@ -198,6 +198,10 @@
   padding: 1.6rem;
   background: var(--text--icon-primary);
   counter-reset: num;
+
+  @include breakpoint($xl-bp) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .hero-subitem {
@@ -207,6 +211,13 @@
   position: relative;
 
   counter-increment: num;
+
+  &:nth-child(4n + 4),
+  &:nth-child(4n + 1) {
+    @include breakpoint($xl-bp) {
+      grid-column: 2 span;
+    }
+  }
 
   &::after {
     content: '';
@@ -440,6 +451,11 @@
   grid-template-columns: 1fr 0.85fr;
   align-items: flex-start;
   gap: 7.4rem;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .color-column {}
@@ -617,6 +633,12 @@
       &~.popular-bottom {
         .popular-link.btn-secondary {
           background: var(--button-secondary-hovered);
+        }
+      }
+
+      &~.popular-img {
+        img {
+          transform: scale(1.05);
         }
       }
     }
@@ -861,6 +883,11 @@
   display: grid;
   grid-template-columns: 0.92fr 1fr;
   gap: 3.2rem;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .spec-column {
@@ -944,6 +971,11 @@ a.spec-link {
   grid-template-columns: repeat(2, 1fr);
   gap: 1.6rem;
   padding: 3.2rem 2.4rem 2.4rem;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .col-span-2 {
@@ -975,12 +1007,13 @@ a.spec-link {
     &:checked+.checkbox-box {
       border-color: var(--button-primary-default);
       background: var(--button-primary-default);
+
       &::after {
         opacity: 1;
       }
     }
 
-    &.just-validate-error-field +.checkbox-box {
+    &.just-validate-error-field+.checkbox-box {
       border-color: var(--status-colors-error);
     }
   }
@@ -1021,8 +1054,13 @@ a.spec-link {
 
 .why-inner {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+  grid-template-columns: 1fr 1.23fr;
   gap: 4rem;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .why-column {}
@@ -1031,6 +1069,7 @@ a.spec-link {
 
 .why-desc {
   color: var(--background-disable);
+  line-height: 125%;
 }
 
 .why-btn {}
@@ -1039,6 +1078,11 @@ a.spec-link {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.6rem;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .why-item {
@@ -1065,19 +1109,78 @@ a.spec-link {
 
 .why-desc2 {
   margin-top: 1.8rem;
+  line-height: 125%;
   color: var(--background-disable);
 }
 
 .why-blocks {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 0.86fr 1fr;
   grid-column: 2 span;
+  border-radius: 1.6rem;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.why-hiddenlink {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 3;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      &~.why-bg {
+        img {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
 }
 
 .why-block {
   position: relative;
+  padding: 3.2rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-neutral);
 
+  &:first-child {
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
 
+    .why-bg {
+      border-top-left-radius: inherit;
+      border-bottom-left-radius: inherit;
+
+      &::after {
+        border-top-left-radius: inherit;
+        border-bottom-left-radius: inherit;
+      }
+    }
+  }
+
+  &:last-child {
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+
+    .why-bg {
+      border-top-right-radius: inherit;
+      border-bottom-right-radius: inherit;
+
+      &::after {
+        border-top-right-radius: inherit;
+        border-bottom-right-radius: inherit;
+      }
+    }
+  }
 }
 
 .why-bg {
@@ -1089,11 +1192,10 @@ a.spec-link {
 
   &::after {
     content: '';
-    background-image: url("data:image/svg+xml,%3Csvg width='479' height='200' viewBox='0 0 479 200' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='478.667' height='200' fill='url(%23paint0_linear_50_3458)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_50_3458' x1='239.333' y1='0' x2='239.333' y2='200' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-opacity='0.9'/%3E%3Cstop offset='1' stop-opacity='0.7'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A");
-
+    background: rgba(0, 0, 0, 0.65);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
 
     position: absolute;
     top: 0;
@@ -1103,24 +1205,157 @@ a.spec-link {
 
     z-index: 1;
   }
+
+  &.gradient-1 {
+    &::after {
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 100%);
+    }
+  }
+
+  &.gradient-2 {
+    &::after {
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.63) 0%, rgba(0, 0, 0, 0.49) 100%);
+    }
+  }
+
+  img {
+    transform: scale(1.01);
+    transition: transform var(--time);
+  }
 }
 
 .why-subtitle2 {}
 
 .why-reviews {
   position: relative;
+  border: 1px solid var(--border-neutral);
 }
 
-.why-summary {}
+.why-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
 
-.why-stars {}
+  padding: 0.8rem 1.6rem 2.3rem;
+}
 
-.why-review {}
+.why-summary {
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 129%;
+  letter-spacing: 0.03em;
+  color: var(--status-colors-warning);
 
-.why-head {}
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
 
-.why-name {}
+  padding-top: 0.8rem;
+}
 
-.why-date {}
+.why-stars {
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.74673 2.16C7.84673 1.94667 8.14673 1.94667 8.25339 2.16L9.95339 5.7C9.99784 5.78889 10.0712 5.84222 10.1734 5.86L14.0867 6.37333C14.3201 6.4 14.4201 6.68667 14.2467 6.85333L11.3801 9.55333C11.309 9.62444 11.2823 9.70889 11.3001 9.80667L12.0134 13.6733C12.0601 13.9 11.8134 14.0733 11.6067 13.9667L8.14006 12.0933C8.09874 12.0687 8.05152 12.0557 8.00339 12.0557C7.95527 12.0557 7.90805 12.0687 7.86673 12.0933L4.39339 13.96C4.34729 13.9843 4.29532 13.9952 4.24335 13.9915C4.19138 13.9879 4.14145 13.9698 4.0992 13.9393C4.05694 13.9088 4.02403 13.8672 4.00416 13.819C3.98429 13.7708 3.97825 13.7181 3.98673 13.6667L4.70006 9.80667C4.71003 9.76113 4.70789 9.71378 4.69385 9.66933C4.67982 9.62488 4.65437 9.58488 4.62006 9.55333L1.75339 6.85333C1.71516 6.81665 1.68812 6.76987 1.67541 6.71843C1.6627 6.66699 1.66485 6.613 1.68161 6.56274C1.69836 6.51247 1.72904 6.46799 1.77007 6.43446C1.8111 6.40093 1.8608 6.37974 1.91339 6.37333L5.82673 5.86C5.92451 5.84667 5.99784 5.79333 6.04673 5.7L7.74673 2.16Z' fill='%23FFBB3C' /%3E%3C/svg%3E");
+  height: 1.6rem;
+  width: calc(1.6rem * var(--star));
+}
 
-.why-text {}
+.why-review {
+  border: 2px solid #f4f5f6;
+  border-radius: 2rem 2rem 0 0;
+  padding: 1.6rem;
+  padding-bottom: 2.2rem;
+  background: #fff;
+}
+
+.why-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.why-name {
+  font-weight: 600;
+}
+
+.why-date {
+  letter-spacing: 0.09em;
+}
+
+.why-text {
+  display: -webkit-box;
+  max-width: 100%;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.why-box {
+  border: 1px solid var(--border-default);
+  border-radius: 0.8rem;
+  padding: 1.2rem;
+  width: 4.4rem;
+  height: 4.4rem;
+  backdrop-filter: blur(20px);
+  background: var(--button-default-default);
+  flex: 0 0 auto;
+}
+
+.why-search {
+  margin-top: auto;
+  flex: 0 0 auto;
+}
+
+.admits-swiper {
+  display: none;
+
+  .swiper-slide {
+    width: 32rem;
+    margin-right: 2rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.admits-content {
+  &>* {
+    animation: fadeEffect var(--time);
+  }
+
+  .swiper {
+    display: block;
+  }
+}
+
+.admits-item {
+  width: 100%;
+
+  background: var(--background-base);
+
+  border-radius: 2rem;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: 32rem;
+}
+
+.admits-img {
+  width: 100%;
+  height: 18rem;
+
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.admits-subtitle {
+  padding: 1.6rem;
+  padding-bottom: 0;
+}
+
+.admits-date {
+  padding: 1.6rem;
+
+  margin-top: auto;
+}

@@ -256,6 +256,13 @@ a.header-soclink {
   border-left: 1px solid var(--border-default);
 }
 
+.header-soclist {
+  margin-left: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
 .header-social {
   width: 4rem;
   height: 4rem;
@@ -264,8 +271,6 @@ a.header-soclink {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  margin-left: 1.6rem;
 
   transition: opacity var(--time);
   color: var(--background-base);
