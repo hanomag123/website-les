@@ -335,6 +335,10 @@ h6,
 
 .mt-80 {
   margin-top: 8rem;
+
+  @include breakpoint($xl-bp) {
+    margin-top: 6.4rem;
+  }
 }
 
 .mt-48 {
@@ -347,6 +351,10 @@ h6,
 
 .mt-40 {
   margin-top: 4rem;
+
+  @include breakpoint($xl-bp) {
+    margin-top: 2.4rem;
+  }
 }
 
 .mt-32 {
@@ -399,6 +407,10 @@ h6,
 
 .pt-100 {
   padding-top: 10rem;
+
+  @include breakpoint($xl-bp) {
+    padding-top: 6.4rem;
+  }
 }
 
 .pb-100 {

@@ -14,6 +14,14 @@ document.addEventListener("DOMContentLoaded", () => {
   if (headerblock && menublock) {
     menublock.appendChild(headerblock.cloneNode(true));
   }
+
+  const speccopytext = document.querySelector('.spec-copytext')
+  const speccopy = document.querySelector('.spec-copy')
+
+  if (speccopytext && speccopy) {
+    speccopy.appendChild(speccopytext.cloneNode(true))
+  }
+
   class Menu {
     constructor(menuElement, buttonElement) {
       this.menu =
