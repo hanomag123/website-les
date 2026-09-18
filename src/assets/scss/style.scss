@@ -42,6 +42,11 @@ body {
 
   background: var(--background-page);
   font-family: var(--font-family);
+
+  @include breakpoint($xl-bp) {
+    font-size: 1.6rem;
+    line-height: 138%;
+  }
 }
 
 .p-1-primary {
@@ -146,6 +151,11 @@ h1,
 .h1 {
   font-size: 6rem;
   line-height: 100%;
+
+  @include breakpoint($xl-bp) {
+    font-size: 3.2rem;
+    line-height: 106%;
+  }
 }
 
 h2,
@@ -164,6 +174,11 @@ h4,
 .h4 {
   font-size: 4rem;
   line-height: 110%;
+
+  @include breakpoint($xl-bp) {
+    font-size: 2.4rem;
+    line-height: 108%;
+  }
 }
 
 h5,
@@ -177,6 +192,14 @@ h6,
 .h6 {
   font-size: 2.4rem;
   line-height: 110%;
+
+  @include breakpoint($xl-bp) {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 125%;
+    letter-spacing: 0.03em;
+  }
 }
 
 .btn {
@@ -367,10 +390,6 @@ img.lazyload:not([src]) {
 .text-center {
   text-align: center;
 }
-
-// ::-webkit-scrollbar {
-//   display: none;
-// }
 
 /* Modern browsers — Chrome 121+, Edge 121+, Firefox, Safari 18.2+ */
 * {

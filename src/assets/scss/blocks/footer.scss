@@ -15,6 +15,15 @@
 .footer-columns {
   display: grid;
   grid-template-columns: repeat(4, 22.4rem);
+
+  @include breakpoint($xl-bp) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include breakpoint($sm-bp) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .footer-subtitle {

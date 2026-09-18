@@ -6,6 +6,11 @@
   top: 0;
   left: 0;
   z-index: 20;
+
+  @include breakpoint($xl-bp) {
+    transition: none;
+    will-change: auto;
+  }
 }
 
 .header-background {
@@ -34,6 +39,10 @@
 
 .out {
   transform: translate3d(0, -7rem, 0);
+
+  @include breakpoint($xl-bp) {
+    transform: none;
+  }
 }
 
 .header-top {
@@ -53,6 +62,11 @@
 .header-logo {
   width: 20.9rem;
   height: 3.8rem;
+
+  @include breakpoint($xl-bp) {
+    width: 16.7rem;
+    height: 3rem;
+  }
 }
 
 .header-search {
@@ -61,6 +75,24 @@
 
   max-width: 36.8rem;
   width: 100%;
+
+  @include breakpoint($xl-bp) {
+    display: none;
+  }
+
+  .header-top & {
+    @include breakpoint($xl-bp) {
+      display: none;
+    }
+  }
+
+  .menu & {
+    display: none;
+
+    @include breakpoint($xl-bp) {
+      display: block;
+    }
+  }
 
   input {
     border: 1px solid var(--border-default);
@@ -117,6 +149,26 @@
 .header-right {
   display: flex;
   align-items: center;
+
+  @include breakpoint($xl-bp) {
+    display: none;
+
+    flex-direction: column;
+  }
+
+  .header-top & {
+    @include breakpoint($xl-bp) {
+      display: none;
+    }
+  }
+
+  .menu & {
+    display: none;
+
+    @include breakpoint($xl-bp) {
+      display: flex;
+    }
+  }
 }
 
 .header-column {

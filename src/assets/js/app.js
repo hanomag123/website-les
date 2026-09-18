@@ -1,6 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
   const xl = matchMedia("(max-width: 1024px)");
 
+  const headersearch = document.querySelector(".header-search");
+  const menusearch = document.querySelector(".menu-search-copy");
+
+  if (menusearch && headersearch) {
+    menusearch.appendChild(headersearch.cloneNode(true));
+  }
+
+  const headerblock = document.querySelector(".header-right");
+  const menublock = document.querySelector(".menu-bot-copy");
+
+  if (headerblock && menublock) {
+    menublock.appendChild(headerblock.cloneNode(true));
+  }
   class Menu {
     constructor(menuElement, buttonElement) {
       this.menu =
@@ -210,9 +223,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const CIRCUMFERENCE = 2 * Math.PI * 20; // ≈ 125.66
 
-      const swiperInstance = new Swiper(swiper, {
+      new Swiper(swiper, {
         grabCursor: true,
-        parallax: true,
+        parallax: xl.matches === false,
         speed: 500,
         autoplay: {
           delay: 5000,
