@@ -171,7 +171,13 @@
   }
 }
 
+[data-swiper-parallax] {
+  will-change: transform;
 
+  @include breakpoint($xl-bp) {
+    will-change: auto;
+  }
+}
 
 .swiper-pagination-bullet {
   position: relative;
