@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (phonesbtn) {
     phonesbtn.addEventListener("click", function () {
-      this.classList.toggle('opened')
+      this.classList.toggle("opened");
       const mobilecolumn =
         this.closest(".header-top").querySelector(".header-column");
 
@@ -36,17 +36,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const columnslink = document.querySelectorAll('.header-top .header-column a')
+  const columnslink = document.querySelectorAll(".header-top .header-column a");
 
   if (columnslink.length) {
-    columnslink.forEach(link => {
-      link.addEventListener('click', function () {
-        const closest = this.closest('.header-column.opened') 
-        if (closest) {
-          closest.classList.remove('opened')
+    columnslink.forEach((link) => {
+      link.addEventListener("click", function () {
+        const closest = this.closest(".header-column.opened");
+        const boxes = document.querySelectorAll(".header-box.opened");
+        if (boxes.length) {
+          boxes.forEach((el) => el.classList.remove("opened"));
         }
-      })
-    })
+        if (closest) {
+          closest.classList.remove("opened");
+        }
+      });
+    });
   }
 
   class Menu {
