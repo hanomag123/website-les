@@ -403,6 +403,9 @@ h6,
 
 .pb-80 {
   padding-bottom: 8rem;
+  @include breakpoint($xl-bp) {
+    padding-bottom: 6.4rem;
+  }
 }
 
 .pt-100 {
@@ -427,6 +430,10 @@ h6,
 
 .pb-140 {
   padding-bottom: 14rem;
+
+  @include breakpoint($xl-bp) {
+    padding-bottom: 8rem;
+  }
 }
 
 .relative {

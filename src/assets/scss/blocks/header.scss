@@ -57,6 +57,10 @@
 
   position: relative;
   z-index: 2;
+
+  @include breakpoint($xl-bp) {
+    gap: 1.2rem;
+  }
 }
 
 .header-logo {
@@ -66,6 +70,8 @@
   @include breakpoint($xl-bp) {
     width: 16.7rem;
     height: 3rem;
+
+    margin-right: auto;
   }
 }
 
@@ -151,9 +157,34 @@
   align-items: center;
 
   @include breakpoint($xl-bp) {
-    display: none;
+    gap: 1.6rem;
+  }
+}
 
-    flex-direction: column;
+.menu-bot-copy {
+  @include breakpoint($xl-bp) {
+    margin-top: auto;
+    padding-top: 2.4rem;
+  }
+}
+
+.header-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+
+  .header-top &.opened {
+    border-radius: 1.2rem;
+    padding: 1.2rem 1.6rem;
+    background: var(--background-base);
+
+    display: flex;
+    animation: fadeEffect var(--time);
+
+    position: fixed;
+    top: 6.8rem;
+    left: 1.6rem;
+    right: 1.6rem;
   }
 
   .header-top & {
@@ -164,21 +195,15 @@
 
   .menu & {
     display: none;
-
-    @include breakpoint($xl-bp) {
-      display: flex;
-    }
   }
-}
-
-.header-column {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
 }
 
 .header-phoneswrap {
   position: relative;
+
+  .menu & {
+    display: none;
+  }
 
   &.hover {
     .header-hiddenlinks {
@@ -189,8 +214,16 @@
   .out &.hover {
     pointer-events: none;
 
+    @include breakpoint($xl-bp) {
+      pointer-events: all;
+    }
+
     .header-hiddenlinks {
       opacity: 0;
+
+      @include breakpoint($xl-bp) {
+        opacity: 1;
+      }
     }
   }
 }
@@ -213,6 +246,10 @@
 
   transition: color var(--time);
   color: var(--text--icon-primary);
+
+  @include breakpoint($xl-bp) {
+    width: 100%;
+  }
 
   svg {
     width: 1.6rem;
@@ -239,6 +276,10 @@ a.header-soclink {
 
   padding-left: 0.2rem;
 
+  @include breakpoint($xl-bp) {
+    display: none;
+  }
+
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       color: var(--button-primary-default);
@@ -262,6 +303,16 @@ a.header-soclink {
 
   width: 39rem;
   transition: opacity var(--time);
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    position: static;
+
+    width: 100%;
+
+    padding: 0;
+    padding-top: 1.2rem;
+  }
 
   hr {
     border: 0;
@@ -289,6 +340,10 @@ a.header-soclink {
 
   transition: text-decoration-color var(--time);
 
+  @include breakpoint($xl-bp) {
+    display: none;
+  }
+
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       text-decoration-color: transparent;
@@ -306,6 +361,20 @@ a.header-soclink {
   padding-left: 1.6rem;
   margin-left: 1.6rem;
   border-left: 1px solid var(--border-default);
+
+  @include breakpoint($xl-bp) {
+    display: none;
+  }
+
+  .header-top & {
+    @include breakpoint($xl-bp) {
+      display: none;
+    }
+  }
+
+  .menu & {
+    display: none;
+  }
 }
 
 .header-soclist {
@@ -313,6 +382,25 @@ a.header-soclink {
   display: flex;
   align-items: center;
   gap: 0.4rem;
+
+  @include breakpoint($xl-bp) {
+    margin-left: 0;
+    order: 1;
+  }
+
+  .header-top & {
+    @include breakpoint($xl-bp) {
+      display: none;
+    }
+  }
+
+  .menu & {
+    display: none;
+
+    @include breakpoint($xl-bp) {
+      display: block;
+    }
+  }
 }
 
 .header-social {
@@ -343,4 +431,71 @@ a.header-soclink {
 
 .header-btn {
   margin-left: 0.8rem;
+
+  @include breakpoint($xl-bp) {
+    margin-left: 0;
+
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 129%;
+    letter-spacing: 0.03em;
+
+    flex-grow: 1;
+  }
+
+  .header-top & {
+    @include breakpoint($xl-bp) {
+      display: none;
+    }
+  }
+
+  .menu & {
+    display: none;
+
+    @include breakpoint($xl-bp) {
+      display: block;
+    }
+  }
+}
+
+.header-mbuttons {
+  display: none;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-left: auto;
+  }
+}
+
+.header-box {
+  border: 1px solid var(--border-default);
+  border-radius: 0.8rem;
+  padding: 0.8rem;
+  width: 3.4rem;
+  height: 3.4rem;
+
+  flex: 0 0 auto;
+
+  background-color: #f3f3f3;
+
+  .closed,
+  .opened {
+    animation: fadeEffect var(--time);
+  }
+
+  .closed {
+    display: none;
+  }
+
+  &.opened {
+    .opened {
+      display: none;
+    }
+
+    .closed {
+      display: block;
+    }
+  }
 }

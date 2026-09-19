@@ -15,11 +15,25 @@ document.addEventListener("DOMContentLoaded", () => {
     menublock.appendChild(headerblock.cloneNode(true));
   }
 
-  const speccopytext = document.querySelector('.spec-copytext')
-  const speccopy = document.querySelector('.spec-copy')
+  const speccopytext = document.querySelector(".spec-copytext");
+  const speccopy = document.querySelector(".spec-copy");
 
   if (speccopytext && speccopy) {
-    speccopy.appendChild(speccopytext.cloneNode(true))
+    speccopy.appendChild(speccopytext.cloneNode(true));
+  }
+
+  const phonesbtn = document.querySelector("[data-phonetoggle]");
+
+  if (phonesbtn) {
+    phonesbtn.addEventListener("click", function () {
+      this.classList.toggle('opened')
+      const mobilecolumn =
+        this.closest(".header-top").querySelector(".header-column");
+
+      if (mobilecolumn) {
+        mobilecolumn.classList.toggle("opened");
+      }
+    });
   }
 
   class Menu {
@@ -34,15 +48,30 @@ document.addEventListener("DOMContentLoaded", () => {
           : buttonElement;
       this.overlay = document.createElement("div");
       this.overlay.hidden = true;
+
+      this.searchtoggle = document
+        .querySelector(".header")
+        .querySelector("[data-searchtoggle]");
+      this.search = this.menu.querySelector(".header-search input");
       this._init();
     }
 
     _init() {
-      document.body.appendChild(this.overlay);
+      document.querySelector(".header").appendChild(this.overlay);
       this.overlay.classList.add("overlay");
 
       this.overlay.addEventListener("click", this.toggleMenu.bind(this));
       this.button.addEventListener("click", this.toggleMenu.bind(this));
+      this.searchtoggle.addEventListener(
+        "click",
+        this.toggleMenuWithSearchFocus.bind(this),
+      );
+    }
+
+    toggleMenuWithSearchFocus() {
+      this.toggleMenu();
+
+      this.search.focus();
     }
 
     toggleMenu() {
@@ -352,25 +381,31 @@ document.addEventListener("DOMContentLoaded", () => {
     menulinks.forEach((link) => {
       let hoverTimeout = null;
 
-      link.addEventListener("mouseenter", () => {
-        if (hoverTimeout) {
-          clearTimeout(hoverTimeout);
-          hoverTimeout = null;
-        }
-        menulinks.forEach((el) => el.classList.remove("hover"));
-        link.classList.add("hover");
-        document.documentElement.classList.add("desktop-menu-opened");
-      });
-
-      link.addEventListener("mouseleave", () => {
-        hoverTimeout = setTimeout(() => {
-          link.classList.remove("hover");
-          if (!document.querySelector(".menu-withsublist.hover")) {
-            document.documentElement.classList.remove("desktop-menu-opened");
+      if (xl.matches) {
+        link.addEventListener("click", function () {
+          this.classList.toggle("hover");
+        });
+      } else {
+        link.addEventListener("mouseenter", () => {
+          if (hoverTimeout) {
+            clearTimeout(hoverTimeout);
+            hoverTimeout = null;
           }
-          hoverTimeout = null;
-        }, 300);
-      });
+          menulinks.forEach((el) => el.classList.remove("hover"));
+          link.classList.add("hover");
+          document.documentElement.classList.add("desktop-menu-opened");
+        });
+
+        link.addEventListener("mouseleave", () => {
+          hoverTimeout = setTimeout(() => {
+            link.classList.remove("hover");
+            if (!document.querySelector(".menu-withsublist.hover")) {
+              document.documentElement.classList.remove("desktop-menu-opened");
+            }
+            hoverTimeout = null;
+          }, 300);
+        });
+      }
     });
   }
 

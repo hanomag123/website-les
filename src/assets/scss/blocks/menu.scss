@@ -5,12 +5,32 @@
   margin-top: -2.4rem;
 
   @include breakpoint($xl-bp) {
-    display: none;
+    background: var(--background-base);
+    padding: 1.6rem 0.8rem;
+    transform: translate3d(-100%, 0, 0);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 32.4rem;
+    height: 100%;
+
+    overflow-y: auto;
+
+    transition: transform var(--time);
+
+    z-index: 30;
+
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 0;
   }
 }
 
 .menu--open {
-  // transform: translateX(0);
+  transform: translate3d(0, 0, 0);
 }
 
 // .menu-button {
@@ -74,12 +94,39 @@
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--text--icon-on-color);
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 0.8rem;
+
+    color: var(--text--icon-primary);
+
+    margin-top: 0.8rem;
+  }
+
+  &>li {
+    @include breakpoint($xl-bp) {
+      background: var(--background-transparent-black);
+      border-radius: 0.8rem;
+      width: 100%;
+    }
+  }
 }
 
 .menu-link {
   padding-top: 1.2rem;
   padding-bottom: 1.2rem;
   transition: color var(--time);
+
+  display: block;
+
+  @include breakpoint($xl-bp) {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
@@ -101,6 +148,13 @@
 }
 
 .menu-withsublist {
+
+  .menu-link {
+    @include breakpoint($xl-bp) {
+      padding-right: 0;
+    }
+  }
+
   &.hover {
     .menu-sublist {
       display: flex;
@@ -132,6 +186,19 @@
   max-height: calc(100vh - 11rem);
   max-height: calc(100svh - 11rem);
   overflow-y: auto;
+
+  @include breakpoint($xl-bp) {
+    position: relative;
+    top: 0;
+    left: 0;
+
+    background-color: transparent;
+
+    max-height: none;
+
+    padding-bottom: 1.2rem;
+    gap: 0;
+  }
 }
 
 @keyframes fadeEffect {
@@ -153,6 +220,23 @@
   padding-bottom: 4rem;
   max-width: 100%;
   width: 34.2rem;
+
+  @include breakpoint($xl-bp) {
+    width: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+    gap: 0;
+
+    &:first-child {
+      & > li {
+        &:first-child {
+          .menu-sublink {
+            padding-top: 0;
+          }
+        }
+      }
+    }
+  }
 }
 
 .menu-sublink {
@@ -163,6 +247,16 @@
   color: var(--text--icon-on-color);
   text-transform: none;
   transition: color var(--time);
+
+  @include breakpoint($xl-bp) {
+    color: var(--text--icon-primary);
+
+    padding-top: 1.6rem;
+    padding-left: 0.8rem;
+    padding-bottom: 0;
+
+    display: block;
+  }
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
@@ -181,6 +275,27 @@
 
   padding-left: 0.4rem;
 
+  @include breakpoint($xl-bp) {
+    color: #241E1C;
+
+    flex-grow: 1;
+
+    height: 4.2rem;
+
+    justify-content: flex-start;
+  }
+
+  svg {
+    width: 1.8rem;
+    height: 1.8rem;
+
+    transition: color var(--time), transform var(--time);
+
+    .hover & {
+      transform: rotate(180deg);
+    }
+  }
+
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       color: var(--button-primary-default);
@@ -189,8 +304,35 @@
 }
 
 .overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+
+  z-index: 20;
+
+  backdrop-filter: blur(20px);
+  background: rgba(20, 20, 20, 0.7);
+
+  &::after {
+    content: '';
+    position: fixed;
+    top: 2.2rem;
+    right: 0.9rem;
+
+    border-radius: 0.8rem;
+    padding: 0.8rem;
+    width: 3.4rem;
+    height: 3.4rem;
+
+    pointer-events: none;
+
+    animation: fadeEffect var(--time);
+
+    background-image: url("data:image/svg+xml,%3Csvg width='34' height='34' viewBox='0 0 34 34' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3CforeignObject x='-20' y='-20' width='74' height='74'%3E%3Cdiv xmlns='http://www.w3.org/1999/xhtml' style='backdrop-filter:blur(10px);clip-path:url(%23bgblur_0_313_17577_clip_path);height:100%25;width:100%25'%3E%3C/div%3E%3C/foreignObject%3E%3Cg data-figma-bg-blur-radius='20'%3E%3Cpath d='M0 8C0 3.58172 3.58172 0 8 0H26C30.4183 0 34 3.58172 34 8V26C34 30.4183 30.4183 34 26 34H8C3.58172 34 0 30.4183 0 26V8Z' fill='%231B1B1B' fill-opacity='0.05'/%3E%3Cpath d='M8 0.5H26C30.1421 0.5 33.5 3.85786 33.5 8V26C33.5 30.1421 30.1421 33.5 26 33.5H8C3.85786 33.5 0.5 30.1421 0.5 26V8C0.5 3.85786 3.85786 0.5 8 0.5Z' stroke='%234D3E3A' stroke-opacity='0.14'/%3E%3Cpath d='M17 18.4373L11.9696 23.4677C11.7814 23.6559 11.5418 23.75 11.251 23.75C10.9601 23.75 10.7205 23.6559 10.5323 23.4677C10.3441 23.2795 10.25 23.0399 10.25 22.7491C10.25 22.4582 10.3441 22.2186 10.5323 22.0304L15.5627 17L10.5323 11.9696C10.3441 11.7814 10.25 11.5418 10.25 11.251C10.25 10.9601 10.3441 10.7205 10.5323 10.5323C10.7205 10.3441 10.9601 10.25 11.251 10.25C11.5418 10.25 11.7814 10.3441 11.9696 10.5323L17 15.5627L22.0304 10.5323C22.2186 10.3441 22.4582 10.25 22.7491 10.25C23.0399 10.25 23.2795 10.3441 23.4677 10.5323C23.6559 10.7205 23.75 10.9601 23.75 11.251C23.75 11.5418 23.6559 11.7814 23.4677 11.9696L18.4373 17L23.4677 22.0304C23.6559 22.2186 23.75 22.4582 23.75 22.7491C23.75 23.0399 23.6559 23.2795 23.4677 23.4677C23.2795 23.6559 23.0399 23.75 22.7491 23.75C22.4582 23.75 22.2186 23.6559 22.0304 23.4677L17 18.4373Z' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='bgblur_0_313_17577_clip_path' transform='translate(20 20)'%3E%3Cpath d='M0 8C0 3.58172 3.58172 0 8 0H26C30.4183 0 34 3.58172 34 8V26C34 30.4183 30.4183 34 26 34H8C3.58172 34 0 30.4183 0 26V8Z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
 }
