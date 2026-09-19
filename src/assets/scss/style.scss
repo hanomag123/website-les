@@ -11,6 +11,7 @@
 html {
   box-sizing: border-box;
   font-size: calc(100vw / 1920 * 10);
+  scroll-behavior: smooth;
 
   @include breakpoint($xl-bp) {
     font-size: calc(100vw / 768 * 10);
@@ -403,6 +404,7 @@ h6,
 
 .pb-80 {
   padding-bottom: 8rem;
+
   @include breakpoint($xl-bp) {
     padding-bottom: 6.4rem;
   }
@@ -581,6 +583,14 @@ img.lazyload:not([src]) {
 
   @include breakpoint($xl-bp) {
     display: block
+  }
+}
+
+.xl-flex {
+  display: none;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
   }
 }
 

@@ -36,6 +36,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  const columnslink = document.querySelectorAll('.header-top .header-column a')
+
+  if (columnslink.length) {
+    columnslink.forEach(link => {
+      link.addEventListener('click', function () {
+        const closest = this.closest('.header-column.opened') 
+        if (closest) {
+          closest.classList.remove('opened')
+        }
+      })
+    })
+  }
+
   class Menu {
     constructor(menuElement, buttonElement) {
       this.menu =

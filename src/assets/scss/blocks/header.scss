@@ -257,6 +257,11 @@
     width: 1.6rem;
     height: 1.6rem;
     flex: 0 0 auto;
+
+    @include breakpoint($xl-bp) {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
   }
 
   &+& {
@@ -343,7 +348,7 @@ a.header-soclink {
   transition: text-decoration-color var(--time);
 
   @include breakpoint($xl-bp) {
-    display: none;
+    margin-top: 1.2rem;
   }
 
   @media (hover: hover) and (pointer: fine) {
