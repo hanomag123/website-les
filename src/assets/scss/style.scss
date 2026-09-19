@@ -436,9 +436,14 @@ h6,
   }
 }
 
+.relative-2,
 .relative {
   position: relative;
   z-index: 2;
+}
+
+.relative-2 {
+  z-index: 5;
 }
 
 img.lazyload:not([src]) {
