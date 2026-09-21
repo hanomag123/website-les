@@ -1,4 +1,9 @@
-.hero {}
+.hero {
+
+  @include breakpoint($xl-bp) {
+    margin-top: -6rem;
+  }
+}
 
 .hero-swiper {
   border-radius: 0 0 5.6rem 5.6rem;
@@ -36,7 +41,7 @@
   min-height: 70rem;
 
   @include breakpoint($xl-bp) {
-    padding-top: 2.1rem;
+    padding-top: 8.1rem;
     padding-bottom: 14rem;
     min-height: 50rem;
   }
@@ -151,7 +156,8 @@
 
   backdrop-filter: blur(20px);
   background: var(--button-default-default);
-  transition: opacity var(--time), background-color var(--time);
+  transition-property: background-color, opacity, border-color;
+  transition-duration: var(--time);
   transform: translate3d(0, 0, 0);
 
   flex: 0 0 auto;
@@ -159,6 +165,19 @@
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       background: rgba(20, 20, 20, 0.4);
+    }
+  }
+
+  &.swiper-arrow-third {
+    background: var(--button-secondary-default);
+    border-color: var(--button-secondary-default);
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background: var(--button-primary-default);
+        border-color: var(--button-primary-default);
+        color: var(--text--icon-on-color)
+      }
     }
   }
 

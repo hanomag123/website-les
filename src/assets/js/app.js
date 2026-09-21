@@ -368,6 +368,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  const catalogscategories = document.querySelectorAll(".catalog-categorywrap");
+  if (catalogscategories.length) {
+    catalogscategories.forEach((el) => {
+      const prevEl = el.querySelector(".prev");
+      const nextEl = el.querySelector(".next");
+      const swiper = el.querySelector(".swiper");
+
+      const slides = el.querySelectorAll(".swiper-slide");
+      let initialSlide = 0;
+      slides.forEach((slide, i) => {
+        if (slide.classList.contains("active")) initialSlide = i;
+      });
+
+      new Swiper(swiper, {
+        grabCursor: true,
+        speed: 500,
+        slidesPerView: "auto",
+        initialSlide: initialSlide,
+        navigation: { prevEl, nextEl },
+      });
+    });
+  }
+
   const catalogsliders = document.querySelectorAll(".mcatalog-swiper");
 
   if (catalogsliders.length && xl.matches) {
@@ -375,6 +398,7 @@ document.addEventListener("DOMContentLoaded", () => {
       new Swiper(swiper, {
         slidesPerView: 1.16,
         grabCursor: true,
+        speed: 500,
         grid: {
           rows: 2,
         },
@@ -485,6 +509,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 new Swiper(next, {
                   slidesPerView: "auto",
                   grabCursor: true,
+                  speed: 500,
                   navigation: {
                     nextEl,
                     prevEl,
@@ -649,6 +674,82 @@ document.addEventListener("DOMContentLoaded", () => {
     validate.onSuccess((event) => {
       const customEvent = new CustomEvent("validated-submit");
       event.currentTarget.dispatchEvent(customEvent);
+    });
+  }
+
+  const ranges = document.querySelectorAll(".slider-range");
+  if (ranges.length) {
+    ranges.forEach((el) => {
+      let valueInput = [];
+      const min = el.parentElement.querySelector(".min");
+      const max = el.parentElement.querySelector(".max");
+
+      const range = new rSlider({
+        target: el,
+        values: { min: +el.dataset.min || 0, max: +el.dataset.max || 100 },
+        step: +el.dataset.step || 10,
+        range: true,
+        set: [+el.dataset.set1 || 0, +el.dataset.set2 || 100],
+        scale: false,
+        labels: true,
+        tooltip: false,
+        onChange: (value) => {
+          valueInput = value.split(",");
+          if (min) {
+            min.value = valueInput[0];
+          }
+          if (max) {
+            max.value = valueInput[1];
+          }
+        },
+      });
+
+      const inputs = el.parentElement.querySelectorAll("input");
+      const maxValue = range.conf.values[range.conf.values.length - 1];
+      const minValue = range.conf.values[0];
+
+      if (inputs.length) {
+        inputs.forEach((el) => {
+          const regEx = new RegExp("[0-9]+", "g");
+          el.addEventListener("keypress", (event) => {
+            if (event.keyCode == 46 || event.keyCode == 8) {
+              //do nothing
+            } else {
+              if (event.keyCode < 48 || event.keyCode > 57) {
+                event.preventDefault();
+              }
+            }
+          });
+          el.addEventListener("input", function () {
+            const value = this.value;
+            if (!regEx.test(value)) {
+              this.value = "";
+            }
+          });
+          el.addEventListener("focus", function () {
+            el.parentElement.classList.add("focus");
+          });
+          el.addEventListener("blur", function () {
+            el.parentElement.classList.remove("focus");
+            if (this.value.trim() === "") {
+              if (this.classList.contains("min")) {
+                this.value = minValue;
+              }
+              if (this.classList.contains("max")) {
+                this.value = maxValue;
+              }
+            } else {
+              const values = range.getValue().split(",");
+              if (this.classList.contains("min")) {
+                range.setValues(+this.value, +values[1]);
+              }
+              if (this.classList.contains("max")) {
+                range.setValues(+values[0], +this.value);
+              }
+            }
+          });
+        });
+      }
     });
   }
 });

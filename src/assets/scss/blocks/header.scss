@@ -19,6 +19,10 @@
   height: 6rem;
   margin-top: -6rem;
 
+  @include breakpoint($xl-bp) {
+    display: none;
+  }
+
   .desktop-menu-opened & {
     &:after {
       content: '';
@@ -75,30 +79,13 @@
   }
 }
 
-.header-search {
+
+.search {
   position: relative;
   height: 4.4rem;
 
   max-width: 36.8rem;
   width: 100%;
-
-  @include breakpoint($xl-bp) {
-    display: none;
-  }
-
-  .header-top & {
-    @include breakpoint($xl-bp) {
-      display: none;
-    }
-  }
-
-  .menu & {
-    display: none;
-
-    @include breakpoint($xl-bp) {
-      display: block;
-    }
-  }
 
   input {
     border: 1px solid var(--border-default);
@@ -139,7 +126,27 @@
   }
 }
 
-.header-searchbtn {
+.header-search {
+  @include breakpoint($xl-bp) {
+    display: none;
+  }
+
+  .header-top & {
+    @include breakpoint($xl-bp) {
+      display: none;
+    }
+  }
+
+  .menu & {
+    display: none;
+
+    @include breakpoint($xl-bp) {
+      display: block;
+    }
+  }
+}
+
+.search-btn {
   border-radius: 0.6rem;
   width: 4rem;
   height: 4rem;

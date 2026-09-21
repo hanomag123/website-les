@@ -1,0 +1,108 @@
+.rs-container * {
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none
+}
+
+.rs-container {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 1.8rem;
+  position: relative;
+  margin: 0 auto;
+  margin-top: -1.1rem;
+  width: calc(100% - 5rem);
+}
+
+.rs-container .rs-bg,
+.rs-container .rs-selected {
+  background-color: #D0D0D0;
+  height: 0.4rem;
+  left: 0;
+  position: absolute;
+  top: 0.7rem;
+  width: 100%;
+  border-radius: 3px
+}
+
+.rs-container .rs-selected {
+  background-color: var(--button-primary-default);
+  transition: all .2s linear;
+  width: 0;
+}
+
+.rs-container.disabled .rs-selected {
+  background-color: #ccc;
+  border-color: #bbb
+}
+
+.rs-container .rs-pointer {
+  background-color: var(--button-primary-default);
+  border: 0.4rem solid var(--button-primary-default);
+  border-radius: 100%;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: all .2s linear;
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.rs-container.disabled .rs-pointer {
+  border-color: #ccc;
+  cursor: default
+}
+
+.rs-pointer[data-dir="right"] {
+  transform: translateX(-8px);
+}
+
+.rs-container .rs-pointer::after {
+  left: auto;
+  right: 12px
+}
+
+.rs-container.sliding .rs-pointer,
+.rs-container.sliding .rs-selected {
+  transition: none
+}
+
+.rs-container .rs-scale {
+  left: 0;
+  position: absolute;
+  top: 0;
+  white-space: nowrap
+}
+
+.rs-container .rs-scale span {
+  float: left;
+  position: relative
+}
+
+.rs-container .rs-scale span::before {
+  background-color: #ededed;
+  content: "";
+  height: 8px;
+  left: 0;
+  position: absolute;
+  top: 10px;
+  width: 1px
+}
+
+.rs-container.rs-noscale span::before {
+  display: none
+}
+
+
+.rs-container .rs-scale span ins {
+  display: block;
+  opacity: 0;
+}
+
+.rs-tooltip {
+  display: none;
+}
