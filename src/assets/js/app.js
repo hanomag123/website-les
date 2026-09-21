@@ -704,6 +704,8 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       });
 
+      el.instanse = range;
+
       const inputs = el.parentElement.querySelectorAll("input");
       const maxValue = range.conf.values[range.conf.values.length - 1];
       const minValue = range.conf.values[0];
@@ -711,6 +713,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (inputs.length) {
         inputs.forEach((el) => {
           const regEx = new RegExp("[0-9]+", "g");
+          if (el.classList.contains("min")) {
+            el.dataset.min = minValue;
+          }
+          if (el.classList.contains("max")) {
+            el.dataset.max = maxValue;
+          }
           el.addEventListener("keypress", (event) => {
             if (event.keyCode == 46 || event.keyCode == 8) {
               //do nothing
@@ -731,15 +739,17 @@ document.addEventListener("DOMContentLoaded", () => {
           });
           el.addEventListener("blur", function () {
             el.parentElement.classList.remove("focus");
+            const values = range.getValue().split(",");
             if (this.value.trim() === "") {
               if (this.classList.contains("min")) {
                 this.value = minValue;
+                range.setValues(+this.value, +values[1]);
               }
               if (this.classList.contains("max")) {
                 this.value = maxValue;
+                range.setValues(+values[0], +this.value);
               }
             } else {
-              const values = range.getValue().split(",");
               if (this.classList.contains("min")) {
                 range.setValues(+this.value, +values[1]);
               }
@@ -752,4 +762,60 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  document.querySelectorAll("form [data-reset]").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const form = btn.closest("form");
+      if (!form) return;
+
+      form.querySelectorAll("input, select, textarea").forEach((el) => {
+        switch (el.type) {
+          case "number":
+            const range = el.closest(".range-wrapper");
+            const event = new Event("blur", { bubbles: true });
+
+            if (range) {
+              if (el.dataset?.max) {
+                el.value = el.dataset.max;
+                el.dispatchEvent(event);
+              }
+              if (el.dataset?.min) {
+                el.value = el.dataset.min;
+                el.dispatchEvent(event);
+              }
+            }
+          case "checkbox":
+          case "radio":
+            el.checked = false;
+            break;
+          case "file":
+            el.value = "";
+            break;
+          case "hidden":
+            break;
+          case "submit":
+          case "button":
+          case "reset":
+            break;
+          default:
+            el.value = "";
+        }
+
+        el.classList.remove("is-invalid", "is-valid");
+        el.removeAttribute("aria-invalid");
+      });
+
+      form.querySelectorAll("select").forEach((sel) => {
+        sel.selectedIndex = 0;
+      });
+
+      form.querySelectorAll("[data-custom-input]").forEach((el) => {
+        el.dataset.value = "";
+        el.textContent = "";
+      });
+
+      form.dispatchEvent(new Event("custom:reset", { bubbles: true }));
+    });
+  });
 });

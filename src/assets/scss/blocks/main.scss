@@ -1310,6 +1310,8 @@ a.spec-link {
   transition: border-color var(--time), background-color var(--time);
   flex: 0 0 auto;
 
+  background-color: var(--background-base);
+
   &::after {
     content: '';
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M18.6666 7.9256L9.8117 17.3332L5.33325 12.5622L6.5562 11.5362L9.8117 14.7827L17.4458 6.6665L18.6666 7.9256Z' fill='white'/%3E%3C/svg%3E%0A");

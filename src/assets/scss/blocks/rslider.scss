@@ -15,6 +15,19 @@
   margin: 0 auto;
   margin-top: -1.1rem;
   width: calc(100% - 5rem);
+
+  animation: fadeEffect var(--time);
+
+  & + .range-placeholder {
+    display: none;
+  }
+}
+
+.range-placeholder {
+  width: 100%;
+  height: 1.8rem;
+  margin-top: -1.1rem;
+  display: block;
 }
 
 .rs-container .rs-bg,
@@ -30,7 +43,6 @@
 
 .rs-container .rs-selected {
   background-color: var(--button-primary-default);
-  transition: all .2s linear;
   width: 0;
 }
 
@@ -47,7 +59,6 @@
   left: 0;
   position: absolute;
   top: 0;
-  transition: all .2s linear;
   width: 1.8rem;
   height: 1.8rem;
 }
