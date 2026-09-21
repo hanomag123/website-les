@@ -13,6 +13,10 @@ title: Каталог
 
   <div class="catalog-desc mt-16">Выберите профиль, породу и сорт. В карточке сразу видны варианты и цены, а менеджер проверит наличие и рассчитает доставку по Москве и области.</div>
 
+  <button class="catalog-mobilebtn btn btn-secondary" data-catalogbtn>
+    ФИЛЬТР ПО ПАРАМЕТРАМ
+  </button>
+
   <div class="catalog-categorywrap">
     <div class="swiper catalog-categories mt-40">
       <div class="swiper-wrapper">
@@ -136,6 +140,13 @@ title: Каталог
 
   <div class="catalog-wrapper mt-24">
     <div class="catalog-filter">
+      <button class="catalog-filterclose" aria-label="close filter">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12 13.325L7.13755 18.1875C6.95421 18.3708 6.73338 18.4604 6.47505 18.4562C6.21671 18.4521 5.99588 18.3583 5.81255 18.175C5.63755 17.9916 5.55213 17.7729 5.5563 17.5187C5.56046 17.2646 5.65005 17.05 5.82505 16.875L10.675 12L5.82505 7.12497C5.65005 6.94997 5.56255 6.73538 5.56255 6.48122C5.56255 6.22705 5.65005 6.0083 5.82505 5.82497C6.00005 5.64163 6.21671 5.54788 6.47505 5.54372C6.73338 5.53955 6.95421 5.62913 7.13755 5.81247L12 10.675L16.8625 5.81247C17.0459 5.62913 17.2667 5.53955 17.525 5.54372C17.7834 5.54788 18.0042 5.64163 18.1875 5.82497C18.3625 6.0083 18.448 6.22705 18.4438 6.48122C18.4396 6.73538 18.35 6.94997 18.175 7.12497L13.325 12L18.175 16.875C18.35 17.05 18.4375 17.2646 18.4375 17.5187C18.4375 17.7729 18.35 17.9916 18.175 18.175C18 18.3583 17.7834 18.4521 17.525 18.4562C17.2667 18.4604 17.0459 18.3708 16.8625 18.1875L12 13.325Z"
+            fill="black" />
+        </svg>
+      </button>
       <form action="#">
         <div class="catalog-filtertitle p-1-primary text-black text-center">ФИЛЬТР ПО ПАРАМЕТРАМ</div>
 
@@ -151,7 +162,7 @@ title: Каталог
         </div>
 
         <details class="catalog-details">
-          <summary class="catalog-summary">Сначала популярные</summary>
+          <summary class="catalog-summary">Сначала популярные <span class="catalog-bullet"></span></summary>
 
           <div class="catalog-checkboxes">
             <label class="catalog-checkbox checkbox">
@@ -166,7 +177,7 @@ title: Каталог
         </details>
 
         <details class="catalog-details">
-          <summary class="catalog-summary">Порода дерева</summary>
+          <summary class="catalog-summary">Порода дерева <span class="catalog-bullet"></span></summary>
 
           <div class="catalog-checkboxes">
             <label class="catalog-checkbox checkbox">
@@ -181,7 +192,7 @@ title: Каталог
         </details>
 
         <details class="catalog-details">
-          <summary class="catalog-summary">Сорт</summary>
+          <summary class="catalog-summary">Сорт <span class="catalog-bullet"></span></summary>
 
           <div class="catalog-checkboxes">
             <label class="catalog-checkbox checkbox">
@@ -196,7 +207,7 @@ title: Каталог
         </details>
 
         <details class="catalog-details">
-          <summary class="catalog-summary">Обработка</summary>
+          <summary class="catalog-summary">Обработка <span class="catalog-bullet"></span></summary>
 
           <div class="catalog-checkboxes">
             <label class="catalog-checkbox checkbox">
@@ -211,7 +222,7 @@ title: Каталог
         </details>
 
         <details class="catalog-details" open>
-          <summary class="catalog-summary">Способ применения</summary>
+          <summary class="catalog-summary">Способ применения <span class="catalog-bullet"></span></summary>
 
           <div class="catalog-checkboxes">
             <label class="catalog-checkbox checkbox">
@@ -271,7 +282,7 @@ title: Каталог
         </details>
 
         <details class="catalog-details" open>
-          <summary class="catalog-summary">Цена</summary>
+          <summary class="catalog-summary">Цена <span class="catalog-bullet"></span></summary>
 
           <div class="range-wrapper">
             <div class="range-inputs">
@@ -285,7 +296,7 @@ title: Каталог
         </details>
 
         <details class="catalog-details" open>
-          <summary class="catalog-summary">Длина, мм</summary>
+          <summary class="catalog-summary">Длина, мм <span class="catalog-bullet"></span></summary>
 
           <div class="range-wrapper">
             <div class="range-inputs">
@@ -299,7 +310,7 @@ title: Каталог
         </details>
 
         <details class="catalog-details">
-          <summary class="catalog-summary">Ширина, мм </summary>
+          <summary class="catalog-summary">Ширина, мм  <span class="catalog-bullet"></span></summary>
 
           <div class="range-wrapper">
             <div class="range-inputs">
@@ -313,7 +324,7 @@ title: Каталог
         </details>
 
         <details class="catalog-details">
-          <summary class="catalog-summary">Толщина, мм</summary>
+          <summary class="catalog-summary">Толщина, мм <span class="catalog-bullet"></span></summary>
 
           <div class="range-wrapper">
             <div class="range-inputs">
@@ -327,7 +338,7 @@ title: Каталог
         </details>
 
         <details class="catalog-details">
-          <summary class="catalog-summary">Вид склейки</summary>
+          <summary class="catalog-summary">Вид склейки <span class="catalog-bullet"></span></summary>
 
           <div class="catalog-checkboxes">
             <label class="catalog-checkbox checkbox">
@@ -450,7 +461,7 @@ title: Каталог
       },
       ])
 
-      <div class="catalog-pagination pagination">
+      <div class="catalog-pagination pagination mt-16">
         <a href="#" class="pagination-btn prev disabled" aria-label="prev page">
           <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -471,9 +482,92 @@ title: Каталог
               d="M14.5 20.3C14.3667 20.3 14.25 20.2542 14.15 20.1625C14.05 20.0708 14 19.95 14 19.8V12.2C14 12.05 14.05 11.9292 14.15 11.8375C14.25 11.7458 14.3667 11.7 14.5 11.7C14.5333 11.7 14.65 11.75 14.85 11.85L18.475 15.475C18.5583 15.5583 18.6167 15.6417 18.65 15.725C18.6833 15.8083 18.7 15.9 18.7 16C18.7 16.1 18.6833 16.1917 18.65 16.275C18.6167 16.3583 18.5583 16.4417 18.475 16.525L14.85 20.15C14.8 20.2 14.7458 20.2375 14.6875 20.2625C14.6292 20.2875 14.5667 20.3 14.5 20.3Z"
               fill="currentColor" />
           </svg>
-
         </a>
       </div>
+
+      <div class="cfaq mt-16">
+        <h2 class="cfaq-title h6">Популярные вопросы <br class="xl-block">о пиломатериалах</h2>
+
+        <details class="cfaq-details p-3" open>
+          <summary class="cfaq-summary p-2 font-bold text-black">Как выбрать пиломатериалы?</summary>
+
+          <p>Смотрите на породу древесины, влажность, сорт, геометрию, наличие трещин, синевы, гнили и сильного скручивания. Для каркаса, отделки, пола, обрешетки и мебели нужны разные материалы. Важно выбирать не просто по цене за куб, а по задаче.</p>
+        </details>
+
+        <details class="cfaq-details p-3">
+          <summary class="cfaq-summary p-2 font-bold text-black">Сухие пиломатериалы или естественной влажности лучше?</summary>
+
+          <p>Смотрите на породу древесины, влажность, сорт, геометрию, наличие трещин, синевы, гнили и сильного скручивания. Для каркаса, отделки, пола, обрешетки и мебели нужны разные материалы. Важно выбирать не просто по цене за куб, а по задаче.</p>
+        </details>
+
+        <details class="cfaq-details p-3">
+          <summary class="cfaq-summary p-2 font-bold text-black">Чем доска отличается от бруса?</summary>
+
+          <p>Смотрите на породу древесины, влажность, сорт, геометрию, наличие трещин, синевы, гнили и сильного скручивания. Для каркаса, отделки, пола, обрешетки и мебели нужны разные материалы. Важно выбирать не просто по цене за куб, а по задаче.</p>
+        </details>
+
+        <details class="cfaq-details p-3">
+          <summary class="cfaq-summary p-2 font-bold text-black">На что смотреть при приемке пиломатериалов?</summary>
+
+          <p>Смотрите на породу древесины, влажность, сорт, геометрию, наличие трещин, синевы, гнили и сильного скручивания. Для каркаса, отделки, пола, обрешетки и мебели нужны разные материалы. Важно выбирать не просто по цене за куб, а по задаче.</p>
+        </details>
+        <details class="cfaq-details p-3">
+          <summary class="cfaq-summary p-2 font-bold text-black">Нужно ли обрабатывать пиломатериалы антисептиком?</summary>
+
+          <p>Смотрите на породу древесины, влажность, сорт, геометрию, наличие трещин, синевы, гнили и сильного скручивания. Для каркаса, отделки, пола, обрешетки и мебели нужны разные материалы. Важно выбирать не просто по цене за куб, а по задаче.</p>
+        </details>
+
+        <details class="cfaq-details p-3">
+          <summary class="cfaq-summary p-2 font-bold text-black">Как хранить пиломатериалы до работы?</summary>
+
+          <p>Смотрите на породу древесины, влажность, сорт, геометрию, наличие трещин, синевы, гнили и сильного скручивания. Для каркаса, отделки, пола, обрешетки и мебели нужны разные материалы. Важно выбирать не просто по цене за куб, а по задаче.</p>
+        </details>
+
+        <details class="cfaq-details p-3">
+          <summary class="cfaq-summary p-2 font-bold text-black">Как посчитать количество пиломатериалов?</summary>
+
+          <p>Смотрите на породу древесины, влажность, сорт, геометрию, наличие трещин, синевы, гнили и сильного скручивания. Для каркаса, отделки, пола, обрешетки и мебели нужны разные материалы. Важно выбирать не просто по цене за куб, а по задаче.</p>
+        </details>
+      </div>
     </div>
+  </div>
+</section>
+
+<section class="help mt-40 container">
+  <div class="help-block first">
+    <h2 class="help-title h6 relative">Поможем подобрать материал </h2>
+    <div class="help-desc relative">Ответьте на несколько вопросов о вашем объекте и мы подберем оптимальные материалы.</div>
+
+    <a href="main.html#lead" class="help-link">Подобрать материал</a>
+
+    <picture class="help-bg img-cover">
+      <source media="(max-width: 500px)" srcset="./assets/images/help/bg-mobile.webp">
+      <img src="./assets/images/pokazplace.jpg" data-src="./assets/images/help/bg.webp" class="lazyload" alt="help">
+    </picture>
+  </div>
+
+  <div class="help-block second">
+    <h2 class="help-title h6 relative">Рассчитать по проекту</h2>
+    <div class="help-desc relative">Прикрепите проект, смету или список материалов — мы сделаем точный расчет.</div>
+
+    <a href="main.html#lead" class="help-link">Отправить проект</a>
+
+    <picture class="help-bg img-cover">
+      <source media="(max-width: 500px)" srcset="./assets/images/help/bg2-mobile.webp">
+      <img src="./assets/images/pokazplace.jpg" data-src="./assets/images/help/bg2.webp" class="lazyload" alt="help">
+    </picture>
+  </div>
+
+  <div class="help-bot">
+    <div class="help-column">
+      <h2 class="help-title h6 relative">Материал можно заказать <br class="xl-block">с покраской в цеху</h2>
+      <div class="help-desc max-w-521 relative">Лак, масло, эмаль, тонировка <br class="xl-block">и броширование. Подберем цвет и подготовим готовый к монтажу материал.</div>
+    </div>
+
+    <div class="help-bg2 img-contain">
+      <img src="./assets/images/pokazplace.jpg" data-src="./assets/images/help/bg3.webp" class="lazyload" alt="help">
+    </div>
+
+    <button class="help-btn btn btn-primary">Подробнее о покраске</button>
   </div>
 </section>

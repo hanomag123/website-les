@@ -46,10 +46,20 @@
 
 .catalog-desc {
   max-width: 74.9rem;
+
+  @include breakpoint($xl-bp) {
+    font-size: 1.4rem;
+    line-height: 129%;
+    letter-spacing: 0.03em;
+  }
 }
 
 .catalog-categories {
   border-radius: 1.6rem;
+
+  @include breakpoint($xl-bp) {
+    margin-top: 1.6rem;
+  }
 
   .swiper-slide {
     border-radius: 1.6rem;
@@ -81,6 +91,10 @@
     height: 3.2rem;
     padding-top: 0.6rem;
     padding-bottom: 0.6rem;
+
+    @include breakpoint($xl-bp) {
+      display: none;
+    }
 
     &.next,
     &.prev {
@@ -200,6 +214,21 @@
   display: grid;
   grid-template-columns: 32.6rem 1fr;
   gap: 2.4rem;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.catalog-mobilebtn {
+  display: none;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    width: 100%;
+    margin-top: 1.6rem;
+  }
 }
 
 .catalog-filter {
@@ -207,18 +236,97 @@
   padding: 2rem 0.8rem 0.8rem;
   background: var(--background-base);
   height: min-content;
+
+  @include breakpoint($xl-bp) {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+
+    z-index: 40;
+
+    overflow-y: auto;
+
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+
+    padding-bottom: 7rem;
+
+    transition: opacity var(--time);
+
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &.opened {
+    @include breakpoint($xl-bp) {
+      pointer-events: all;
+      opacity: 1;
+    }
+  }
+}
+
+.catalog-filterclose {
+  display: none;
+
+  @include breakpoint($xl-bp) {
+    display: block;
+    position: absolute;
+    top: 1.6rem;
+    right: 2.4rem;
+
+    width: 2.4rem;
+    height: 2.4rem;
+  }
 }
 
 .catalog-filtertitle {
   margin-bottom: 2rem;
+
+  @include breakpoint($xl-bp) {
+    text-align: start;
+  }
 }
 
 .catalog-details {
   background: var(--background-transparent-black);
   border-radius: 0.8rem;
-  padding: 0.6rem 1.2rem;
 
   margin-top: 0.8rem;
+
+  &>* {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+
+    &:last-child {
+      padding-bottom: 1rem;
+    }
+  }
+}
+
+.catalog-bullet {
+  opacity: 0;
+  transition: opacity var(--time);
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8 12C8 9.79091 9.79091 8 12 8C14.2091 8 16 9.79091 16 12C16 14.2091 14.2091 16 12 16C9.79091 16 8 14.2091 8 12Z' fill='%23228DF1' /%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: flex;
+
+  margin-left: auto;
+  flex-grow: 1;
+
+  [data-checked] & {
+    opacity: 1;
+  }
+
+  [data-checked][open] & {
+    opacity: 0;
+  }
 }
 
 .catalog-summary {
@@ -232,6 +340,16 @@
   line-height: 129%;
   letter-spacing: 0.03em;
   color: var(--text--icon-primary);
+  transition: color var(--time);
+
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--button-primary-default);
+    }
+  }
 
   &::after {
     content: '';
@@ -258,7 +376,7 @@
   flex-direction: column;
   gap: 0.8rem;
 
-  margin-top: 1.3rem;
+  margin-top: 0.5rem;
 }
 
 .range-inputs {
@@ -267,6 +385,20 @@
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+
+  position: relative;
+
+  &::after {
+    content: '';
+    height: 1.8rem;
+    width: 0.1rem;
+    background-color: var(--border-default);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
 
   input {
     width: 100%;
@@ -301,6 +433,18 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.8rem;
+
+  @include breakpoint($xl-bp) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    background: var(--background-base);
+
+    padding: 1.6rem 2.4rem;
+  }
 }
 
 .catalog-submit {
@@ -331,6 +475,12 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2.4rem;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
 }
 
 .pagination {
@@ -357,6 +507,11 @@
     transition: background-color var(--time);
   }
 
+  a.active {
+    background: var(--button-primary-default);
+    color: var(--text--icon-on-color);
+  }
+
   a {
     @media (hover: hover) and (pointer: fine) {
       &:hover {
@@ -381,4 +536,298 @@
   &.next {
     margin-left: 0.6rem;
   }
+}
+
+.catalog-pagination {
+  grid-column: 3 span;
+
+}
+
+.cfaq {
+  grid-column: 3 span;
+  background: var(--background-base);
+  border-radius: 2.4rem;
+  padding: 2.4rem;
+
+  @include breakpoint($xl-bp) {
+    margin-left: -0.8rem;
+    margin-right: -0.8rem;
+
+    padding: 1.2rem 0.8rem;
+
+    padding-bottom: 0.8rem;
+
+    margin-top: 4rem;
+
+    border-radius: 1.6rem;
+  }
+}
+
+.cfaq-title {
+  margin-bottom: 2.4rem;
+
+  @include breakpoint($xl-bp) {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+
+    margin-bottom: 1.2rem;
+  }
+}
+
+.cfaq-details {
+  border: 1px solid var(--border-default);
+  border-radius: 1.2rem;
+
+  padding-bottom: 1.2rem;
+
+  background: var(--background-base);
+
+  @include breakpoint($xl-bp) {
+    padding-bottom: 0.8rem;
+  }
+
+  &>* {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+
+    @include breakpoint($xl-bp) {
+      padding-left: 1.2rem;
+      padding-right: 1.2rem;
+    }
+  }
+
+  &+& {
+    margin-top: 0.8rem;
+  }
+}
+
+.cfaq-summary {
+  display: flex;
+  align-items: center;
+
+  padding-top: 1.2rem;
+
+  transition: color var(--time);
+
+  @include breakpoint($xl-bp) {
+    padding-top: 0.8rem;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--button-primary-default);
+    }
+  }
+
+  &::after {
+    content: '';
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.475 14.475L7.84995 10.85C7.79995 10.8 7.76245 10.7458 7.73745 10.6875C7.71245 10.6292 7.69995 10.5667 7.69995 10.5C7.69995 10.3667 7.74578 10.25 7.83745 10.15C7.92912 10.05 8.04995 10 8.19995 10H15.8C15.95 10 16.0708 10.05 16.1625 10.15C16.2541 10.25 16.3 10.3667 16.3 10.5C16.3 10.5333 16.25 10.65 16.15 10.85L12.525 14.475C12.4416 14.5583 12.3583 14.6167 12.275 14.65C12.1916 14.6833 12.1 14.7 12 14.7C11.9 14.7 11.8083 14.6833 11.725 14.65C11.6416 14.6167 11.5583 14.5583 11.475 14.475Z' fill='%23241E1C' /%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 2.4rem;
+    height: 2.4rem;
+    flex: 0 0 auto;
+
+    margin-left: auto;
+    transition: transform var(--time);
+  }
+
+  [open] & {
+    margin-bottom: 0.8rem;
+
+    &::after {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.help {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.4rem;
+  row-gap: 4rem;
+
+  margin-bottom: 15.8rem;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 1rem;
+
+    margin-bottom: 8rem;
+    gap: 1.6rem;
+
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
+}
+
+.help-block {
+  border-radius: 2.4rem;
+  padding: 2rem 2.4rem;
+  background: var(--background-base);
+
+  position: relative;
+  overflow: hidden;
+
+  @include breakpoint($xl-bp) {
+    padding: 1.6rem;
+    border-radius: 1.6rem;
+  }
+
+  &.first {
+    @include breakpoint($xl-bp) {
+      padding-bottom: 14.2rem;
+
+      .help-bg {
+        height: 23.7rem;
+      }
+    }
+  }
+
+  &.second {
+    @include breakpoint($xl-bp) {
+      padding-bottom: 12.7rem;
+
+      .help-bg {
+        height: 18.5rem;
+      }
+    }
+  }
+}
+
+.help-desc {
+  max-width: 40.8rem;
+  margin-top: 0.8rem;
+
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 138%;
+  letter-spacing: 0.03em;
+
+  @include breakpoint($xl-bp) {
+    font-size: 1.4rem;
+    line-height: 129%;
+  }
+}
+
+.max-w-521 {
+  max-width: 52.1rem;
+}
+
+.help-bg {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  height: 100%;
+
+  border-top-right-radius: inherit;
+  border-bottom-right-radius: inherit;
+
+  @include breakpoint($xl-bp) {
+    border-top-right-radius: 0;
+  }
+
+  img {
+    object-position: left;
+  }
+}
+
+.help-link {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 129%;
+  letter-spacing: 0.03em;
+  color: var(--button-primary-default);
+
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: 0.1rem;
+  text-underline-offset: 0.5rem;
+
+  transition: text-decoration-color var(--time);
+
+  margin-top: 1.8rem;
+  display: inline-flex;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      text-decoration-color: transparent;
+    }
+  }
+}
+
+.help-bot {
+  background: var(--background-surface);
+
+  grid-column: 2 span;
+
+  padding: 2.6rem 2.4rem;
+  border-radius: 2.4rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    min-height: 37.2rem;
+    border-radius: 1.6rem;
+    padding: 1.6rem;
+  }
+
+  &::after {
+    content: '';
+    background-image: url("data:image/svg+xml,%3Csvg width='493' height='105' viewBox='0 0 493 105' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M493 246.5C493 214.129 486.624 182.075 474.236 152.169C461.849 122.262 443.691 95.0878 420.802 72.1982C397.912 49.3085 370.738 31.1515 340.831 18.7637C310.925 6.37591 278.871 -1.41497e-06 246.5 0C214.129 1.41497e-06 182.075 6.37591 152.169 18.7637C122.262 31.1515 95.0878 49.3085 72.1982 72.1982C49.3085 95.0878 31.1515 122.262 18.7637 152.169C6.37591 182.075 -2.82995e-06 214.129 0 246.5L246.5 246.5H493Z' fill='%23589D80'/%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+    width: 49.3rem;
+    height: 10.5rem;
+    position: absolute;
+    left: calc(50% + 12rem);
+    bottom: 0;
+    transform: translateX(-50%);
+
+    max-width: 100%;
+
+    @include breakpoint($xl-bp) {
+      background-image: url("data:image/svg+xml,%3Csvg width='258' height='199' viewBox='0 0 258 199' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='117.5' cy='140.5' r='140.5' fill='%23589D80'/%3E%3C/svg%3E%0A");
+      left: 0;
+      transform: none;
+
+      width: 25.8rem;
+      height: 19.9rem;
+
+      background-position: left;
+    }
+  }
+}
+
+.help-column {
+  max-width: 52.1rem;
+}
+
+.help-bg2 {
+  width: 15.6rem;
+  height: 12.4rem;
+
+  position: relative;
+
+  z-index: 1;
+
+  margin-top: -2rem;
+  margin-bottom: -2rem;
+}
+
+.help-btn {
+  z-index: 2;
 }

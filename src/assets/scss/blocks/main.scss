@@ -587,7 +587,11 @@
 
 .mcatalog-column {}
 
-.mcatalog-subtitle {}
+.mcatalog-subtitle {
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 130%;
+}
 
 .mcatalog-btn {}
 
@@ -1276,6 +1280,14 @@ a.spec-link {
   align-items: center;
   gap: 0.8rem;
   cursor: pointer;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      .checkbox-box {
+        border-color: var(--button-primary-hovered);
+      }
+    }
+  }
 
   input {
     position: absolute;

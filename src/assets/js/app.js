@@ -53,6 +53,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function updateCatalogDetails(details) {
+    const checkboxes = details.querySelectorAll(
+      'input[type="checkbox"],input[type="radio"]',
+    );
+    if (!checkboxes.length) return;
+
+    const anyChecked = Array.from(checkboxes).some((box) => box.checked);
+
+    if (anyChecked) {
+      details.dataset.checked = "";
+    } else {
+      delete details.dataset.checked;
+    }
+  }
+
+  function updateAllCatalogDetails() {
+    document.querySelectorAll(".catalog-details").forEach(updateCatalogDetails);
+  }
+
+  updateAllCatalogDetails();
+
+  document.addEventListener("change", (e) => {
+    if (e.target.matches('.catalog-details input[type="checkbox"]')) {
+      const details = e.target.closest(".catalog-details");
+      if (details) updateCatalogDetails(details);
+    }
+  });
+
   class Menu {
     constructor(menuElement, buttonElement) {
       this.menu =
@@ -818,4 +846,17 @@ document.addEventListener("DOMContentLoaded", () => {
       form.dispatchEvent(new Event("custom:reset", { bubbles: true }));
     });
   });
+
+  const catalogbtn = document.querySelector("[data-catalogbtn]");
+  const catalogfilter = document.querySelector(".catalog-filter");
+  const closefilter = document.querySelector(".catalog-filterclose");
+  if (catalogbtn && catalogfilter && closefilter) {
+    catalogbtn.addEventListener("click", function () {
+      catalogfilter.classList.add("opened");
+    });
+
+    closefilter.addEventListener("click", function () {
+      catalogfilter.classList.remove("opened");
+    });
+  }
 });
