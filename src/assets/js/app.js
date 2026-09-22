@@ -1,4 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
+  Fancybox.bind("[data-fancybox]", {
+    showClass: "f-fadeIn",
+    Images: {
+      zoom: false,
+    },
+    Thumbs: {
+      type: "classic",
+    },
+  });
+
   const xl = matchMedia("(max-width: 1024px)");
 
   const headersearch = document.querySelector(".header-search");
@@ -455,15 +465,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // const popularswipers = document.querySelectorAll('.popular-swiper')
-  // if (popularswipers.length) {
-  //   popularswipers.forEach(swiper => {
-  //     new Swiper(swiper, {
-  //       slidesPerView: 'auto',
-  //       grabCursor: true,
-  //     })
-  //   })
-  // }
+  const popularswipers = document.querySelectorAll(
+    ".popular-content .popular-swiper",
+  );
+  if (popularswipers.length) {
+    popularswipers.forEach((swiper) => {
+      const nextEl = swiper.parentElement.parentElement.querySelector(".next");
+      const prevEl = swiper.parentElement.parentElement.querySelector(".prev");
+
+      new Swiper(swiper, {
+        slidesPerView: "auto",
+        grabCursor: true,
+        speed: 500,
+        navigation: {
+          nextEl,
+          prevEl,
+        },
+      });
+    });
+  }
 
   const menulinks = document.querySelectorAll(".menu-withsublist");
 
@@ -903,9 +923,6 @@ document.addEventListener("DOMContentLoaded", () => {
         tmb.hidden = true;
       }
 
-      const prevEl = tmb.parentElement.querySelector(".prev");
-      const nextEl = tmb.parentElement.querySelector(".next");
-
       const thumbs = new Swiper(tmb, {
         grabCursor: true,
         slideToClickedSlide: true,
@@ -922,16 +939,19 @@ document.addEventListener("DOMContentLoaded", () => {
             }
           },
         },
-        navigation: {
-          prevEl,
-          nextEl,
-        },
       });
+
+      const prevEl = swiper.parentElement.querySelector(".prev");
+      const nextEl = swiper.parentElement.querySelector(".next");
 
       const mainSwiper = new Swiper(swiper, {
         grabCursor: true,
         spaceBetween: 20,
         speed: 500,
+        navigation: {
+          prevEl,
+          nextEl,
+        },
         on: {
           slideChange: function () {
             if (thumbs) {
