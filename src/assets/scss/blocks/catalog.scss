@@ -4,6 +4,7 @@
   gap: 0.8rem;
 
   overflow: hidden;
+  white-space: nowrap;
 
   padding-top: 1.6rem;
   padding-bottom: 1.6rem;
@@ -13,6 +14,20 @@
   line-height: 129%;
   letter-spacing: 0.03em;
   color: var(--text--icon-tertiary);
+
+  a {
+    transition: color var(--time);
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: var(--text--icon-primary);
+
+        &::before {
+          filter: brightness(0);
+        }
+      }
+    }
+  }
 
   &>* {
     display: flex;
@@ -30,6 +45,8 @@
       height: 2.4rem;
 
       display: flex;
+
+      transition: filter var(--time);
     }
 
     &:first-child {

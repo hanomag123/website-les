@@ -161,16 +161,34 @@ title: Каталог
           <input type="text" name="q" placeholder="Найти по материалу, размеру…">
         </div>
 
-        <details class="catalog-details">
-          <summary class="catalog-summary">Сначала популярные <span class="catalog-bullet"></span></summary>
+        <details class="catalog-details radio">
+          <summary class="catalog-summary">Сначала популярные</summary>
 
           <div class="catalog-checkboxes">
             <label class="catalog-checkbox checkbox">
-              <input type="checkbox" name="acceptance">
+              <input type="radio" name="sort" value="popular" checked>
               <span class="checkbox-box"></span>
 
               <span class="checkbox-text p-3">
-                Фильтр
+                Сначала популярные
+              </span>
+            </label>
+
+            <label class="catalog-checkbox checkbox">
+              <input type="radio" name="sort" value="new">
+              <span class="checkbox-box"></span>
+
+              <span class="checkbox-text p-3">
+                Сначала новые
+              </span>
+            </label>
+
+            <label class="catalog-checkbox checkbox">
+              <input type="radio" name="sort" value="old">
+              <span class="checkbox-box"></span>
+
+              <span class="checkbox-text p-3">
+                Сначала старые
               </span>
             </label>
           </div>

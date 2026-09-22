@@ -1,0 +1,117 @@
+.product-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2.4rem;
+  row-gap: 0;
+  margin-top: 2.4rem;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4.6rem;
+  }
+}
+
+.product-swipers {
+  display: flex;
+  flex-direction: row-reverse;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.product-swiper {
+  height: 37.1rem;
+  width: 37.1rem;
+  margin-right: 0;
+
+  @include breakpoint($xl-bp) {
+    height: 44rem;
+    padding-bottom: 2rem;
+  }
+
+  @include breakpoint($sm-bp) {
+    width: 100%;
+  }
+
+  .swiper-slide {
+    margin-right: 1rem;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .product-img {
+    height: 100%;
+    overflow: hidden;
+    border-radius: 1.6rem;
+
+    &>* {
+      height: 100%;
+    }
+  }
+
+  .swiper-pagination {
+    display: none;
+
+    @include breakpoint($xl-bp) {
+      display: block;
+
+      .swiper-pagination-bullet {
+        width: 1.6rem;
+        height: 1.6rem;
+        margin-left: 0.8rem;
+        margin-right: 0.8rem;
+      }
+    }
+  }
+}
+
+.product-thumbs-wrapper {
+  width: 6.4rem;
+  height: 37.1rem;
+  overflow: hidden;
+
+  @include breakpoint($xl-bp) {
+    width: 100%;
+    height: 6.4rem;
+  }
+
+  .swiper-slide {
+    cursor: pointer;
+
+    @include breakpoint($xl-bp) {
+      height: 6rem;
+    }
+  }
+}
+
+.product-thumbs {
+  height: 100%;
+  padding-right: 0.4rem;
+
+  .swiper-slide {
+    width: 6.4rem;
+    height: 6.4rem;
+    margin-bottom: 0.8rem;
+    border: 0.1rem solid #e7e7e7;
+    border-radius: 1.2rem;
+    box-shadow: 0.4rem 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.02);
+    transition: border-color var(--time);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &.active {
+      // border-color: var(--orange);
+    }
+  }
+
+  .product-img {
+    border-radius: inherit;
+    overflow: hidden;
+  }
+}

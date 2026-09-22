@@ -66,6 +66,17 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       delete details.dataset.checked;
     }
+
+    // Update summary text from the checked radio
+    const checkedRadio = details.querySelector('input[type="radio"]:checked');
+    if (checkedRadio) {
+      const summary = details.querySelector(".catalog-summary");
+      const label = checkedRadio.closest("label");
+      const textEl = label?.querySelector(".checkbox-text");
+      if (summary && textEl) {
+        summary.textContent = textEl.textContent.trim();
+      }
+    }
   }
 
   function updateAllCatalogDetails() {
@@ -75,7 +86,11 @@ document.addEventListener("DOMContentLoaded", () => {
   updateAllCatalogDetails();
 
   document.addEventListener("change", (e) => {
-    if (e.target.matches('.catalog-details input[type="checkbox"]')) {
+    if (
+      e.target.matches(
+        '.catalog-details input[type="checkbox"], .catalog-details input[type="radio"]',
+      )
+    ) {
       const details = e.target.closest(".catalog-details");
       if (details) updateCatalogDetails(details);
     }
@@ -858,5 +873,86 @@ document.addEventListener("DOMContentLoaded", () => {
     closefilter.addEventListener("click", function () {
       catalogfilter.classList.remove("opened");
     });
+  }
+
+  const productWrapper = document.querySelector(".product-wrapper");
+
+  if (productWrapper) {
+    const swiper = productWrapper.querySelector(".product-swiper");
+    const tmb = productWrapper.querySelector(".product-thumbs");
+    const slides = swiper.querySelectorAll(".swiper-slide");
+
+    if (swiper && slides.length) {
+      const wrap = tmb.querySelector(".swiper-wrapper");
+      if (wrap) {
+        slides.forEach((slide) => {
+          const img = document.createElement("div");
+          img.classList.add("swiper-slide");
+          img.innerHTML = slide.innerHTML;
+          wrap.appendChild(img);
+        });
+      }
+
+      if (slides.length === 1) {
+        tmb.hidden = true;
+      }
+
+      const prevEl = tmb.parentElement.querySelector(".prev");
+      const nextEl = tmb.parentElement.querySelector(".next");
+
+      const thumbs = new Swiper(tmb, {
+        grabCursor: true,
+        slideToClickedSlide: true,
+        slidesPerView: "auto",
+        speed: 500,
+        direction: xl.matches ? 'horizontal' : "vertical",
+        mousewheel: {
+          enabled: true,
+        },
+        on: {
+          slideChange: function () {
+            if (mainSwiper) {
+              mainSwiper.slideTo(this.activeIndex);
+            }
+          },
+        },
+        navigation: {
+          prevEl,
+          nextEl,
+        },
+      });
+
+      const mainSwiper = new Swiper(swiper, {
+        grabCursor: true,
+        spaceBetween: 20,
+        speed: 500,
+        on: {
+          slideChange: function () {
+            if (thumbs) {
+              thumbs.slides.forEach((el) => {
+                el.classList.remove("active");
+              });
+              thumbs.slides[this.activeIndex].classList.add("active");
+              thumbs.slideTo(this.activeIndex);
+            }
+          },
+        },
+      });
+
+      const thumbsSlides = tmb.querySelectorAll(".swiper-slide");
+
+      if (thumbsSlides.length) {
+        thumbsSlides.forEach((el, i) => {
+          el.addEventListener("click", function () {
+            thumbsSlides.forEach((thm) => {
+              thm.classList.remove("active");
+            });
+            this.classList.add("active");
+            mainSwiper.slideTo(i);
+          });
+        });
+        thumbsSlides[0].click();
+      }
+    }
   }
 });
