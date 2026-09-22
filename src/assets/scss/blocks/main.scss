@@ -425,9 +425,6 @@
 }
 
 .mcatalog-content {
-  &>* {
-    animation: fadeEffect var(--time);
-  }
 
   .mcatalog-swiper {
     display: block;
@@ -990,9 +987,6 @@
 }
 
 .popular-content {
-  &>* {
-    animation: fadeEffect var(--time);
-  }
 
   .popular-swiper {
     display: block;
@@ -1342,6 +1336,7 @@ a.spec-link {
 
 .checkbox-text {
   color: #172339;
+  transition: color var(--time);
 }
 
 .why {
@@ -1671,10 +1666,13 @@ a.spec-link {
   }
 }
 
-.admits-content {
+.tabs-content {
   &>* {
     animation: fadeEffect var(--time);
   }
+}
+
+.admits-content {
 
   .swiper {
     display: block;

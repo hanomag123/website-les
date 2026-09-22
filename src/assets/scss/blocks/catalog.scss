@@ -313,6 +313,8 @@
 
   margin-top: 0.8rem;
 
+  position: relative;
+
   &>* {
     padding-left: 1.2rem;
     padding-right: 1.2rem;
@@ -394,6 +396,60 @@
   gap: 0.8rem;
 
   margin-top: 0.5rem;
+
+  .radio & {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+
+    padding: 0;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+
+    border: 1px solid var(--border-default);
+    border-radius: 0.8rem;
+
+    box-shadow: 0 21px 64px -15px rgba(77, 62, 58, 0.1);
+    background: #f5f5f5;
+
+    z-index: 10;
+
+    gap: 0;
+
+    max-height: 23rem;
+    overflow-y: auto;
+
+    animation: fadeEffect var(--time);
+  }
+}
+
+.catalog-checkbox {
+  .radio & {
+    padding: 0.8rem 1.2rem;
+
+    .checkbox-box {
+      display: none;
+    }
+
+    input {
+      &:checked~.checkbox-text {
+        color: var(--button-primary-default);
+      }
+    }
+
+
+  }
+}
+
+.radio .catalog-checkbox {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      .checkbox-text {
+        color: var(--button-primary-default);
+      }
+    }
+  }
 }
 
 .range-inputs {

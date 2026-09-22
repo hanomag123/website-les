@@ -92,7 +92,13 @@ document.addEventListener("DOMContentLoaded", () => {
       )
     ) {
       const details = e.target.closest(".catalog-details");
-      if (details) updateCatalogDetails(details);
+      if (details) {
+        updateCatalogDetails(details);
+
+        if (details.classList.contains("radio") && e.target.type === "radio") {
+          details.removeAttribute("open");
+        }
+      }
     }
   });
 
@@ -905,7 +911,7 @@ document.addEventListener("DOMContentLoaded", () => {
         slideToClickedSlide: true,
         slidesPerView: "auto",
         speed: 500,
-        direction: xl.matches ? 'horizontal' : "vertical",
+        direction: xl.matches ? "horizontal" : "vertical",
         mousewheel: {
           enabled: true,
         },
@@ -954,5 +960,76 @@ document.addEventListener("DOMContentLoaded", () => {
         thumbsSlides[0].click();
       }
     }
+  }
+
+  const table = document.querySelector("table");
+  const tbody = table.querySelector("tbody");
+  const rows = tbody.querySelectorAll("tr");
+
+  // Save original order before any sorting
+  const originalOrder = Array.from(tbody.querySelectorAll("tr"));
+
+  rows.forEach((row) => {
+    const cells = row.querySelectorAll("td");
+    cells.forEach((cell, index) => {
+      cell.setAttribute("data-col", index);
+    });
+  });
+
+  const sortbtns = document.querySelectorAll(".dimensions-sortbtn");
+
+  if (sortbtns.length) {
+    sortbtns.forEach((btn, i) => {
+      btn.dataset.col = i;
+      btn.addEventListener("click", function () {
+        sortbtns.forEach((other) => {
+          if (other !== btn) other.classList.remove("asc", "desc");
+        });
+
+        let direction = "asc";
+        if (btn.classList.contains("asc")) {
+          btn.classList.replace("asc", "desc");
+          direction = "desc";
+        } else if (btn.classList.contains("desc")) {
+          btn.classList.remove("desc");
+          // Restore original order
+          originalOrder.forEach((row) => tbody.appendChild(row));
+          return;
+        } else {
+          btn.classList.add("asc");
+        }
+
+        sortTable(i, direction);
+      });
+    });
+  }
+
+  function sortTable(colIndex, direction) {
+    const rowsArray = Array.from(tbody.querySelectorAll("tr"));
+
+    rowsArray.sort((a, b) => {
+      const aCell = a.querySelector(`td[data-col="${colIndex}"]`);
+      const bCell = b.querySelector(`td[data-col="${colIndex}"]`);
+
+      let aVal = aCell.textContent.trim();
+      let bVal = bCell.textContent.trim();
+
+      if (aCell.dataset.sortsize) aVal = aCell.dataset.sortsize;
+      if (bCell.dataset.sortsize) bVal = bCell.dataset.sortsize;
+
+      const aNum = parseFloat(aVal.replace(/\s/g, "").replace(",", "."));
+      const bNum = parseFloat(bVal.replace(/\s/g, "").replace(",", "."));
+
+      let result;
+      if (!isNaN(aNum) && !isNaN(bNum)) {
+        result = aNum - bNum;
+      } else {
+        result = aVal.localeCompare(bVal, "ru");
+      }
+
+      return direction === "asc" ? result : -result;
+    });
+
+    rowsArray.forEach((row) => tbody.appendChild(row));
   }
 });

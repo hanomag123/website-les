@@ -577,6 +577,48 @@ img.lazyload:not([src]) {
   flex-grow: 1;
 }
 
+.custom-table {
+  border-radius: 1.6rem;
+  border: 1px solid var(--border-default);
+  overflow: hidden;
+
+  table {
+    border-spacing: 0;
+    border-style: hidden;
+    border-collapse: collapse;
+
+    width: 100%;
+    max-width: 100%;
+    background: var(--background-base);
+  }
+
+  thead {
+    background: var(--background-surface);
+
+    th,
+    td {
+      padding: 0;
+    }
+  }
+
+  tbody {
+    tr {
+      &:nth-child(odd) {
+        background: #fff;
+      }
+      &:nth-child(even) {
+        background: var(--background-transparent-black);
+      }
+    }
+  }
+
+  th,
+  td {
+    padding: 0.8rem 1.6rem;
+    border: 1px solid var(--border-default);
+  }
+}
+
 /* Blocks */
 
 @import "importsBlocks";
