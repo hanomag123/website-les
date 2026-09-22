@@ -38,6 +38,7 @@
 
   .swiper-slide {
     margin-right: 1rem;
+
     &:focus {
       outline: none;
     }
@@ -113,5 +114,133 @@
   .product-img {
     border-radius: inherit;
     overflow: hidden;
+  }
+}
+
+.product-block {
+  border-radius: 2.4rem;
+  padding: 1.6rem;
+  background: var(--background-base);
+  height: min-content;
+}
+
+.product-label {
+  &+& {
+    margin-top: 1.6rem;
+  }
+}
+
+.product-status {
+
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 129%;
+  letter-spacing: 0.03em;
+  color: var(--text--icon-primary);
+
+  border: 1px solid var(--border-default);
+  border-radius: 99.9rem;
+  padding: 0.4rem 1.2rem 0.4rem 0.8rem;
+
+  background: var(--background-base);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+
+  &::before {
+    content: '';
+    width: 0.6rem;
+    height: 0.6rem;
+
+
+    border-radius: 100%;
+
+    display: flex;
+
+    margin-left: 0.6rem;
+  }
+
+  &.success {
+    &::before {
+      background-color: var(--status-colors-success);
+    }
+  }
+
+
+  &.error {
+    &::before {
+      background-color: var(--status-colors-error);
+    }
+  }
+}
+
+.product-price {
+  margin-top: 2rem;
+}
+
+.product-submit {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.product-delivery {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+
+  margin-top: 1.6rem;
+
+  svg {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+}
+
+.product-tabs {
+  border: 1px solid var(--border-default);
+  border-radius: 2.4rem;
+  padding: 2.4rem;
+  background: var(--background-base);
+}
+
+.product-tab {
+  display: none;
+
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+
+  margin-top: 2rem;
+
+  @include breakpoint($xl-bp) {
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  dl {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 1.6rem;
+    height: min-content;
+  }
+
+  dt,
+  dd {
+    border-bottom: 1px solid var(--border-default);
+    padding: 0.6rem 0;
+  }
+}
+
+.product-content {
+  &>* {
+    animation: fadeEffect var(--time);
+  }
+
+  .product-tab {
+    display: grid;
+
+    @include breakpoint($xl-bp) {
+      display: flex;
+    }
   }
 }

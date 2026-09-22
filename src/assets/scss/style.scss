@@ -573,6 +573,10 @@ img.lazyload:not([src]) {
   left: 0;
 }
 
+.grow {
+  flex-grow: 1;
+}
+
 /* Blocks */
 
 @import "importsBlocks";
