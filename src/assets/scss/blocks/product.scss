@@ -298,6 +298,11 @@
   border-radius: 2.4rem;
   padding: 2.4rem;
   background: var(--background-base);
+
+  @include breakpoint($xl-bp) {
+    border-radius: 1.6rem;
+    padding: 1.6rem;
+  }
 }
 
 .product-tab {
@@ -329,6 +334,11 @@
     font-size: 1.6rem;
     line-height: 138%;
     letter-spacing: 0.03em;
+
+    @include breakpoint($xl-bp) {
+      font-size: 1.4rem;
+      line-height: 129%;
+    }
   }
 
   dd {
@@ -351,10 +361,24 @@
   }
 }
 
+.dimensions {
+  @include breakpoint($xl-bp) {
+    margin-top: 4rem;
+  }
+}
+
 .dimensions-title {
   letter-spacing: normal;
 
   margin-bottom: 3.2rem;
+
+  @include breakpoint($xl-bp) {
+    margin-bottom: 2.4rem;
+  }
+}
+
+.dimensions-btnmobile {
+  margin-top: 0.8rem;
 }
 
 .dimensions-tab {
@@ -383,6 +407,12 @@
   line-height: 129%;
   letter-spacing: 0.03em;
   color: var(--text--icon-primary);
+
+  white-space: nowrap;
+  @include breakpoint($xl-bp) {
+    min-width: 12rem;
+    
+  }
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {

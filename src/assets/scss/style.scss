@@ -606,7 +606,7 @@ img.lazyload:not([src]) {
 .custom-table {
   border-radius: 1.6rem;
   border: 1px solid var(--border-default);
-  overflow: hidden;
+  overflow-x: auto;
 
   table {
     border-spacing: 0;
