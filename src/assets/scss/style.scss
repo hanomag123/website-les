@@ -664,6 +664,10 @@ img.lazyload:not([src]) {
   letter-spacing: normal
 }
 
+.w-120 {
+  width: 12rem;
+}
+
 /* Blocks */
 
 @import "importsBlocks";
