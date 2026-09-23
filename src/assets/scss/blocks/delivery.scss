@@ -1,0 +1,27 @@
+.delivery-title {
+  margin-bottom: 4rem;
+  @include breakpoint($xl-bp) {
+    margin-bottom: 2.4rem;
+  }
+}
+
+.delivery-space {
+  & + & {
+    margin-top: 2rem;
+  }
+}
+
+.delivery-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+
+  margin-bottom: 2rem;
+  @include breakpoint($xl-bp) {
+
+    flex-direction: column;
+    justify-content: flex-start;
+
+    margin-bottom: 1.6rem;
+  }
+}
