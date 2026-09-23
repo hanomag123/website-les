@@ -930,7 +930,7 @@ document.addEventListener("DOMContentLoaded", () => {
         speed: 500,
         direction: xl.matches ? "horizontal" : "vertical",
         mousewheel: {
-          enabled: true,
+          enabled: !xl.matches,
         },
         on: {
           slideChange: function () {
@@ -982,74 +982,79 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  const table = document.querySelector("table");
-  const tbody = table.querySelector("tbody");
-  const rows = tbody.querySelectorAll("tr");
+  const tables = document.querySelectorAll("table");
 
-  // Save original order before any sorting
-  const originalOrder = Array.from(tbody.querySelectorAll("tr"));
+  if (tables.length) {
+    tables.forEach((table) => {
+      const tbody = table.querySelector("tbody");
+      const rows = tbody.querySelectorAll("tr");
 
-  rows.forEach((row) => {
-    const cells = row.querySelectorAll("td");
-    cells.forEach((cell, index) => {
-      cell.setAttribute("data-col", index);
-    });
-  });
+      // Save original order before any sorting
+      const originalOrder = Array.from(tbody.querySelectorAll("tr"));
 
-  const sortbtns = document.querySelectorAll(".dimensions-sortbtn");
-
-  if (sortbtns.length) {
-    sortbtns.forEach((btn, i) => {
-      btn.dataset.col = i;
-      btn.addEventListener("click", function () {
-        sortbtns.forEach((other) => {
-          if (other !== btn) other.classList.remove("asc", "desc");
+      rows.forEach((row) => {
+        const cells = row.querySelectorAll("td,th");
+        cells.forEach((cell, index) => {
+          cell.setAttribute("data-col", index);
         });
-
-        let direction = "asc";
-        if (btn.classList.contains("asc")) {
-          btn.classList.replace("asc", "desc");
-          direction = "desc";
-        } else if (btn.classList.contains("desc")) {
-          btn.classList.remove("desc");
-          // Restore original order
-          originalOrder.forEach((row) => tbody.appendChild(row));
-          return;
-        } else {
-          btn.classList.add("asc");
-        }
-
-        sortTable(i, direction);
       });
-    });
-  }
 
-  function sortTable(colIndex, direction) {
-    const rowsArray = Array.from(tbody.querySelectorAll("tr"));
+      const sortbtns = table.querySelectorAll(".dimensions-sortbtn");
 
-    rowsArray.sort((a, b) => {
-      const aCell = a.querySelector(`td[data-col="${colIndex}"]`);
-      const bCell = b.querySelector(`td[data-col="${colIndex}"]`);
+      if (sortbtns.length) {
+        sortbtns.forEach((btn, i) => {
+          btn.dataset.col = i;
+          btn.addEventListener("click", function () {
+            sortbtns.forEach((other) => {
+              if (other !== btn) other.classList.remove("asc", "desc");
+            });
 
-      let aVal = aCell.textContent.trim();
-      let bVal = bCell.textContent.trim();
+            let direction = "asc";
+            if (btn.classList.contains("asc")) {
+              btn.classList.replace("asc", "desc");
+              direction = "desc";
+            } else if (btn.classList.contains("desc")) {
+              btn.classList.remove("desc");
+              // Restore original order
+              originalOrder.forEach((row) => tbody.appendChild(row));
+              return;
+            } else {
+              btn.classList.add("asc");
+            }
 
-      if (aCell.dataset.sortsize) aVal = aCell.dataset.sortsize;
-      if (bCell.dataset.sortsize) bVal = bCell.dataset.sortsize;
-
-      const aNum = parseFloat(aVal.replace(/\s/g, "").replace(",", "."));
-      const bNum = parseFloat(bVal.replace(/\s/g, "").replace(",", "."));
-
-      let result;
-      if (!isNaN(aNum) && !isNaN(bNum)) {
-        result = aNum - bNum;
-      } else {
-        result = aVal.localeCompare(bVal, "ru");
+            sortTable(i, direction);
+          });
+        });
       }
 
-      return direction === "asc" ? result : -result;
-    });
+      function sortTable(colIndex, direction) {
+        const rowsArray = Array.from(tbody.querySelectorAll("tr"));
 
-    rowsArray.forEach((row) => tbody.appendChild(row));
+        rowsArray.sort((a, b) => {
+          const aCell = a.querySelector(`td[data-col="${colIndex}"]`);
+          const bCell = b.querySelector(`td[data-col="${colIndex}"]`);
+
+          let aVal = aCell.textContent.trim();
+          let bVal = bCell.textContent.trim();
+
+          if (aCell.dataset.sortsize) aVal = aCell.dataset.sortsize;
+          if (bCell.dataset.sortsize) bVal = bCell.dataset.sortsize;
+
+          const aNum = parseFloat(aVal.replace(/\s/g, "").replace(",", "."));
+          const bNum = parseFloat(bVal.replace(/\s/g, "").replace(",", "."));
+
+          let result;
+          if (!isNaN(aNum) && !isNaN(bNum)) {
+            result = aNum - bNum;
+          } else {
+            result = aVal.localeCompare(bVal, "ru");
+          }
+
+          return direction === "asc" ? result : -result;
+        });
+
+        rowsArray.forEach((row) => tbody.appendChild(row));
+      }
+    });
   }
 });

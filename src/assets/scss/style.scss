@@ -265,6 +265,12 @@ h6,
       &::after {
         background-color: var(--button-primary-pressed);
       }
+
+      &:disabled {
+        &::after {
+          background-color: var(--background-disable);
+        }
+      }
     }
 
     &::after {
@@ -283,6 +289,17 @@ h6,
     }
   }
 
+  &:disabled {
+    background: var(--background-disable);
+    color: var(--text--icon-disable);
+    border-color: var(--background-disable);
+
+    &::after {
+      background-color: var(--background-disable);
+      background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.5 16.3C10.3667 16.3 10.25 16.2541 10.15 16.1625C10.05 16.0708 10 15.95 10 15.8V8.19995C10 8.04995 10.05 7.92912 10.15 7.83745C10.25 7.74578 10.3667 7.69995 10.5 7.69995C10.5333 7.69995 10.65 7.74995 10.85 7.84995L14.475 11.475C14.5583 11.5583 14.6167 11.6416 14.65 11.725C14.6833 11.8083 14.7 11.9 14.7 12C14.7 12.1 14.6833 12.1916 14.65 12.275C14.6167 12.3583 14.5583 12.4416 14.475 12.525L10.85 16.15C10.8 16.2 10.7458 16.2375 10.6875 16.2625C10.6292 16.2875 10.5667 16.3 10.5 16.3Z' fill='%23959595' /%3E%3C/svg%3E");
+    }
+  }
+
   &.btn-secondary {
     background: var(--button-secondary-default);
     color: var(--text--icon-primary);
@@ -295,6 +312,11 @@ h6,
 
     &:active {
       background: var(--button-secondary-pressed);
+    }
+
+    &:disabled {
+      background: var(--background-disable);
+      color: var(--text--icon-disable);
     }
   }
 }
@@ -475,6 +497,10 @@ img.lazyload:not([src]) {
   text-align: center;
 }
 
+.text-right {
+  text-align: right;
+}
+
 /* Modern browsers — Chrome 121+, Edge 121+, Firefox, Safari 18.2+ */
 * {
   scrollbar-width: 10px;
@@ -602,13 +628,28 @@ img.lazyload:not([src]) {
   }
 
   tbody {
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 129%;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--text--icon-primary);
+
     tr {
       &:nth-child(odd) {
         background: #fff;
       }
+
       &:nth-child(even) {
         background: var(--background-transparent-black);
       }
+    }
+
+    th,
+    td {
+      padding: 1.5rem 1.6rem;
     }
   }
 
@@ -617,6 +658,10 @@ img.lazyload:not([src]) {
     padding: 0.8rem 1.6rem;
     border: 1px solid var(--border-default);
   }
+}
+
+.tracking-normal {
+  letter-spacing: normal
 }
 
 /* Blocks */
