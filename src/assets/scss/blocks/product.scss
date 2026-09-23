@@ -454,6 +454,7 @@
 
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
   position: relative;
   transition: color var(--time);
@@ -463,6 +464,8 @@
   line-height: 129%;
   letter-spacing: 0.03em;
   color: var(--text--icon-primary);
+
+  min-height: 4.8rem;
 
   @include breakpoint($xl-bp) {
     min-width: 18rem;
@@ -508,7 +511,8 @@
     height: 1.6rem;
 
     position: absolute;
-    top: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
     right: 1.2rem;
   }
 }
@@ -610,10 +614,39 @@
   border-radius: 2.4rem;
   background: var(--background-base);
   padding: 2.4rem;
+  position: relative;
 
   @include breakpoint($xl-bp) {
     border-radius: 1.6rem;
     padding: 1.6rem;
+  }
+
+  & > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  & > .delivery-bg {
+    z-index: 1;
+  }
+}
+
+.delivery-bg {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-bottom-right-radius: inherit;
+  border-top-right-radius: inherit;
+
+  &.first {
+    max-width: 57.2rem;
+    max-height: 29rem;
+  }
+
+  &.second {
+    max-width: 40.4rem;
   }
 }
 
@@ -623,7 +656,7 @@
   grid-column: 2 span;
 
   display: grid;
-  grid-template-columns: 0.8fr 1fr;
+  grid-template-columns: 0.71fr 1fr;
   gap: 2rem;
 
   @include breakpoint($xl-bp) {
@@ -690,7 +723,9 @@
     background-size: 100% 7.3rem;
   }
 
-  
+  &:nth-child(4n + 4) {
+    background-image: url("data:image/svg+xml,%3Csvg width='317' height='167' viewBox='0 0 317 167' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-17 25.5C-17 -0.733524 4.26648 -22 30.5 -22C56.7335 -22 78 -0.733524 78 25.5C78 51.7335 56.7335 73 30.5 73C4.26648 73 -17 51.7335 -17 25.5Z' fill='%23F7F3EE'/%3E%3Cpath d='M265.5 86.5C265.5 42.3172 301.817 6 346 6C390.183 6 426.5 42.3172 426.5 86.5C426.5 130.683 390.183 167 346 167C301.817 167 265.5 130.683 265.5 86.5Z' fill='%23F7F3EE'/%3E%3C/svg%3E%0A");
+  }
 }
 
 .payment-icon {

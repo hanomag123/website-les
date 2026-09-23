@@ -25,3 +25,10 @@
     margin-bottom: 1.6rem;
   }
 }
+
+.wysiwyg-max-w-415 {
+  & > ul,
+  & > p {
+    max-width: 41.5rem;
+  }
+}
