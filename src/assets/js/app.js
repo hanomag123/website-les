@@ -1057,4 +1057,27 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  const rating = document.querySelectorAll(".rating[data-rate]");
+  if (rating.length) {
+    rating.forEach((rating) => {
+      const count = 5;
+      let currentRate = Number(rating.dataset.rate) || 0;
+      for (let i = 1; i <= count; i++) {
+        const star = document.createElement("div");
+        const starfill = document.createElement("div");
+        star.classList.add("rating-star");
+        starfill.classList.add("rating-fill");
+        star.appendChild(starfill);
+        if (currentRate < 1) {
+          starfill.style.setProperty(
+            "clip-path",
+            `inset(0 ${100 - currentRate * 100}% 0 0)`,
+          );
+        }
+        rating.appendChild(star);
+        currentRate--;
+      }
+    });
+  }
 });
