@@ -265,7 +265,11 @@
   }
 }
 
-.reviews-list {}
+.reviews-list {
+  @include breakpoint($xl-bp) {
+    margin-top: 2.4rem;
+  }
+}
 
 .reviews-item {}
 
@@ -294,7 +298,14 @@
   }
 }
 
-.reviews-name {}
+.reviews-name {
+  @include breakpoint($xl-bp) {
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 125%;
+    letter-spacing: 0.03em;
+  }
+}
 
 .reviews-date {
   margin-top: 0.4rem;
