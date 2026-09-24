@@ -733,6 +733,10 @@ textarea.input {
   background: #fff;
 
   min-height: 10.6rem;
+
+  .contact-file & {
+    min-height: 12.6rem;
+  }
 }
 
 .filepond--root {
@@ -741,6 +745,10 @@ textarea.input {
 
 .filepond-wrapper {
   min-height: 10.6rem;
+
+  .contact-file & {
+    min-height: 12.6rem;
+  }
 }
 
 .filepond--drop-label.filepond--drop-label label {

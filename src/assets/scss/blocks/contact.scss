@@ -8,6 +8,8 @@
   @include breakpoint($xl-bp) {
     display: flex;
     flex-direction: column;
+
+    margin-top: 1.6rem;
   }
 }
 
@@ -18,7 +20,7 @@
   border: 1px solid var(--border-default);
   border-radius: 2.4rem;
 
-  padding: 2.4rem;
+  padding: 4rem;
 
   font-weight: 700;
   font-size: 1.8rem;
@@ -26,8 +28,18 @@
   letter-spacing: 0.04em;
   color: var(--text--icon-on-color);
 
+  @include breakpoint($xl-bp) {
+    font-size: 1.6rem;
+    line-height: 125%;
+    letter-spacing: 0.03em;
+
+    padding: 2rem;
+    border-radius: 1.6rem;
+  }
+
   h2,
   h3 {
+    font-family: var(--font-family);
     font-weight: 700;
     font-size: 1.4rem;
     line-height: 129%;
@@ -36,6 +48,11 @@
     color: var(--text--icon-tertiary);
 
     margin-bottom: 1.6rem;
+
+    @include breakpoint($xl-bp) {
+      font-size: 1.2rem;
+      line-height: 133%;
+    }
   }
 
   ul {
@@ -50,10 +67,42 @@
     margin: 0;
     margin-top: 1.6rem;
     margin-bottom: 1.6rem;
+
+    margin-left: -1.6rem;
+    margin-right: -1.6rem;
+
+    @include breakpoint($xl-bp) {
+      margin-top: 1.2rem;
+      margin-bottom: 1.2rem;
+
+      margin-left: -0.6rem;
+      margin-right: -0.6rem;
+    }
+  }
+
+  a {
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+
+    text-decoration-thickness: 0.1rem;
+    text-underline-offset: 0.1rem;
+    text-decoration-color: rgba(255, 255, 255, 0.3);
+
+    transition: text-decoration-color var(--time);
+
+    @media (hover: hover) and (pointer: fine) {
+    &:hover {
+    text-decoration-color: transparent;
+    }
+    }
   }
 }
 
 .contact-map {
+
+  @include breakpoint($xl-bp) {
+    height: 44.6rem;
+  }
 
   iframe,
   &>div {
@@ -62,5 +111,101 @@
     border-radius: 2.4rem;
 
 
+  }
+}
+
+.contact-call {
+  grid-column: 2 span;
+
+  border-radius: 2.4rem;
+  padding: 2.4rem;
+  background: var(--background-base);
+
+  overflow: hidden;
+
+  @include breakpoint($xl-bp) {
+    border-radius: 1.6rem;
+    padding: 1.6rem;
+
+    padding-bottom: 7.7rem;
+  }
+}
+
+.contact-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  margin-top: 1.6rem;
+
+  max-width: 83.8rem;
+  width: 100%;
+}
+
+.contact-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.contact-row2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.6rem;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.contact-submit {
+  width: fit-content;
+
+}
+
+.contact-subtitle {
+  @include breakpoint($xl-bp) {
+    font-weight: 500;
+    font-size: 1.8rem;
+    line-height: 122%;
+  }
+}
+
+.contact-subdesc {
+  @include breakpoint($xl-bp) {
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 129%;
+    letter-spacing: 0.03em;
+  }
+}
+
+.contact-bg {
+  width: 100%;
+  max-width: 63.3rem;
+
+  height: 100%;
+
+  border-top-right-radius: inherit;
+  border-bottom-right-radius: inherit;
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  @include breakpoint($xl-bp) {
+    border-top-right-radius: 0;
+
+    max-height: 30.9rem;
+  }
+
+  img {
+    object-position: left;
   }
 }

@@ -33,7 +33,77 @@
     </div>
 
     <div class="contact-map">
-      <div style="position:relative;overflow:hidden;"><a href="https://yandex.by/maps/213/moscow/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Москва</a><a href="https://yandex.by/maps/213/moscow/house/leningradskoye_shosse_311bs2/Z04YdQRpQEAAQFtvfXV0cHhjYg==/?ll=37.339957%2C55.951406&utm_medium=mapframe&utm_source=maps&z=17.02" style="color:#eee;font-size:12px;position:absolute;top:14px;">Ленинградское шоссе, 311Бс2 — Яндекс Карты</a><iframe src="https://yandex.by/map-widget/v1/?ll=37.339957%2C55.951406&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1Njg4NjIyOBJL0KDQvtGB0YHQuNGPLCDQnNC-0YHQutCy0LAsINCb0LXQvdC40L3Qs9GA0LDQtNGB0LrQvtC1INGI0L7RgdGB0LUsIDMxMdCR0YEyIgoNHlwVQhU-zl9C&z=17.02" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+      <div style="position:relative;overflow:hidden;"><a href="https://yandex.by/maps/213/moscow/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Москва</a><a
+          href="https://yandex.by/maps/213/moscow/house/leningradskoye_shosse_311bs2/Z04YdQRpQEAAQFtvfXV0cHhjYg==/?ll=37.339957%2C55.951406&utm_medium=mapframe&utm_source=maps&z=17.02" style="color:#eee;font-size:12px;position:absolute;top:14px;">Ленинградское шоссе, 311Бс2 — Яндекс Карты</a><iframe
+          src="https://yandex.by/map-widget/v1/?ll=37.339957%2C55.951406&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1Njg4NjIyOBJL0KDQvtGB0YHQuNGPLCDQnNC-0YHQutCy0LAsINCb0LXQvdC40L3Qs9GA0LDQtNGB0LrQvtC1INGI0L7RgdGB0LUsIDMxMdCR0YEyIgoNHlwVQhU-zl9C&z=17.02" width="560" height="400"
+          frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+    </div>
+
+    <div class="contact-call relative">
+      <h2 class="contact-subtitle h6 relative">Напишите нам</h2>
+
+      <div class="contact-subdesc mt-16 relative">Задайте вопрос, уточните наличие или отправьте проект - мы свяжемся с вами и поможем.</div>
+
+      <div class="contact-form js-validate relative">
+        <form action="#" enctype="multipart/form-data">
+          <div class="contact-columns">
+            <div class="contact-row">
+              <label class="spec-label">
+                <span class="spec-labeltext p-3 uppercase font-bold text-black">Имя <span class="text-red">*</span></span>
+
+                <input type="text" name="name" placeholder="Иван Иванов" class="input" required>
+              </label>
+
+              <label class="spec-label">
+                <span class="spec-labeltext p-3 uppercase font-bold text-black">Телефон <span class="text-red">*</span></span>
+
+                <input type="tel" name="tel" placeholder="+7 (XXX) XXX-XX-XX" class="input" required>
+              </label>
+
+              <label class="spec-label">
+                <span class="spec-labeltext p-3 uppercase font-bold text-black">E-mail <span class="text-red">*</span></span>
+
+                <input type="email" name="email" placeholder="ivanivanov@yandex.com" class="input" required>
+              </label>
+            </div>
+
+            <div class="contact-row2">
+              <label class="spec-label contact-file">
+                <span class="spec-labeltext p-3 uppercase font-bold text-black">Прикрепить файл (для загрузки спецификации)</span>
+  
+                <div class="filepond-wrapper"><input type="file" class="filepond" /></div>
+              </label>
+  
+              <label class="spec-label">
+                <span class="spec-labeltext p-3 uppercase font-bold text-black">Сообщение <span class="text-red">*</span></span>
+  
+                <textarea name="message" class="input" required="" placeholder="Опишите ваш вопрос или задачу"></textarea>
+              </label>
+            </div>
+
+            <div class="col-span-2">
+              <label class="spec-checkbox checkbox">
+                <input type="checkbox" name="acceptance" required>
+                <span class="checkbox-box"></span>
+
+                <span class="checkbox-text p-3">
+                  Согласен на обработку <br class="xl-block">персональных данных
+                </span>
+              </label>
+              <div class="error-container"></div>
+            </div>
+
+            <button type="submit" class="contact-submit btn btn-secondary col-span-2">Отправить запрос</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="contact-bg img-cover">
+        <picture>
+          <source srcset="./assets/images/contact/bg-mobile.webp" media="(max-width:500px)">
+          <img src="./assets/images/pokazplace.jpg" data-src="./assets/images/contact/bg.webp" class="lazyload" alt="bg">
+        </picture>
+      </div>
     </div>
   </div>
 </section>
