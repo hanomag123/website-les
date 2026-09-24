@@ -8,7 +8,14 @@
 
 .reviews-title {}
 
-.reviews-desc {}
+.reviews-desc {
+  @include breakpoint($xl-bp) {
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 129%;
+    letter-spacing: 0.03em;
+  }
+}
 
 .reviews-blocks {
   display: grid;
@@ -23,25 +30,38 @@
 
   @include breakpoint($xl-bp) {
     grid-template-columns: repeat(2, 1fr);
-    margin-top: 2rem;
+    margin-top: 1.6rem;
+    border-radius: 1.6rem;
   }
 }
 
 .reviews-rate {
   @include breakpoint($xl-bp) {
     grid-column: 2 span;
+
+    border-bottom: 1px solid var(--border-default);
   }
 }
 
 .reviews-subtitle {
   font-family: var(--second-family);
   color: var(--text--icon-primary);
+
+  @include breakpoint($xl-bp) {
+    font-weight: 500;
+    font-size: 2.8rem;
+    line-height: 107%;
+  }
 }
 
 .reviews-stars {
   min-height: 2.8rem;
   margin-bottom: 1rem;
   margin-top: 1rem;
+
+  @include breakpoint($xl-bp) {
+    margin-top: 0.2rem;
+  }
 }
 
 .reviews-info {
@@ -52,8 +72,19 @@
   border-right: 1px solid var(--border-default);
   padding: 2.4rem;
 
+  @include breakpoint($xl-bp) {
+    padding: 1.6rem;
+    border-right: 0;
+  }
+
   &:last-child {
-    border: 0;
+    border-right: 0;
+  }
+
+  &.border-left-mobile {
+    @include breakpoint($xl-bp) {
+      border-left: 1px solid var(--border-default);
+    }
   }
 
   svg {
@@ -73,6 +104,8 @@
 
     display: flex;
     flex-direction: column;
+
+    border-top: 1px solid var(--border-default);
   }
 }
 
@@ -128,6 +161,10 @@
   gap: 2rem;
 
   margin-top: 0.8rem;
+
+  @include breakpoint($xl-bp) {
+    justify-content: flex-start;
+  }
 }
 
 .widget-logo {
@@ -242,6 +279,10 @@
 
   transition: box-shadow var(--time);
 
+  @include breakpoint($sm-bp) {
+    max-width: 100%;
+  }
+
   .opened & {
     position: absolute;
     z-index: 1;
@@ -338,5 +379,20 @@
 .reviews-show {
   .opened & {
     display: none;
+  }
+}
+
+.reviews-ratename {
+  @include breakpoint($xl-bp) {
+    float: left;
+    height: 100%;
+
+    padding-right: 1rem;
+  }
+}
+
+.reviews-tabs {
+  @include breakpoint($xl-bp) {
+    margin-top: 4.4rem;
   }
 }
