@@ -9,6 +9,48 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
+  document.addEventListener("click", (event) => {
+    const closest = event.target.closest("[data-modal]");
+    if (closest) {
+      const modal = document.getElementById(closest.dataset.modal);
+      if (modal) {
+        modal.openModal();
+      }
+    }
+  });
+
+  const modals = document.querySelectorAll(".modal");
+
+  if (modals.length) {
+    modals.forEach((el) => {
+      el.openModal = function () {
+        document.documentElement.classList.add("modal-opened");
+        el.classList.add("open");
+      };
+      el.closeModal = function () {
+        document.documentElement.classList.remove("modal-opened");
+        el.classList.remove("open");
+      };
+      el.addEventListener("click", function (event) {
+        if (event.target.classList.contains("modal")) {
+          el.closeModal();
+        }
+      });
+    });
+  }
+
+  const closebtns = document.querySelectorAll("[data-close-modal]");
+  if (closebtns.length) {
+    closebtns.forEach((el) => {
+      el.addEventListener("click", function () {
+        const modal = this.closest(".modal");
+        if (modal && "closeModal" in modal) {
+          modal.closeModal();
+        }
+      });
+    });
+  }
+
   const xl = matchMedia("(max-width: 1024px)");
 
   const headersearch = document.querySelector(".header-search");

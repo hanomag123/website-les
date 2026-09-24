@@ -331,6 +331,23 @@ h6,
       color: var(--text--icon-disable);
     }
   }
+
+  &.btn-third {
+    border: 1px solid var(--border-default);
+    background-color: #F3F3F3;
+    color: var(--text--icon-primary);
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background: var(--button-default-hovered)
+      }
+    }
+
+    &.disabled,
+    &:disabled {
+      opacity: 0.4;
+    }
+  }
 }
 
 .text-pwhite {
@@ -569,7 +586,6 @@ img.lazyload:not([src]) {
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 125%;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 
@@ -594,6 +610,11 @@ img.lazyload:not([src]) {
     color: var(--text--icon-tertiary);
     opacity: 1;
   }
+}
+
+textarea.input {
+  height: 12.6rem;
+  resize: none;
 }
 
 .font-bold {
