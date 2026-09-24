@@ -52,7 +52,13 @@
   }
 }
 
-.vacancy-subtitle {}
+.vacancy-subtitle {
+  @include breakpoint($xl-bp) {
+    font-size: 1.2rem;
+    line-height: 133%;
+    letter-spacing: 0.03em;
+  }
+}
 
 .vacancy-sublist {
   margin-top: 0.4rem;
@@ -92,6 +98,7 @@
     flex-direction: column;
     padding: 1.6rem;
   }
+
   &:last-child {
     border: 0;
   }
@@ -125,7 +132,7 @@
   float: right;
 
   @include breakpoint($xl-bp) {
-    float: none ;
+    float: none;
     order: 1;
 
     margin-top: 2rem;

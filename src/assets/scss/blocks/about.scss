@@ -8,6 +8,7 @@
   @include breakpoint($xl-bp) {
     display: flex;
     flex-direction: column;
+    gap: 1.6rem;
 
     margin-top: 1.6rem;
   }

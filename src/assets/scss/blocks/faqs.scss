@@ -1,0 +1,14 @@
+.faqs-block {
+  display: none;
+
+  margin-top: 2.4rem;
+  @include breakpoint($xl-bp) {
+    margin-top: 1.6rem;
+  }
+}
+
+.faqs-content {
+  .faqs-block {
+    display: block;
+  }
+}

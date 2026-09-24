@@ -55,10 +55,10 @@
       </div>
     </li>
 
-    <li><a class="menu-link" href="delivery.html">Доставка и оплата</a></li>
-    <li><a class="menu-link" href="about.html">О компании</a></li>
-    <li><a class="menu-link" href="reviews.html">Отзывы</a></li>
-    <li><a class="menu-link" href="contact.html">Контакты</a></li>
+    <li><a class="menu-link @if('Доставка и оплата' == '{{title}}'){active}" href="delivery.html">Доставка и оплата</a></li>
+    <li><a class="menu-link @if('О компании' == '{{title}}'){active}" href="about.html">О компании</a></li>
+    <li><a class="menu-link @if('Отзывы' == '{{title}}'){active}" href="reviews.html">Отзывы</a></li>
+    <li><a class="menu-link @if('Контакты' == '{{title}}'){active}" href="contact.html">Контакты</a></li>
   </ul>
 
   <div class="menu-bot-copy">

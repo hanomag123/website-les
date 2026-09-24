@@ -1,0 +1,25 @@
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+
+  @include breakpoint($xl-bp) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include breakpoint($sm-bp) {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+}
+
+.blog-copy {
+  display: none;
+}
+
+.blog-content {
+  .blog-copy {
+    display: block;
+  }
+}
