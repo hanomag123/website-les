@@ -1,5 +1,5 @@
 <div class="modal" id="reviews-modal" data-thank="feedback2">
-  <div class="modal-block">
+  <div class="modal-block js-validate">
 
     <button class="modal-close" aria-label="close-modal" data-close-modal>
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -31,6 +31,25 @@
 
           <input type="text" name="disadv" placeholder="Что нужно улучшить" class="input" required="">
         </label>
+
+        <div class="spec-label">
+          <span class="spec-labeltext p-3 uppercase font-bold text-black">Оценить <span class="text-red">*</span></span>
+
+          <div class="modal-rating">
+            <input type="radio" name="rate" id="rate-5" value="5" required>
+            <label class="modal-ratelabel" for="rate-5"></label>
+            <input type="radio" name="rate" id="rate-4" value="4" required>
+            <label class="modal-ratelabel" for="rate-4"></label>
+            <input type="radio" name="rate" id="rate-3" value="3" required>
+            <label class="modal-ratelabel" for="rate-3"></label>
+            <input type="radio" name="rate" id="rate-2" value="2" required>
+            <label class="modal-ratelabel" for="rate-2"></label>
+            <input type="radio" name="rate" id="rate-1" value="1" required>
+            <label class="modal-ratelabel" for="rate-1"></label>
+          </div>
+
+          <div class="error-container"></div>
+        </div>
 
         <label class="spec-label">
           <span class="spec-labeltext p-3 uppercase font-bold text-black">Отзыв <span class="text-red">*</span></span>

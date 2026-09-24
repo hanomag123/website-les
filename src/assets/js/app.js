@@ -730,61 +730,88 @@ document.addEventListener("DOMContentLoaded", () => {
     labelMaxFileSize: "Максимальный размер: {filesize}",
   });
 
-  const jsvalidate = document.querySelector(".js-validate form");
+  const jsvalidates = document.querySelectorAll(".js-validate form");
 
-  if (jsvalidate) {
-    const validate = new window.JustValidate(jsvalidate, {
-      errorLabelStyle: { color: null },
-    });
+  if (jsvalidates.length) {
+    jsvalidates.forEach((jsvalidate) => {
+      if (jsvalidate) {
+        const validate = new window.JustValidate(jsvalidate, {
+          errorLabelStyle: { color: null },
+        });
 
-    const required = document.querySelectorAll(
-      '.js-validate form input[type="text"][required], .js-validate form input[type="tel"][required], .js-validate input[type="checkbox"][required]',
-    );
+        const required = jsvalidate.querySelectorAll(
+          'form input[type="text"][required], form input[type="tel"][required], input[type="checkbox"][required], textarea[required], input[type="email"][required]',
+        );
 
-    if (required.length) {
-      required.forEach((el) => {
-        const arr = [
-          {
-            rule: "required",
-            errorMessage: "Это поле обязательно для заполнения",
-          },
-          {
-            rule: "minLength",
-            value: 2,
-            errorMessage: "Минимальное количество символов: 2",
-          },
-        ];
-
-        if (el.type === "tel") {
-          arr.push({
-            rule: "customRegexp",
-            value: /^\+7\s?\(?[0-9]{3}\)?\s?[0-9]{3}-?[0-9]{2}-?[0-9]{2}$/,
-            errorMessage: "Введите номер в формате: +7 (XXX) XXX-XX-XX",
-          });
-        }
-
-        validate.addField(el, arr);
-
-        if (el.type === "checkbox") {
-          validate.addField(
-            el,
-            [
+        if (required.length) {
+          required.forEach((el) => {
+            let arr = [
               {
                 rule: "required",
                 errorMessage: "Это поле обязательно для заполнения",
               },
-            ],
+              {
+                rule: "minLength",
+                value: 2,
+                errorMessage: "Минимальное количество символов: 2",
+              },
+            ];
+
+            if (el.type === "tel") {
+              arr.push({
+                rule: "customRegexp",
+                value: /^\+7\s?\(?[0-9]{3}\)?\s?[0-9]{3}-?[0-9]{2}-?[0-9]{2}$/,
+                errorMessage: "Введите номер в формате: +7 (XXX) XXX-XX-XX",
+              });
+            }
+
+            if (el.type === "email") {
+              arr.push({
+                rule: "email",
+                errorMessage: "Неверный email",
+              });
+            }
+
+            validate.addField(el, arr);
+
+            if (el.type === "checkbox") {
+              const errorcontainer =
+                jsvalidate.querySelector(".error-container");
+
+              validate.addField(
+                el,
+                [
+                  {
+                    rule: "required",
+                    errorMessage: "Это поле обязательно для заполнения",
+                  },
+                ],
+                {
+                  errorsContainer: errorcontainer,
+                },
+              );
+            }
+          });
+        }
+
+        const radiogroup = jsvalidate.querySelector(".modal-rating");
+
+        if (radiogroup) {
+          const errorsContainer = radiogroup.parentElement.querySelector('.error-container')
+          validate.addRequiredGroup(
+            radiogroup,
+            "Это поле обязательно для заполнения",
             {
-              errorsContainer: ".js-validate .error-container",
+              errorsContainer,
             },
           );
         }
-      });
-    }
 
-    validate.onSuccess((event) => {
-      const customEvent = new CustomEvent("validated-submit");
-      event.currentTarget.dispatchEvent(customEvent);
+        validate.onSuccess((event) => {
+          const customEvent = new CustomEvent("validated-submit");
+          event.currentTarget.dispatchEvent(customEvent);
+        });
+      }
     });
   }
 
