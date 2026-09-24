@@ -3,18 +3,20 @@
   <span>Отзывы</span>
 </div>
 
-<section class="reviews container pb-140">
+<section class="reviews container pb-140 tabs">
   <h1 class="reviews-title h3">Отзывы клиентов</h1>
 
   <div class="reviews-desc mt-24 max-w-747">
     Мы ценим доверие наших клиентов и стремимся делать сервис и качество материалов еще лучше каждый день. Спасибо за ваши отзывы и рекомендации!
   </div>
 
+  <button class="reviews-button btn btn-primary xl-flex" data-modal="reviews-modal">Оставить отзыв</button>
+
   <div class="reviews-blocks">
     <div class="reviews-block reviews-rate">
       <div class="reviews-subtitle h5 reviews-ratename">4,9 </div>
 
-      <div class="reviews-stars rating" data-rate="4.9"></div>
+      <div class="reviews-stars rating" data-rate="4.5"></div>
 
       <div class="reviews-info p-3">cредний рейтинг</div>
     </div>
@@ -118,5 +120,87 @@
         </div>
       </a>
     </div>
+  </div>
+
+  <div class="mcatalog-tabs mt-32 tabs-list">
+    <button class="mcatalog-tabbtn tabs-btn">Все отзывы</button>
+
+    <ul class="mt-24 reviews-list tabs-copy">
+      @loop('./partials/reviewsitem.html',[
+      {},
+      ])
+      @loop('./partials/reviewsitem2.html',[
+      {},
+      ])
+      @loop('./partials/reviewsitem.html',[
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      ])
+    </ul>
+
+    <button class="mcatalog-tabbtn tabs-btn">Пиломатериалы</button>
+
+    <ul class="mt-24 reviews-list tabs-copy">
+      @loop('./partials/reviewsitem.html',[
+      {},
+      ])
+      @loop('./partials/reviewsitem2.html',[
+      {},
+      ])
+      @loop('./partials/reviewsitem.html',[
+      {},
+      {},
+      ])
+    </ul>
+
+    <button class="mcatalog-tabbtn tabs-btn">Покраска в цеху</button>
+
+    <ul class="mt-24 reviews-list tabs-copy">
+      @loop('./partials/reviewsitem.html',[
+      {},
+      ])
+      @loop('./partials/reviewsitem2.html',[
+      {},
+      ])
+    </ul>
+
+    <button class="mcatalog-tabbtn tabs-btn">Доставка</button>
+
+    <ul class="mt-24 reviews-list tabs-copy">
+      @loop('./partials/reviewsitem.html',[
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      ])
+    </ul>
+
+    <button class="mcatalog-tabbtn tabs-btn">Сопутствующие услуги</button>
+
+    <ul class="mt-24 reviews-list tabs-copy">
+      @loop('./partials/reviewsitem.html',[
+      {},
+      {},
+      {},
+      ])
+    </ul>
+
+    <button class="reviews-button btn btn-primary xl-hidden" data-modal="reviews-modal">Оставить отзыв</button>
+  </div>
+
+  <div class="reviews-content tabs-content">
+
   </div>
 </section>

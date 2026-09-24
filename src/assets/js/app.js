@@ -1080,4 +1080,26 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  const reviewsItems = document.querySelectorAll(".reviews-item");
+
+  if (reviewsItems.length) {
+    reviewsItems.forEach((item) => {
+      const reviewsBtns = item.querySelectorAll(".reviews-readall");
+
+      if (reviewsBtns.length) {
+        reviewsBtns.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const isOpen = item.classList.contains("opened");
+
+            reviewsItems.forEach((el) => el.classList.remove("opened"));
+
+            if (!isOpen) {
+              item.classList.toggle("opened");
+            }
+          });
+        });
+      }
+    });
+  }
 });
