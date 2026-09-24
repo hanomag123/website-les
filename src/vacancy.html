@@ -1,0 +1,84 @@
+---
+layout: default
+title: Вакансии
+---
+
+<div class="breadcrumbs container">
+  <a href="main.html">Главная</a>
+  <span>О компании</span>
+</div>
+
+<section class="reviews about container">
+  <h1 class="reviews-title about-title h3">О компании</h1>
+
+  <div class="about-wrapper">
+    @include('./partials/navbar.html', {
+    title: 'Вакансии'
+    })
+
+    <div class="about-content">
+      <div class="about-img img-cover">
+        <picture>
+          <source srcset="./assets/images/vacancy/bg-mobile.webp" media="(max-width:500px)">
+          <img src="./assets/images/vacancy/bg.webp" alt="about" fetchpriority="high">
+        </picture>
+      </div>
+
+      <div class="vacancy-block mt-32">
+        <div class="vacancy-column">
+          <h2 class="vacancy-title p-1-primary">По вопросам трудоустройства обращайтесь к специалисту</h2>
+
+          <ul class="vacancy-list">
+            <li class="vacancy-item">
+              <h3 class="vacancy-subtitle p-3 uppercase font-bold text-tert">Телефон</h3>
+
+              <ul class="vacancy-sublist font-bold text-black">
+                <li><a href="tel:+74959757552">+7(495)975-75-52</a></li>
+                <li><a href="tel:+79267256861">+7(926)725-68-61</a></li>
+              </ul>
+            </li>
+
+            <li class="vacancy-item">
+              <h3 class="vacancy-subtitle p-3 uppercase font-bold text-tert">E-mail</h3>
+
+              <ul class="vacancy-sublist font-bold text-black">
+                <li><a href="mailto:les-a@lesmoskva.ru">les-a@lesmoskva.ru</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <button class="vacancy-btn btn btn-primary">Отправить резюме</button>
+      </div>
+
+      <h2 class="vacancy-title2 h5 tracking-normal">Вакансии</h2>
+
+      <ul class="vacancy-ul mt-32">
+        <li class="vacancy-li">
+          <div class="vacancy-salary p-2 font-bold text-black">от 100 000 руб. за месяц</div>
+
+          <h3 class="vacancy-name p-1-primary">Столяр</h3>
+
+          <ul class="vacancy-tags p-3">
+            <li>Опыт работы: не требуется</li>
+            <li>Полная занятость</li>
+          </ul>
+
+        </li>
+        <li class="vacancy-li">
+          <div class="vacancy-salary p-2 font-bold text-black">от 100 000 руб. за месяц</div>
+
+          <h3 class="vacancy-name p-1-primary">Водители грузового транспорта B,C</h3>
+
+          <ul class="vacancy-tags p-3">
+            <li>Опыт работы: 2 года</li>
+            <li>Полная занятость</li>
+          </ul>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="pb-140"></div>

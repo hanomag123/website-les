@@ -1,0 +1,196 @@
+.about-wrapper {
+  display: grid;
+  grid-template-columns: 32.6rem 1fr;
+  gap: 3.2rem;
+
+  margin-top: 3.2rem;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 1.6rem;
+  }
+}
+
+.about-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  a {
+
+    background: var(--button-default-default);
+    border-radius: 0.8rem;
+    padding: 0.8rem 1.6rem;
+
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 138%;
+    letter-spacing: 0.03em;
+    color: #172339;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &::after {
+      content: '';
+      background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.99935 10.8666C6.91046 10.8666 6.83268 10.8361 6.76602 10.775C6.69935 10.7139 6.66602 10.6333 6.66602 10.5333V5.46663C6.66602 5.36663 6.69935 5.28608 6.76602 5.22497C6.83268 5.16386 6.91046 5.1333 6.99935 5.1333C7.02157 5.1333 7.09935 5.16663 7.23268 5.2333L9.64935 7.64997C9.7049 7.70552 9.74379 7.76108 9.76602 7.81663C9.78824 7.87219 9.79935 7.9333 9.79935 7.99997C9.79935 8.06663 9.78824 8.12775 9.76602 8.1833C9.74379 8.23886 9.7049 8.29441 9.64935 8.34997L7.23268 10.7666C7.19935 10.8 7.16324 10.825 7.12435 10.8416C7.08546 10.8583 7.04379 10.8666 6.99935 10.8666Z' fill='%23241E1C'/%3E%3C/svg%3E%0A");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      width: 1.6rem;
+      height: 1.6rem;
+
+      opacity: 0.4;
+
+      flex: 0 0 auto;
+    }
+
+    &.active {
+      font-weight: 700;
+      color: var(--text--icon-primary);
+
+      background: var(--background-accent);
+      border: 1px solid var(--border-default);
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.about-content {}
+
+.about-img {
+  height: 32rem;
+  border-radius: 2rem;
+
+  @include breakpoint($sm-bp) {
+    height: 17rem;
+  }
+}
+
+.about-list {
+  background-color: transparent;
+  padding: 0;
+
+  gap: 1.6rem;
+
+  margin-top: 4rem;
+
+  @include breakpoint($xl-bp) {
+    margin-top: 2.4rem;
+  }
+
+  .hero-subitem {
+    padding: 1.2rem;
+  }
+}
+
+.about-blocks {
+  min-height: 20rem;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+
+  .why-block {
+    min-height: 20rem;
+
+    @include breakpoint($xl-bp) {
+      border-top-right-radius: 1.6rem;
+    }
+  }
+}
+
+.about-payment {
+  border: 1px solid var(--border-default);
+  border-radius: 1.6rem;
+  background: var(--background-base);
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 129%;
+  letter-spacing: 0.03em;
+  color: var(--text--icon-primary);
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  dt {
+    background: var(--background-surface);
+
+    &:first-child {
+      border-top-left-radius: inherit;
+    }
+
+    &:last-child {
+      border-bottom-left-radius: inherit;
+    }
+  }
+
+  dd,
+  dt {
+    border-bottom: 1px solid var(--border-default);
+    padding: 0.8rem 1.6rem;
+
+    @include breakpoint($xl-bp) {
+      padding: 0.6rem 1.6rem;
+      min-height: 4.8rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}
+
+.about-gallery {}
+
+.gallery-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.gallery-swiper {
+  width: 100%;
+  overflow: hidden;
+
+  .swiper-slide {
+    border-radius: 1.6rem;
+    width: 46.6rem;
+    height: 35rem;
+    margin-right: 2rem;
+
+    @include breakpoint($xl-bp) {
+      border-radius: 1.6rem;
+      width: 33.3rem;
+      height: 25rem;
+
+      margin-right: 0.8rem;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.about-container {
+  padding-left: 63rem;
+
+  @include breakpoint($xl-bp) {
+    padding-left: 1.6rem;
+  }
+}
+
+.about-subtitle {
+  @include breakpoint($xl-bp) {
+    margin-top: 4rem;
+  }
+}

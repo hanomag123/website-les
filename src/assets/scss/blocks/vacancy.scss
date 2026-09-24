@@ -1,0 +1,133 @@
+.vacancy-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  border: 1px solid var(--border-default);
+  border-radius: 2.4rem;
+  background: var(--background-base);
+  padding: 2.4rem;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+
+    padding: 1.6rem;
+    border-radius: 1.6rem;
+  }
+}
+
+.vacancy-column {}
+
+.vacancy-title {}
+
+.vacancy-list {
+  display: flex;
+  gap: 5.6rem;
+
+  margin-top: 2.4rem;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+}
+
+.vacancy-item {
+  a {
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+
+    text-decoration-thickness: 0.1rem;
+    text-underline-offset: 0.1rem;
+
+    transition: text-decoration-color var(--time);
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        text-decoration-color: transparent;
+      }
+    }
+  }
+}
+
+.vacancy-subtitle {}
+
+.vacancy-sublist {
+  margin-top: 0.4rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.vacancy-btn {
+  @include breakpoint($xl-bp) {
+    margin-top: 3.2rem;
+  }
+}
+
+.vacancy-title2 {
+  margin-top: 7.2rem;
+
+  @include breakpoint($xl-bp) {
+    margin-top: 4rem;
+  }
+}
+
+.tracking-normal {}
+
+.vacancy-ul {
+  border-radius: 1.6rem;
+  background: var(--background-base);
+}
+
+.vacancy-li {
+  border-bottom: 1px solid var(--border-default);
+  padding: 1.6rem 2rem;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+    padding: 1.6rem;
+  }
+  &:last-child {
+    border: 0;
+  }
+}
+
+.vacancy-name {
+  max-width: 70rem;
+}
+
+.vacancy-tags {
+  margin-top: 0.8rem;
+
+  &>* {
+    display: inline-flex;
+
+    &:first-child {
+      &::before {
+        content: normal;
+      }
+    }
+
+    &::before {
+      content: '•';
+      margin-left: 0.8rem;
+      margin-right: 0.8rem;
+    }
+  }
+}
+
+.vacancy-salary {
+  float: right;
+
+  @include breakpoint($xl-bp) {
+    float: none ;
+    order: 1;
+
+    margin-top: 2rem;
+  }
+}

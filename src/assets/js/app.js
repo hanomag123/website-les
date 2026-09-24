@@ -369,6 +369,22 @@ document.addEventListener("DOMContentLoaded", () => {
     return wrapper;
   }
 
+  const galleryswiper = document.querySelectorAll('.gallery-swiper')
+  if (galleryswiper.length) {
+    galleryswiper.forEach(swiper => {
+      const prevEl = swiper.parentElement.querySelector('.prev')
+      const nextEl = swiper.parentElement.querySelector('.next')
+      new Swiper(swiper, {
+        slidesPerView: 'auto',
+        speed: 500,
+        navigation: {
+          prevEl,
+          nextEl
+        }
+      })
+    })
+  }
+
   const heroswipers = document.querySelectorAll(".hero-swiper");
   if (heroswipers.length) {
     heroswipers.forEach((swiper) => {

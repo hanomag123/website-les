@@ -1,8 +1,165 @@
+---
+layout: default
+title: О компании
+---
+
 <div class="breadcrumbs container">
   <a href="main.html">Главная</a>
   <span>О компании</span>
 </div>
 
-<section class="reviews about container pb-140">
-  <h1 class="reviews-title h3">О компании</h1>
+<section class="reviews about container">
+  <h1 class="reviews-title about-title h3">О компании</h1>
+
+  <div class="about-wrapper">
+    @include('./partials/navbar.html', {
+    title: 'О компании'
+    })
+
+    <div class="about-content">
+      <div class="about-img img-cover">
+        <picture>
+          <source srcset="./assets/images/about/bg-mobile.webp" media="(max-width:500px)">
+          <img src="./assets/images/about/bg.webp" alt="about" fetchpriority="high">
+        </picture>
+      </div>
+
+      <ol class="hero-sublist about-list">
+        <li class="hero-subitem" style="--num: 1">
+          <div class="hero-listicon img-contain">
+            <img src="./assets/images/list/palette.webp" fetchpriority="high" alt="palette">
+          </div>
+          <h2 class="hero-subtitle p-1-primary mt-4">Собственная покрасочная линия</h2>
+          <div class="hero-subdesc mt-10 p-2">более 150 цветов по системе PAL</div>
+        </li>
+
+        <li class="hero-subitem" style="--num: 2">
+          <div class="hero-listicon img-contain">
+            <img src="./assets/images/list/time.webp" fetchpriority="high" alt="time">
+          </div>
+          <h2 class="hero-subtitle p-1-primary mt-4">Срок изготовления</h2>
+          <div class="hero-subdesc mt-10 p-2">до 6 дней</div>
+        </li>
+
+        <li class="hero-subitem" style="--num: 3">
+          <div class="hero-listicon img-contain">
+            <img src="./assets/images/list/money.webp" fetchpriority="high" alt="money">
+          </div>
+          <h2 class="hero-subtitle p-1-primary mt-4">Цена <br class="xl-block">от 2000 руб./м²</h2>
+          <div class="hero-subdesc mt-10 p-2">включая материал и покраску</div>
+        </li>
+
+        <li class="hero-subitem" style="--num: 4">
+          <div class="hero-listicon img-contain">
+            <img src="./assets/images/list/delivery.webp" fetchpriority="high" alt="delivery">
+          </div>
+          <h2 class="hero-subtitle p-1-primary mt-4">Доставка по Москве <br class="xl-block">и Московской области</h2>
+          <div class="hero-subdesc mt-10 p-2">от 1-го рабочего дня</div>
+        </li>
+      </ol>
+
+      <div class="about-text mt-40">
+        Наша компания начала свою деятельность в 2001 году. За этот период мы получили известность на рынке производства пиломатериалов и изделий и заработали репутацию надежного партнера. <br><br>
+        Наша компания предлагает поставки стройматериалов на постоянной основе. Мы заинтересованы в долгосрочном сотрудничестве со строительными организациями Москвы и Подмосковья. Снабжение строительных компаний, комплектация строительства. Работать с нами действительно комфортно. <br><br>
+        Мы знаем, что комплектация строительства – задача непростая. Снабженцам строительных площадок, многочисленным подрядчикам приходится сотрудничать со множеством организаций. И очень неудобно закупать материалы для строительства в одной организации, а например отделочные – в другой. <br><br>
+        Снабжение строительства, которое может быть осуществлено нами, позволит Вам избавить себя от лишних потерь денег и времени. Отныне Ваши расходы будут ниже. И даже если у Вашей организации нет собственного транспорта, мы решим все вопросы, связанные с доставкой. <br><br>
+        Снабжение строительных компаний производится нами на самом высоком уровне. Вам Достаточно просто позвонить нам и согласовать с менеджером список всех необходимых Вам материалов. А доставка будет осуществлена в течение 3-х часов (при условии наличия товара на складе).
+      </div>
+
+      <ul class="why-blocks about-blocks mt-40">
+        <li class="why-block">
+          <a href="licence.html" class="why-hiddenlink">Лицензии</a>
+          <div class="why-bg img-cover gradient-2">
+            <img src="./assets/images/pokazplace.jpg" data-src="./assets/images/why/1.webp" class="lazyload" alt="why">
+          </div>
+          <h3 class="why-subtitle2 relative h5 text-pwhite">Лицензии</h3>
+
+          <div class="why-search why-box relative">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7.91667 13.3333C6.40278 13.3333 5.12153 12.809 4.07292 11.7604C3.02431 10.7118 2.5 9.43056 2.5 7.91667C2.5 6.40278 3.02431 5.12153 4.07292 4.07292C5.12153 3.02431 6.40278 2.5 7.91667 2.5C9.43056 2.5 10.7118 3.02431 11.7604 4.07292C12.809 5.12153 13.3333 6.40278 13.3333 7.91667C13.3333 8.52778 13.2361 9.10417 13.0417 9.64583C12.8472 10.1875 12.5833 10.6667 12.25 11.0833L16.9167 15.75C17.0694 15.9028 17.1458 16.0972 17.1458 16.3333C17.1458 16.5694 17.0694 16.7639 16.9167 16.9167C16.7639 17.0694 16.5694 17.1458 16.3333 17.1458C16.0972 17.1458 15.9028 17.0694 15.75 16.9167L11.0833 12.25C10.6667 12.5833 10.1875 12.8472 9.64583 13.0417C9.10417 13.2361 8.52778 13.3333 7.91667 13.3333ZM7.91667 11.6667C8.95833 11.6667 9.84375 11.3021 10.5729 10.5729C11.3021 9.84375 11.6667 8.95833 11.6667 7.91667C11.6667 6.875 11.3021 5.98958 10.5729 5.26042C9.84375 4.53125 8.95833 4.16667 7.91667 4.16667C6.875 4.16667 5.98958 4.53125 5.26042 5.26042C4.53125 5.98958 4.16667 6.875 4.16667 7.91667C4.16667 8.95833 4.53125 9.84375 5.26042 10.5729C5.98958 11.3021 6.875 11.6667 7.91667 11.6667Z"
+                fill="white" />
+            </svg>
+          </div>
+        </li>
+      </ul>
+
+      <div class="about-bot mt-40 help-bot">
+        <div class="help-column">
+          <h2 class="help-title h6 relative">Материал можно заказать <br class="xl-block">с покраской в цеху</h2>
+          <div class="help-desc max-w-521 relative">Лак, масло, эмаль, тонировка <br class="xl-block">и броширование. Подберем цвет и подготовим готовый к монтажу материал.</div>
+        </div>
+
+        <div class="help-bg2 img-contain">
+          <img src="./assets/images/pokazplace.jpg" data-src="./assets/images/help/bg3.webp" class="lazyload" alt="help">
+        </div>
+
+        <button class="help-btn btn btn-primary">Подробнее о покраске</button>
+      </div>
+
+      <h2 class="about-subtitle h5 mt-80 tracking-normal">Реквизиты</h2>
+
+      <dl class="about-payment mt-32">
+        <dt>Полное наименование организации</dt>
+        <dd>ЛЕС-АЛЬЯНС ТОРГ Б.О.</dd>
+        <dt>Сокращенное наименование организации</dt>
+        <dd>ЛЕС-АЛЬЯНС ТОРГ Б.О.</dd>
+        <dt>ИНН</dt>
+        <dd>7713701058</dd>
+        <dt>КПП</dt>
+        <dd>771301001</dd>
+        <dt>Юридический адрес</dt>
+        <dd>-</dd>
+        <dt>ОГРН</dt>
+        <dd>-</dd>
+        <dt>Расчетный счет (руб.)</dt>
+        <dd>-</dd>
+        <dt>Полное наименование банка</dt>
+        <dd>-</dd>
+        <dt>Корреспондентский счет</dt>
+        <dd>-</dd>
+        <dt>БИК</dt>
+        <dd>-</dd>
+      </dl>
+    </div>
+  </div>
 </section>
+
+<section class="gallery about-gallery mt-80">
+  <div class="gallery-head container about-container">
+    <h2 class="gallery-title h5 tracking-normal">Наше производство</h2>
+
+    <div class="popular-right xl-hidden">
+      <button class="swiper-arrow swiper-arrow-secondary prev" aria-label="prev slide">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M5.27075 10.7083C5.14575 10.625 5.052 10.5208 4.9895 10.3958C4.927 10.2708 4.89575 10.1389 4.89575 9.99999C4.89575 9.8611 4.927 9.72916 4.9895 9.60416C5.052 9.47916 5.14575 9.37499 5.27075 9.29166L12.0624 4.97916C12.1319 4.93749 12.2048 4.90624 12.2812 4.88541C12.3576 4.86457 12.4305 4.85416 12.4999 4.85416C12.7221 4.85416 12.9166 4.93402 13.0833 5.09374C13.2499 5.25346 13.3333 5.45138 13.3333 5.68749V14.3125C13.3333 14.5486 13.2499 14.7465 13.0833 14.9062C12.9166 15.066 12.7221 15.1458 12.4999 15.1458C12.4305 15.1458 12.3576 15.1354 12.2812 15.1146C12.2048 15.0937 12.1319 15.0625 12.0624 15.0208L5.27075 10.7083Z"
+            fill="currentColor" />
+        </svg>
+      </button>
+      <button class="swiper-arrow swiper-arrow-secondary next" aria-label="next slide">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M14.7292 10.7085C14.8542 10.6252 14.948 10.521 15.0105 10.396C15.073 10.271 15.1042 10.1391 15.1042 10.0002C15.1042 9.86128 15.073 9.72934 15.0105 9.60434C14.948 9.47934 14.8542 9.37517 14.7292 9.29184L7.93758 4.97934C7.86814 4.93767 7.79522 4.90642 7.71883 4.88559C7.64244 4.86476 7.56953 4.85434 7.50008 4.85434C7.27786 4.85434 7.08341 4.9342 6.91675 5.09392C6.75008 5.25365 6.66675 5.45156 6.66675 5.68767V14.3127C6.66675 14.5488 6.75008 14.7467 6.91675 14.9064C7.08341 15.0661 7.27786 15.146 7.50008 15.146C7.56953 15.146 7.64244 15.1356 7.71883 15.1148C7.79522 15.0939 7.86814 15.0627 7.93758 15.021L14.7292 10.7085Z"
+            fill="currentColor" />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="swiper gallery-swiper about-container container mt-32">
+    <div class="swiper-wrapper">
+      <a href="./assets/images/gallery/1.webp" data-fancybox="gallery" class="swiper-slide img-cover">
+        <img src="./assets/images/pokazplace.jpg" data-src="./assets/images/gallery/1.webp" class="lazyload" alt="about">
+      </a>
+      <a href="./assets/images/gallery/2.webp" data-fancybox="gallery" class="swiper-slide img-cover">
+        <img src="./assets/images/pokazplace.jpg" data-src="./assets/images/gallery/2.webp" class="lazyload" alt="about">
+      </a>
+      <a href="./assets/images/gallery/3.webp" data-fancybox="gallery" class="swiper-slide img-cover">
+        <img src="./assets/images/pokazplace.jpg" data-src="./assets/images/gallery/3.webp" class="lazyload" alt="about">
+      </a>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<div class="pb-140"></div>
