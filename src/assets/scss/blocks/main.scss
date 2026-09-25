@@ -1144,6 +1144,35 @@
     flex-direction: column;
     gap: 2.4rem;
   }
+
+  &.bg-green {
+    background: var(--button-primary-default);
+
+    @include breakpoint($xl-bp) {
+      &.pt-80 {
+        padding-top: 6.4rem;
+      }
+    }
+
+    .spec-list,
+    .spec-link,
+    .spec-title,
+    .spec-column {
+      color: var(--text--icon-on-color);
+    }
+
+    .spec-item {
+      border-color: var(--border-neutral);
+    }
+
+    .spec-icon {
+      background: var(--background-transparent-white);
+
+      svg {
+        color: var(--text--icon-on-color);
+      }
+    }
+  }
 }
 
 .spec-column {
@@ -1203,6 +1232,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  color: #241E1C;
 }
 
 .spec-label {
@@ -1237,6 +1268,10 @@ a.spec-link {
   background: var(--text--icon-primary);
   border-top-right-radius: 2rem;
   border-top-left-radius: 2rem;
+
+  margin-left: -1px;
+  margin-right: -1px;
+  margin-top: -1px;
 
   @include breakpoint($xl-bp) {
     padding: 2rem 1.6rem;

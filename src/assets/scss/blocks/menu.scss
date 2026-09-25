@@ -258,6 +258,10 @@
     display: block;
   }
 
+  &.active {
+    color: var(--button-primary-default);
+  }
+
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       color: var(--button-primary-default);

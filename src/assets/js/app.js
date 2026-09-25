@@ -951,8 +951,8 @@ document.addEventListener("DOMContentLoaded", () => {
             defaultradios.forEach((radio) => {
               if (radio === el) {
                 radio.checked = true;
-                const event = new Event('change', {bubbles: true})
-                radio.dispatchEvent(event)
+                const event = new Event("change", { bubbles: true });
+                radio.dispatchEvent(event);
               }
             });
             break;
@@ -1198,6 +1198,72 @@ document.addEventListener("DOMContentLoaded", () => {
           });
         });
       }
+    });
+  }
+
+  const portfoliodetails = document.querySelectorAll(".portfolio-details");
+
+  if (portfoliodetails.length) {
+    const hash = location.hash.slice(1);
+    portfoliodetails.forEach((details) => {
+      if (details.id === hash) {
+        details.classList.add("open");
+      }
+      const summaryhash = details.querySelectorAll("[data-summaryhash]");
+      if (summaryhash.length) {
+        summaryhash.forEach((summary) => {
+          summary.addEventListener("click", function (e) {
+            if (this.dataset.summaryhash) {
+              const hash = "#" + this.dataset.summaryhash.replace(/^#/, "");
+              history.pushState(null, "", hash);
+            }
+
+            details.classList.toggle("open");
+          });
+        });
+      }
+    });
+  }
+
+  const sharebtns = document.querySelectorAll("[data-share]");
+  if (sharebtns.length) {
+    sharebtns.forEach((btn) => {
+      btn.addEventListener("click", async function (event) {
+        event.stopPropagation();
+        if (btn.dataset?.share) {
+          window.location.hash = btn.dataset?.share;
+        }
+
+        const shareData = {
+          title: document.title,
+          text: "Check this out!",
+          url: window.location.href,
+        };
+
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+          } catch (err) {
+            if (err.name !== "AbortError") console.error(err);
+          }
+        } else {
+          try {
+            await navigator.clipboard.writeText(window.location.href);
+            alert("Link copied to clipboard!");
+          } catch {
+            prompt("Copy this link:", window.location.href);
+          }
+        }
+      });
+    });
+  }
+
+  const portfoliobtns = document.querySelectorAll("[data-filtertoggle]");
+  if (portfoliobtns.length) {
+    portfoliobtns.forEach((btn) => {
+      btn.addEventListener("click", function () {
+        document.documentElement.classList.toggle('filter-opened')
+      });
     });
   }
 });
