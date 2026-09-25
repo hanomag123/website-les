@@ -52,6 +52,20 @@
     flex-direction: column;
     align-items: flex-start;
   }
+
+  &.with-faq {
+    align-items: flex-start;
+
+    .questions-buttons {
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin-top: 3.2rem;
+
+      @include breakpoint($xl-bp) {
+        margin-top: 2.4rem;
+      }
+    }
+  }
 }
 
 .questions-column {}
@@ -109,5 +123,18 @@
     width: 100%;
     height: 100%;
     z-index: 1;
+  }
+}
+
+.questions-faq {
+  grid-column: 1 span;
+  max-width: 93rem;
+  margin-left: auto;
+  width: 100%;
+  margin-top: 0;
+
+  @include breakpoint($xl-bp) {
+    margin-left: -0.8rem;
+    width: auto;
   }
 }

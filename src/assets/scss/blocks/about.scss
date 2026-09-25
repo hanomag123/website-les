@@ -180,9 +180,25 @@
       margin-right: 0;
     }
 
+    &:focus {
+      outline: none;
+
+      .gallery-btn {
+        opacity: 1;
+      }
+
+      .gallery-time {
+        opacity: 1;
+      }
+    }
+
     @media (hover: hover) and (pointer: fine) {
       &:hover {
         .gallery-btn {
+          opacity: 1;
+        }
+
+        .gallery-time {
           opacity: 1;
         }
       }
@@ -223,6 +239,31 @@
   svg {
     width: 2rem;
     height: 2rem;
+  }
+}
+
+.gallery-time {
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 129%;
+  letter-spacing: 0.03em;
+  color: var(--background-base);
+
+  border-radius: 0.6rem;
+  padding: 0.2rem 0.4rem;
+
+  transition: opacity var(--time);
+
+  background: var(--text--icon-primary);
+
+  position: absolute;
+  bottom: 1.4rem;
+  right: 1.6rem;
+
+  opacity: 0;
+
+  @include breakpoint($xl-bp) {
+    opacity: 1;
   }
 }
 
