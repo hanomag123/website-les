@@ -76,3 +76,59 @@
     z-index: 1;
   }
 }
+
+.materials-wrapper {
+  @include breakpoint($xl-bp) {
+    overflow-x: auto;
+    scrollbar-color: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.materials-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+
+  @include breakpoint($xl-bp) {
+    min-width: 105rem;
+    gap: 0.8rem;
+  }
+}
+
+.tone {
+  position: relative;
+}
+
+.tone-list {
+  display: none;
+
+  @include breakpoint($sm-bp) {
+    .color-items {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .color-show {
+      width: 100%;
+    }
+  }
+}
+
+.tone-content {
+  .tone-list {
+    display: block;
+  }
+}
+
+.tone-bg {
+  height: 20.7rem;
+  width: 100%;
+  margin-top: -12rem;
+  @include breakpoint($sm-bp) {
+    height: 21.6rem;
+  }
+}

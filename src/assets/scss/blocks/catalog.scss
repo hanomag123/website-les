@@ -79,26 +79,28 @@
   }
 
   .swiper-slide {
-    border-radius: 1.6rem;
-    padding: 0.8rem 2rem 0.8rem 6.8rem;
-    min-height: 6.4rem;
-
-    position: relative;
-
     margin-right: 1.6rem;
-
-    display: flex;
-    flex-direction: column;
-
-    width: auto;
-
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    user-select: none;
   }
+}
+
+.catalog-categoryitem {
+  border-radius: 1.6rem;
+  padding: 0.8rem 2rem 0.8rem 6.8rem;
+  min-height: 6.4rem;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: auto;
+
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 .catalog-categorywrap {
