@@ -1,0 +1,30 @@
+.portfolio-filter {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.6rem;
+
+  margin-top: 4rem;
+
+  border-radius: 2.4rem;
+  padding: 1.6rem;
+  background: var(--background-base);
+}
+
+.portfolio-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: flex-end;
+  gap: 0.8rem;
+
+  @include breakpoint($xl-bp) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    background: var(--background-base);
+
+    padding: 1.6rem 2.4rem;
+  }
+}

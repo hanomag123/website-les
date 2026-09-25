@@ -53,6 +53,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const xl = matchMedia("(max-width: 1024px)");
 
+  const defaultradios = document.querySelectorAll(
+    'input[type="radio"]:checked',
+  );
+
   const headersearch = document.querySelector(".header-search");
   const menusearch = document.querySelector(".menu-search-copy");
 
@@ -369,20 +373,20 @@ document.addEventListener("DOMContentLoaded", () => {
     return wrapper;
   }
 
-  const galleryswiper = document.querySelectorAll('.gallery-swiper')
+  const galleryswiper = document.querySelectorAll(".gallery-swiper");
   if (galleryswiper.length) {
-    galleryswiper.forEach(swiper => {
-      const prevEl = swiper.parentElement.querySelector('.prev')
-      const nextEl = swiper.parentElement.querySelector('.next')
+    galleryswiper.forEach((swiper) => {
+      const prevEl = swiper.parentElement.querySelector(".prev");
+      const nextEl = swiper.parentElement.querySelector(".next");
       new Swiper(swiper, {
-        slidesPerView: 'auto',
+        slidesPerView: "auto",
         speed: 500,
         navigation: {
           prevEl,
-          nextEl
-        }
-      })
-    })
+          nextEl,
+        },
+      });
+    });
   }
 
   const heroswipers = document.querySelectorAll(".hero-swiper");
@@ -813,7 +817,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const radiogroup = jsvalidate.querySelector(".modal-rating");
 
         if (radiogroup) {
-          const errorsContainer = radiogroup.parentElement.querySelector('.error-container')
+          const errorsContainer =
+            radiogroup.parentElement.querySelector(".error-container");
           validate.addRequiredGroup(
             radiogroup,
             "Это поле обязательно для заполнения",
@@ -940,8 +945,16 @@ document.addEventListener("DOMContentLoaded", () => {
               }
             }
           case "checkbox":
-          case "radio":
             el.checked = false;
+            break;
+          case "radio":
+            defaultradios.forEach((radio) => {
+              if (radio === el) {
+                radio.checked = true;
+                const event = new Event('change', {bubbles: true})
+                radio.dispatchEvent(event)
+              }
+            });
             break;
           case "file":
             el.value = "";

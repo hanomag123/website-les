@@ -1,0 +1,139 @@
+---
+layout: default
+title: Портфолио
+---
+
+<div class="breadcrumbs container">
+  <a href="main.html">Главная</a>
+  <span>Портфолио</span>
+</div>
+
+<section class="reviews portfolio container pb-80">
+  <h1 class="reviews-title h3">Портфолио</h1>
+
+  <div class="reviews-desc mt-24 max-w-600 text-black">
+    Лес Москва реализовало 500+ проектов
+  </div>
+
+  <form action="#">
+    <div class="portfolio-filter">
+      <div class="portfolio-label">
+        <div class="product-labeltext p-3">Тип объекта</div>
+        <details class="product-details catalog-details radio" name="product">
+          <summary class="catalog-summary">Все</summary>
+  
+          <div class="catalog-checkboxes">
+            <label class="catalog-checkbox checkbox">
+              <input type="radio" name="object" value="all" checked>
+              <span class="checkbox-box"></span>
+  
+              <span class="checkbox-text p-3">
+                Все
+              </span>
+            </label>
+  
+            <label class="catalog-checkbox checkbox">
+              <input type="radio" name="object" value="1">
+              <span class="checkbox-box"></span>
+  
+              <span class="checkbox-text p-3">
+                Объект 1
+              </span>
+            </label>
+  
+            <label class="catalog-checkbox checkbox">
+              <input type="radio" name="object" value="2">
+              <span class="checkbox-box"></span>
+  
+              <span class="checkbox-text p-3">
+                Объект 2
+              </span>
+            </label>
+          </div>
+        </details>
+      </div>
+  
+      <div class="portfolio-label">
+        <div class="product-labeltext p-3">Порода дерева</div>
+        <details class="product-details catalog-details radio" name="product">
+          <summary class="catalog-summary">Все</summary>
+  
+          <div class="catalog-checkboxes">
+            <label class="catalog-checkbox checkbox">
+              <input type="radio" name="material" value="1" checked>
+              <span class="checkbox-box"></span>
+  
+              <span class="checkbox-text p-3">
+                Все
+              </span>
+            </label>
+  
+            <label class="catalog-checkbox checkbox">
+              <input type="radio" name="material" value="2">
+              <span class="checkbox-box"></span>
+  
+              <span class="checkbox-text p-3">
+                Дуб
+              </span>
+            </label>
+  
+            <label class="catalog-checkbox checkbox">
+              <input type="radio" name="material" value="3">
+              <span class="checkbox-box"></span>
+  
+              <span class="checkbox-text p-3">
+                Берёза
+              </span>
+            </label>
+          </div>
+        </details>
+      </div>
+  
+      <div class="portfolio-label">
+        <div class="product-labeltext p-3">Покраска</div>
+        <details class="product-details catalog-details radio" name="product">
+          <summary class="catalog-summary">Без покраски</summary>
+  
+          <div class="catalog-checkboxes">
+            <label class="catalog-checkbox checkbox">
+              <input type="radio" name="paint" value="no" checked>
+              <span class="checkbox-box"></span>
+  
+              <span class="checkbox-text p-3">
+                Без покраски
+              </span>
+            </label>
+  
+            <label class="catalog-checkbox checkbox">
+              <input type="radio" name="paint" value="yes" checked>
+              <span class="checkbox-box"></span>
+  
+              <span class="checkbox-text p-3">
+                С покраской
+              </span>
+            </label>
+          </div>
+        </details>
+      </div>
+  
+      <div class="portfolio-buttons">
+        <button class="portfolio-reset btn btn-secondary" data-reset>Сбросить</button>
+        <button type="submit" class="portfolio-submit btn btn-primary">Применить</button>
+      </div>
+    </div>
+  </form>
+
+  <ul class="portfolio-list">
+    <li class="portfolio-item">
+      <details class="portfolio-details">
+        <summary class="portfolio-summary">
+          <div class="portfolio-date">
+            2026
+          </div>
+
+          <h2 class="portfolio-name h6 tracking-normal">Объект 1</h2>
+        </summary>
+      </details>
+    </li>
+  </ul>
+</section>
