@@ -1,14 +1,18 @@
 .filter-opened {
-  overflow: hidden;
+  @include breakpoint($xl-bp) {
+    overflow: hidden;
+  }
 }
 
 .portfolio-filtertoggle {
   display: none;
+
   @include breakpoint($xl-bp) {
     display: inline-flex;
     margin-top: 1.6rem;
 
   }
+
   @include breakpoint($sm-bp) {
     width: 100%;
   }
@@ -329,6 +333,7 @@
 
 .portfolio-filtertitle {
   display: none;
+
   @include breakpoint($xl-bp) {
     display: flex;
   }
