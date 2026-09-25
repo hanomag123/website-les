@@ -179,6 +179,50 @@
     &:last-child {
       margin-right: 0;
     }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        .gallery-btn {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.gallery-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  z-index: 1;
+
+  transform: translate3d(-50%, -50%, 0);
+  width: 4.4rem;
+  height: 4.4rem;
+
+  backdrop-filter: blur(20px);
+  background: var(--button-default-default);
+
+  border: 1px solid var(--border-default);
+  border-radius: 0.8rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  transition: opacity var(--time);
+
+  pointer-events: none;
+
+  @include breakpoint($xl-bp) {
+    opacity: 1;
+  }
+
+  svg {
+    width: 2rem;
+    height: 2rem;
   }
 }
 
