@@ -458,11 +458,29 @@ h6,
   }
 }
 
+.xl-pt-64 {
+  @include breakpoint($xl-bp) {
+    padding-top: 6.4rem;
+  }
+}
+
 .pb-80 {
   padding-bottom: 8rem;
 
   @include breakpoint($xl-bp) {
     padding-bottom: 6.4rem;
+  }
+}
+
+.xl-pb-80 {
+  @include breakpoint($xl-bp) {
+    padding-bottom: 8rem;
+  }
+}
+
+.xl-pb-40 {
+  @include breakpoint($xl-bp) {
+    padding-bottom: 4rem;
   }
 }
 

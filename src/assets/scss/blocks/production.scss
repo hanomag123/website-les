@@ -1,0 +1,201 @@
+.production-list {
+  margin-top: 4rem;
+
+  border-radius: 2.4rem;
+  padding: 1.6rem;
+
+  background: var(--text--icon-primary);
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.4rem;
+
+  @include breakpoint($xl-bp) {
+    padding: 0.8rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+}
+
+.production-item {
+  border-radius: 1.6rem;
+  padding: 2.4rem 2rem;
+
+  position: relative;
+
+  @include breakpoint($xl-bp) {
+    padding: 0.8rem;
+  }
+}
+
+.production-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  border-radius: inherit;
+
+  &::after {
+    content: '';
+    background: rgba(77, 62, 58, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    border-radius: inherit;
+  }
+}
+
+.production-subtitle {}
+
+.production-subdesc {
+  margin-top: 1rem;
+}
+
+.steps-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+
+  @include breakpoint($xl-bp) {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+}
+
+.steps-item {
+  border-radius: 1.2rem;
+  padding: 2.4rem;
+  background: var(--background-base);
+
+  position: relative;
+
+  max-width: 37rem;
+  flex-grow: 1;
+
+  @include breakpoint($xl-bp) {
+    padding: 1.6rem;
+    padding-left: 9.6rem;
+    width: 100%;
+  }
+
+  &.white {
+    color: var(--text--icon-on-color);
+  }
+
+  &.w-300 {
+    width: 30rem;
+    max-width: 30rem;
+
+    @include breakpoint($xl-bp) {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+
+  &.w-430 {
+    width: 43rem;
+    max-width: 43rem;
+
+    @include breakpoint($xl-bp) {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.steps-counter {
+  width: fit-content;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 125%;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: var(--text--icon-on-color);
+  background-color: var(--button-primary-default);
+  border-radius: 99.9rem;
+  padding: 0.5rem 0.9rem;
+
+  @include breakpoint($xl-bp) {
+    position: absolute;
+    left: 1.6rem;
+    top: 1.6rem;
+
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 129%;
+
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+  }
+}
+
+.steps-subtitle {
+  @include breakpoint($xl-bp) {
+    margin-top: 0;
+
+    font-size: 1.6rem;
+  }
+
+  .white & {
+    color: var(--text--icon-on-color);
+  }
+}
+
+.steps-desc {}
+
+.steps-bg {
+  border-radius: 1.2rem;
+  width: 20rem;
+
+  @include breakpoint($xl-bp) {
+    width: 100%;
+    min-height: 10rem;
+  }
+}
+
+.steps-bgitem {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  border-radius: inherit;
+
+  &::after {
+    content: '';
+    background-image: url("data:image/svg+xml,%3Csvg width='430' height='186' viewBox='0 0 430 186' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 12C0 5.37258 5.37258 0 12 0H418C424.627 0 430 5.37258 430 12V174C430 180.627 424.627 186 418 186H12C5.37257 186 0 180.627 0 174V12Z' fill='url(%23paint0_linear_258_7080)' fill-opacity='0.73'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_258_7080' x1='-6.18829e-08' y1='100.5' x2='430' y2='100.5' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%232C2523'/%3E%3Cstop offset='0.493847' stop-color='%23342B29' stop-opacity='0.915383'/%3E%3Cstop offset='0.766542' stop-color='%234D3E3A' stop-opacity='0.66'/%3E%3Cstop offset='1' stop-color='%234D3E3A' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+}
+
+.steps-success {
+  width: 3.2rem;
+  height: 3.2rem;
+  flex: 0 0 auto;
+
+  @include breakpoint($xl-bp) {
+    position: absolute;
+    top: 1.6rem;
+    left: 1.6rem;
+  }
+}

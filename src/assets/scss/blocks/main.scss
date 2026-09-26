@@ -1138,6 +1138,14 @@
   }
 }
 
+.bg-green {
+  background: var(--button-primary-default);
+}
+
+.bg-surface {
+  background: var(--background-surface);
+}
+
 .spec {
   display: grid;
   grid-template-columns: 0.92fr 1fr;
@@ -1150,14 +1158,6 @@
   }
 
   &.bg-green {
-    background: var(--button-primary-default);
-
-    @include breakpoint($xl-bp) {
-      &.pt-80 {
-        padding-top: 6.4rem;
-      }
-    }
-
     .spec-list,
     .spec-link,
     .spec-title,
