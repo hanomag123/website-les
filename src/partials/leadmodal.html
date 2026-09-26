@@ -1,0 +1,61 @@
+<div class="modal" id="lead-modal">
+  <div class="modal-block js-validate">
+
+    <button class="modal-close" aria-label="close-modal" data-close-modal>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M11.9986 13.325L7.13608 18.1875C6.95275 18.3708 6.73192 18.4604 6.47358 18.4562C6.21525 18.4521 5.99442 18.3583 5.81108 18.175C5.63608 17.9916 5.55067 17.7729 5.55483 17.5187C5.559 17.2646 5.64858 17.05 5.82358 16.875L10.6736 12L5.82358 7.12497C5.64858 6.94997 5.56108 6.73538 5.56108 6.48122C5.56108 6.22705 5.64858 6.0083 5.82358 5.82497C5.99858 5.64163 6.21525 5.54788 6.47358 5.54372C6.73192 5.53955 6.95275 5.62913 7.13608 5.81247L11.9986 10.675L16.8611 5.81247C17.0444 5.62913 17.2653 5.53955 17.5236 5.54372C17.7819 5.54788 18.0028 5.64163 18.1861 5.82497C18.3611 6.0083 18.4465 6.22705 18.4423 6.48122C18.4382 6.73538 18.3486 6.94997 18.1736 7.12497L13.3236 12L18.1736 16.875C18.3486 17.05 18.4361 17.2646 18.4361 17.5187C18.4361 17.7729 18.3486 17.9916 18.1736 18.175C17.9986 18.3583 17.7819 18.4521 17.5236 18.4562C17.2653 18.4604 17.0444 18.3708 16.8611 18.1875L11.9986 13.325Z"
+          fill="currentColor" />
+      </svg>
+    </button>
+
+    <div class="modal-title h6 text-black">Рассчитать заказ</div>
+
+    <form action="#" method="post">
+      <div class="modal-inputs">
+
+        <label class="spec-label">
+          <span class="spec-labeltext p-3 uppercase font-bold text-black">Имя <span class="text-red">*</span></span>
+
+          <input type="text" name="name" placeholder="Иван Иванов" class="input" required="">
+        </label>
+
+        <label class="spec-label">
+          <span class="spec-labeltext p-3 uppercase font-bold text-black">Телефон <span class="text-red">*</span></span>
+
+          <input type="tel" name="tel" placeholder="+7 (XXX) XXX-XX-XX" class="input" required>
+        </label>
+
+        <label class="spec-label col-span-2">
+          <span class="spec-labeltext p-3 uppercase font-bold text-black">E-mail <span class="text-red">*</span></span>
+
+          <input type="email" name="email" placeholder="ivanivanov@yandex.com" class="input" required>
+        </label>
+
+        <label class="spec-label col-span-2">
+          <span class="spec-labeltext p-3 uppercase font-bold text-black">Прикрепить файл (для загрузки спецификации)</span>
+
+          <div class="filepond-wrapper"><input type="file" class="filepond" /></div>
+        </label>
+
+        <div class="col-span-2">
+          <label class="spec-checkbox checkbox">
+            <input type="checkbox" name="acceptance" required>
+            <span class="checkbox-box"></span>
+
+            <span class="checkbox-text p-3">
+              Согласен на обработку персональных данных
+            </span>
+          </label>
+          <div class="error-container"></div>
+        </div>
+      </div>
+
+      <div class="modal-buttons">
+        <button class="modal-btn btn btn-primary">
+          <span class="grow">Отправить запрос и получить КП</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

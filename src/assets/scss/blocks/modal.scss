@@ -23,6 +23,30 @@
   &.open {
     display: flex;
   }
+
+  &.modal-feedback {
+    justify-content: center;
+
+    .modal-block {
+      height: auto;
+      border-radius: 1.6rem;
+      padding-bottom: 0;
+    }
+
+    .modal-buttons {
+      position: static;
+      box-shadow: none;
+      margin-top: auto;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+.modal-desc{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  max-width: 42rem;
 }
 
 .modal-block {
@@ -89,6 +113,13 @@
 
   @include breakpoint($xl-bp) {
     flex-grow: 1;
+  }
+
+  &.xl-small {
+    @include breakpoint($xl-bp) {
+      font-weight: 500;
+      font-size: 1.4rem;
+    }
   }
 }
 

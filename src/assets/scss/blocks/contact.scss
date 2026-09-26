@@ -91,15 +91,14 @@
     transition: text-decoration-color var(--time);
 
     @media (hover: hover) and (pointer: fine) {
-    &:hover {
-    text-decoration-color: transparent;
-    }
+      &:hover {
+        text-decoration-color: transparent;
+      }
     }
   }
 }
 
 .contact-map {
-
   @include breakpoint($xl-bp) {
     height: 44.6rem;
   }
@@ -109,8 +108,7 @@
     width: 100%;
     height: 100%;
     border-radius: 2.4rem;
-
-
+    background-color: var(--background-base);
   }
 }
 
