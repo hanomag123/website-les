@@ -204,6 +204,25 @@
       }
     }
   }
+
+  &.production-swiper {
+    .swiper-slide {
+      height: auto;
+      border-radius: 1.6rem;
+      background: var(--background-base);
+      display: flex;
+      flex-direction: column;
+      width: 36rem;
+      @include breakpoint($xl-bp) {
+        width: 32rem;
+      }
+    }
+
+    .gallery-time,
+    .gallery-btn {
+      opacity: 1;
+    }
+  }
 }
 
 .gallery-btn {
@@ -265,6 +284,26 @@
   @include breakpoint($xl-bp) {
     opacity: 1;
   }
+}
+
+.gallery-subtitle {
+  @include breakpoint($xl-bp) {
+    font-size: 1.8rem;
+  }
+}
+
+.gallery-desc {}
+
+.gallery-wrap {
+  position: relative;
+  height: 26rem;
+  border-radius: 1.6rem;
+  border-top: 1px solid var(--border-default);
+  margin-top: auto;
+}
+
+.gallery-header {
+  padding: 2.4rem 2rem;
 }
 
 .about-container {
