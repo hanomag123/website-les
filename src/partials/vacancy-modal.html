@@ -1,4 +1,4 @@
-<div class="modal" id="reviews-modal">
+<div class="modal" id="vacancy-modal">
   <div class="modal-block js-validate">
 
     <button class="modal-close" aria-label="close-modal" data-close-modal>
@@ -9,9 +9,9 @@
       </svg>
     </button>
 
-    <div class="modal-title h6 text-black">Оставить отзыв</div>
+    <div class="modal-title h6 text-black">Отправить резюме</div>
 
-    <form action="#" method="post">
+    <form action="#" method="post" enctype='multipart/form-data'>
       <div class="modal-inputs">
 
         <label class="spec-label">
@@ -21,40 +21,36 @@
         </label>
 
         <label class="spec-label">
-          <span class="spec-labeltext p-3 uppercase font-bold text-black">Достоинства <span class="text-red">*</span></span>
+          <span class="spec-labeltext p-3 uppercase font-bold text-black">Телефон <span class="text-red">*</span></span>
 
-          <input type="text" name="adv" placeholder="Что Вам понравилось" class="input" required="">
+          <input type="tel" name="tel" placeholder="+7 (XXX) XXX-XX-XX" class="input" required>
+        </label>
+
+        <label class="spec-label col-span-2">
+          <span class="spec-labeltext p-3 uppercase font-bold text-black">E-mail <span class="text-red">*</span></span>
+
+          <input type="email" name="email" placeholder="ivanivanov@yandex.com" class="input" required>
         </label>
 
         <label class="spec-label">
-          <span class="spec-labeltext p-3 uppercase font-bold text-black">Недостатки <span class="text-red">*</span></span>
+          <span class="spec-labeltext p-3 uppercase font-bold text-black">Желаемая должность</span>
 
-          <input type="text" name="disadv" placeholder="Что нужно улучшить" class="input" required="">
+          <input type="text" name="occup" placeholder="напр. столяр" class="input">
         </label>
 
-        <div class="spec-label">
-          <span class="spec-labeltext p-3 uppercase font-bold text-black">Оценить <span class="text-red">*</span></span>
+        <label class="spec-label resume-input">
+          <span class="spec-labeltext p-3 uppercase font-bold text-black">Файл с резюме</span>
 
-          <div class="modal-rating">
-            <input type="radio" name="rate" id="rate-5" value="5" required>
-            <label class="modal-ratelabel" for="rate-5"></label>
-            <input type="radio" name="rate" id="rate-4" value="4" required>
-            <label class="modal-ratelabel" for="rate-4"></label>
-            <input type="radio" name="rate" id="rate-3" value="3" required>
-            <label class="modal-ratelabel" for="rate-3"></label>
-            <input type="radio" name="rate" id="rate-2" value="2" required>
-            <label class="modal-ratelabel" for="rate-2"></label>
-            <input type="radio" name="rate" id="rate-1" value="1" required>
-            <label class="modal-ratelabel" for="rate-1"></label>
-          </div>
+          <input type="file" name="resume" accept="application/pdf,.pdf" required>
+          <span class="resume-placeholder">Прикрепить файл</span>
 
           <div class="error-container"></div>
-        </div>
+        </label>
 
         <label class="spec-label">
-          <span class="spec-labeltext p-3 uppercase font-bold text-black">Отзыв <span class="text-red">*</span></span>
+          <span class="spec-labeltext p-3 uppercase font-bold text-black">Дополнительная информация</span>
 
-          <textarea name="review" class="input" required="" placeholder="Поделитесь своим опытом использования наших пиломатериалов — ваш отзыв важен для нас!"></textarea>
+          <textarea name="info" class="input" placeholder="Поделитесь своим опытом "></textarea>
         </label>
       </div>
 

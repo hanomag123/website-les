@@ -836,6 +836,47 @@ document.addEventListener("DOMContentLoaded", () => {
           );
         }
 
+        const files = jsvalidate.querySelector(
+          '.resume-input input[type="file"][required]',
+        );
+
+        if (files) {
+          const errorsContainer =
+            files.parentElement.querySelector(".error-container");
+          validate.addField(
+            files,
+            [
+              {
+                rule: "files",
+                value: {
+                  files: {
+                    extensions: ["pdf"],
+                    types: ["application/pdf"],
+                    maxSize: 5 * 1024 * 1024,
+                    minSize: 1,
+                  },
+                },
+                errorMessage:
+                  "Пожалуйста, загрузите файл в формате PDF размером до 5 МБ.",
+              },
+              {
+                rule: "required",
+                errorMessage: "Это поле обязательно для заполнения",
+              },
+              {
+                rule: "custom",
+                validator: (value) => {
+                  return value?.length > 0;
+                },
+                errorMessage: "Это поле обязательно для заполнения",
+              },
+            ],
+            {
+              errorsContainer: errorsContainer,
+            },
+          );
+        }
+
         validate.onSuccess((event) => {
           const customEvent = new CustomEvent("validated-submit");
           event.currentTarget.dispatchEvent(customEvent);
@@ -1342,6 +1383,63 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Set initial button state
       updateButtonStates();
+    });
+  }
+
+  const finputs = document.querySelectorAll('.resume-input [type="file"]');
+
+  if (finputs.length) {
+    finputs.forEach((input) => {
+      const filenameField = input.parentElement.querySelector(
+        ".resume-placeholder",
+      );
+      const displayEl = input.parentElement;
+
+      input.addEventListener("change", (e) => {
+        const file = e.target.files && e.target.files[0];
+
+        displayEl.classList.remove("success", "error");
+
+        if (!file) {
+          filenameField.innerText = "Прикрепить файл";
+          return;
+        }
+
+        displayEl.classList.add("success");
+        filenameField.innerText = file.name;
+      });
+
+      const form = input.closest("form");
+      if (form) {
+        form.addEventListener("reset", () => {
+          setTimeout(() => {
+            displayEl.classList.remove("success", "error");
+            filenameField.innerText = "Прикрепить файл";
+            input.value = "";
+          }, 0);
+        });
+      }
+    });
+  }
+
+  const productform = document.getElementById("product-form");
+  const leadmodal = document.getElementById("lead-modal");
+  if (productform && leadmodal) {
+    productform.addEventListener("submit", function (event) {
+      event.preventDefault();
+      const formData = new FormData(this);
+      for (const [key, value] of formData.entries()) {
+        console.log(key, value);
+        const input = leadmodal.querySelector(
+          `input[type="hidden"][name="${key}"]`,
+        );
+        if (input) {
+          input.value = value;
+        }
+      }
+      if (leadmodal) {
+        leadmodal.openModal();
+      }
     });
   }
 });

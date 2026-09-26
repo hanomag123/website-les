@@ -25,8 +25,8 @@ title: Покраска
 
 
   <div class="paint-btns hero-btns relative-2 mt-40">
-    <a href="catalog.html" class="hero-btn btn btn-primary">Рассчитать покраску</a>
-    <button class="hero-btn btn btn-secondary">Выбрать материал</button>
+    <button data-modal="tone-modal" class="hero-btn btn btn-primary">Рассчитать покраску</button>
+    <a href="#material" class="hero-btn btn btn-secondary">Выбрать материал</a>
   </div>
 
   <ul class="paint-list relative-2">
@@ -90,7 +90,7 @@ title: Покраска
   </ul>
 </section>
 
-<section class="materials  pt-80">
+<section class="materials  pt-80" id="material">
   <h2 class="materials-title h5 tracking-normal container">Какие материалы мы красим</h2>
 
   <div class="materials-wrapper container">
@@ -1057,3 +1057,7 @@ title: Покраска
     </picture>
   </div>
 </section>
+
+{{> tone-modal }}
+
+{{> color-modal}}

@@ -1,7 +1,7 @@
 const forms = document.querySelectorAll(".modal form, .spec-form form, .contact-form form");
 if (forms) {
   forms.forEach(form => {
-    form.addEventListener("validated-submit", function () {
+    form.addEventListener("validated-submit", function (event) {
       event.preventDefault();
       const formData = new FormData(this);
       const parent = this.closest('.modal');

@@ -1,4 +1,4 @@
-<div class="modal" id="lead-modal">
+<div class="modal" id="color-modal">
   <div class="modal-block js-validate">
 
     <button class="modal-close" aria-label="close-modal" data-close-modal>
@@ -9,17 +9,10 @@
       </svg>
     </button>
 
-    <div class="modal-title h6 text-black">Рассчитать заказ</div>
+    <div class="modal-title h6 text-black">Рассчитать покраску</div>
 
     <form action="#" method="post">
       <div class="modal-inputs">
-
-        <input type="hidden" name="material">
-        <input type="hidden" name="sort">
-        <input type="hidden" name="length">
-        <input type="hidden" name="setup">
-        <input type="hidden" name="color">
-        <input type="hidden" name="count">
 
         <label class="spec-label">
           <span class="spec-labeltext p-3 uppercase font-bold text-black">Имя <span class="text-red">*</span></span>
@@ -45,22 +38,17 @@
           <div class="filepond-wrapper"><input type="file" class="filepond" /></div>
         </label>
 
-        <div class="col-span-2">
-          <label class="spec-checkbox checkbox">
-            <input type="checkbox" name="acceptance" required>
-            <span class="checkbox-box"></span>
+        <label class="spec-label">
+          <span class="spec-labeltext p-3 uppercase font-bold text-black">Дополнительная информация</span>
 
-            <span class="checkbox-text p-3">
-              Согласен на обработку персональных данных
-            </span>
-          </label>
-          <div class="error-container"></div>
-        </div>
+          <textarea name="info" class="input" placeholder="Поделитесь своим опытом "></textarea>
+        </label>
       </div>
 
       <div class="modal-buttons">
+        <button type="reset" class="modal-reset btn btn-third" data-close-modal>Отмена</button>
         <button class="modal-btn btn btn-primary">
-          <span class="grow">Отправить запрос и получить КП</span>
+          <span class="grow">Отправить</span>
         </button>
       </div>
     </form>
