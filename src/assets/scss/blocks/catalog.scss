@@ -15,6 +15,20 @@
   letter-spacing: 0.03em;
   color: var(--text--icon-tertiary);
 
+  .paint & {
+    a {
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          color: var(--background-base);
+
+          &::before {
+            filter: brightness(0) invert(1);
+          }
+        }
+      }
+    }
+  }
+
   a {
     transition: color var(--time);
 

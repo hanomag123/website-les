@@ -1,0 +1,115 @@
+.article {
+  min-height: 32.4rem;
+}
+
+.article-wysiwyg {
+  color: #000;
+
+  &>figure {
+    margin-top: 2.4rem;
+    margin-bottom: 2.4rem;
+  }
+
+  &>* {
+    max-width: 73.4rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 1.6rem;
+    margin-top: 2.4rem;
+  }
+
+  h1 {
+    @include breakpoint($xl-bp) {
+      font-size: 3.2rem;
+      line-height: 106%;
+    }
+  }
+
+  h2 {
+    @include breakpoint($xl-bp) {
+      font-size: 3rem;
+      line-height: 113%;
+    }
+  }
+
+  h3 {
+    @include breakpoint($xl-bp) {
+      font-size: 2.8rem;
+      line-height: 107%;
+    }
+  }
+
+  h4 {
+    @include breakpoint($xl-bp) {
+      font-size: 2.4rem;
+      line-height: 108%;
+    }
+  }
+
+  h5 {
+    @include breakpoint($xl-bp) {
+      font-size: 2rem;
+      line-height: 120%;
+    }
+  }
+
+  h6 {
+    @include breakpoint($xl-bp) {
+      font-size: 1.8rem;
+      line-height: 122%;
+    }
+  }
+
+  figure {
+    display: block;
+    overflow: hidden;
+    border-radius: 1.6rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  ol {
+    list-style: decimal;
+    padding-left: 2.4rem;
+
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 2.4rem;
+  }
+}
+
+.columns-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.4rem;
+
+  margin-top: 2.4rem;
+  margin-bottom: 2.4rem;
+
+  @include breakpoint($sm-bp) {
+    display: flex;
+    flex-direction: column;
+  }
+}
